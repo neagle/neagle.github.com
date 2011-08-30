@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>First Post - Nate Eagle</title>
+    <title>{{ page.title }} - Nate Eagle</title>
 
     <link rel="stylesheet" href="/css/screen.css">
 </head>
@@ -16,9 +16,9 @@
 
         <article>
 
-            <h2>First Post</h2>
+            <h2>{{ page.title }}</h2>
 
-        <p>All blogs begin with a post.</p>
+        {{ content }}
 
         </article>
 
@@ -33,7 +33,6 @@
             })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
         <footer>
             <ul>
