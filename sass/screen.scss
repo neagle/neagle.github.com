@@ -27,6 +27,18 @@ $relative-font-sizing: false;
     font-style: normal;
 }
 
+a {
+    color: hsl(6, 71%, 47%);
+}
+
+a:visited {
+    color: hsl(6, 51%, 27%);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 body {
     color: hsl( 0, 0%, 20% );
     font-family: Lucida Grande, Helvetica, Arial, sans-serif;
@@ -35,6 +47,7 @@ body {
 
 #container {
     margin: 0 auto;
+    padding: 0 0 50px;
     width: 600px;
 }
 
@@ -42,12 +55,14 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'FranchiseRegular';
 }
 
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+    color: hsl(0, 0%, 20%);
+    text-decoration: none;
+}
+
 h1 {
-    color: hsl(0, 0%, 90%);
-    @include adjust-font-size-to( 144px );
-    @include adjust-leading-to( 6 );
-    text-shadow: 1px 1px 0 hsl(0, 0%, 60%);
-    text-transform: uppercase;
+    @include adjust-font-size-to( 72px );
 }
 
 h2 {
@@ -62,25 +77,73 @@ em {
     font-style: italic;
 }
 
+header {
+    display: block;
+}
+
+header h1 {
+    color: hsl(0, 0%, 90%);
+    @include adjust-font-size-to( 186px );
+    @include adjust-leading-to( 7 );
+    position: relative;
+    text-indent: -7px;
+    text-shadow: 1px 1px 0 hsl(0, 0%, 60%);
+    text-transform: uppercase;
+}
+
+header h1 b {
+    @include adjust-font-size-to( 144px );
+    position: absolute;
+    right: -70px;
+    top: -10px;
+}
+
+header h1 a,
+header h1 a:visited {
+    color: hsl(0, 0%, 90%);
+}
+
+header p {
+    @include adjust-font-size-to( 24px );
+    color: hsl(6, 71%, 47%);
+    text-align: right;
+}
+
 footer {
-    background-color: hsla( 0, 0%, 70%, 0.5);
+    background-color: hsla(0, 0%, 70%, 0.2);
     @include border-radius( 10px 10px 0 0 );
     bottom: 0;
     display: block;
     margin: 0 auto;
-    opacity: 0.5;
     padding: 10px 50px;
     position: fixed;
     width: 500px;
 
-    @include transition( opacity 0.2s );
+    @include transition( background-color 0.2s );
 }
 
 footer:hover {
-    opacity: 1;
+    background-color: hsla(0, 0%, 70%, 0.5);
 }
 
 footer li {
     float: left;
     padding: 5px 10px 5px 0;
+}
+
+article {
+    border: {
+        top: 1px solid hsl(0, 0%, 80%);
+    }
+    position: relative;
+}
+
+article time {
+    background-color: hsl(0, 0%, 80%);
+    @include border-radius( 0 0 0 10px );
+    color: hsl(0, 0%, 100%);
+    padding: 0 5px 0 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }

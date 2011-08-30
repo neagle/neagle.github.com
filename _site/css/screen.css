@@ -88,6 +88,21 @@ html > body {
 }
 
 /* line 30, ../sass/screen.scss */
+a {
+  color: #cd3423;
+}
+
+/* line 34, ../sass/screen.scss */
+a:visited {
+  color: #682922;
+}
+
+/* line 38, ../sass/screen.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 42, ../sass/screen.scss */
 body {
   color: #333333;
   font-family: Lucida Grande, Helvetica, Arial, sans-serif;
@@ -95,47 +110,91 @@ body {
   line-height: 24px;
 }
 
-/* line 36, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 #container {
   margin: 0 auto;
+  padding: 0 0 50px;
   width: 600px;
 }
 
-/* line 41, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'FranchiseRegular';
 }
 
-/* line 45, ../sass/screen.scss */
-h1 {
-  color: #e6e6e6;
-  font-size: 144px;
-  line-height: 168px;
-  line-height: 144px;
-  text-shadow: 1px 1px 0 #999999;
-  text-transform: uppercase;
+/* line 59, ../sass/screen.scss */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+  color: #333333;
+  text-decoration: none;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
+h1 {
+  font-size: 72px;
+  line-height: 96px;
+}
+
+/* line 68, ../sass/screen.scss */
 h2 {
   font-size: 60px;
   line-height: 72px;
 }
 
-/* line 57, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 h3 {
   font-size: 48px;
   line-height: 72px;
 }
 
-/* line 61, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 em {
   font-style: italic;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
+header {
+  display: block;
+}
+
+/* line 84, ../sass/screen.scss */
+header h1 {
+  color: #e6e6e6;
+  font-size: 186px;
+  line-height: 192px;
+  line-height: 168px;
+  position: relative;
+  text-indent: -7px;
+  text-shadow: 1px 1px 0 #999999;
+  text-transform: uppercase;
+}
+
+/* line 94, ../sass/screen.scss */
+header h1 b {
+  font-size: 144px;
+  line-height: 168px;
+  position: absolute;
+  right: -70px;
+  top: -10px;
+}
+
+/* line 102, ../sass/screen.scss */
+header h1 a,
+header h1 a:visited {
+  color: #e6e6e6;
+}
+
+/* line 106, ../sass/screen.scss */
+header p {
+  font-size: 24px;
+  line-height: 48px;
+  color: #cd3423;
+  text-align: right;
+}
+
+/* line 112, ../sass/screen.scss */
 footer {
-  background-color: rgba(179, 179, 179, 0.5);
+  background-color: rgba(179, 179, 179, 0.2);
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -o-border-radius: 10px 10px 0 0;
@@ -145,23 +204,44 @@ footer {
   bottom: 0;
   display: block;
   margin: 0 auto;
-  opacity: 0.5;
   padding: 10px 50px;
   position: fixed;
   width: 500px;
-  -moz-transition: opacity 0.2s;
-  -webkit-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  transition: opacity 0.2s;
+  -moz-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 
-/* line 79, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
 footer:hover {
-  opacity: 1;
+  background-color: rgba(179, 179, 179, 0.5);
 }
 
-/* line 83, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 footer li {
   float: left;
   padding: 5px 10px 5px 0;
+}
+
+/* line 134, ../sass/screen.scss */
+article {
+  border-top: 1px solid #cccccc;
+  position: relative;
+}
+
+/* line 141, ../sass/screen.scss */
+article time {
+  background-color: #cccccc;
+  -moz-border-radius: 0 0 0 10px;
+  -webkit-border-radius: 0 0 0 10px;
+  -o-border-radius: 0 0 0 10px;
+  -ms-border-radius: 0 0 0 10px;
+  -khtml-border-radius: 0 0 0 10px;
+  border-radius: 0 0 0 10px;
+  color: white;
+  padding: 0 5px 0 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
