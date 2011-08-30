@@ -1,0 +1,86 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+
+/* Set vertical rhythm configurables */
+$base-font-size: 16px;
+$base-line-height: 24px;
+$default-rhythm-border-style: solid;
+$relative-font-sizing: false;
+
+@import "compass/typography/vertical_rhythm";
+
+@include establish-baseline( 16px );
+
+@font-face {
+    font-family: 'FranchiseRegular';
+    src: url('/fonts/franchise/franchise-bold-webfont.eot');
+    src: url('/fonts/franchise/franchise-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/franchise/franchise-bold-webfont.woff') format('woff'),
+         url('/fonts/franchise/franchise-bold-webfont.ttf') format('truetype'),
+         url('/fonts/franchise/franchise-bold-webfont.svg#FranchiseRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    color: hsl( 0, 0%, 20% );
+    font-family: Lucida Grande, Helvetica, Arial, sans-serif;
+    @include adjust-font-size-to( 16px );
+}
+
+#container {
+    margin: 0 auto;
+    width: 600px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'FranchiseRegular';
+}
+
+h1 {
+    color: hsl(0, 0%, 90%);
+    @include adjust-font-size-to( 144px );
+    @include adjust-leading-to( 6 );
+    text-shadow: 1px 1px 0 hsl(0, 0%, 60%);
+    text-transform: uppercase;
+}
+
+h2 {
+    @include adjust-font-size-to( 60px );
+}
+
+h3 {
+    @include adjust-font-size-to( 48px );
+}
+
+em {
+    font-style: italic;
+}
+
+footer {
+    background-color: hsla( 0, 0%, 70%, 0.5);
+    @include border-radius( 10px 10px 0 0 );
+    bottom: 0;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.5;
+    padding: 10px 50px;
+    position: fixed;
+    width: 500px;
+
+    @include transition( opacity 0.2s );
+}
+
+footer:hover {
+    opacity: 1;
+}
+
+footer li {
+    float: left;
+    padding: 5px 10px 5px 0;
+}
