@@ -1,6 +1,0 @@
----
-layout: permalink 
-title: First Post
----
-
-All blogs begin with a post.

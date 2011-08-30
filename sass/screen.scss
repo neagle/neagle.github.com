@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 @import "compass/css3";
+@import "pygments.scss";
 
 /* Set vertical rhythm configurables */
 $base-font-size: 16px;
@@ -37,6 +38,28 @@ a:visited {
 
 a:hover {
     text-decoration: none;
+}
+
+::selection {
+    background: hsl(6, 71%, 47%);
+}
+
+::-moz-selection {
+    background: hsl(6, 71%, 47%);
+}
+
+p {
+    @include margin-trailer( 1 );
+}
+
+pre {
+    display: block;
+    font-family: monospace;
+    @include margin-leader( 1 );
+    @include margin-trailer( 1 );
+    @include padding-leader( 1 );
+    @include padding-trailer( 1 );
+    overflow-x: auto;
 }
 
 body {
@@ -106,44 +129,66 @@ header h1 a:visited {
 header p {
     @include adjust-font-size-to( 24px );
     color: hsl(6, 71%, 47%);
+    @include margin-trailer( 1 );
     text-align: right;
 }
 
 footer {
-    background-color: hsla(0, 0%, 70%, 0.2);
+    background-color: hsla(0, 0%, 90%, 0.8);
+    @include adjust-font-size-to( 24px );
     @include border-radius( 10px 10px 0 0 );
     bottom: 0;
     display: block;
-    margin: 0 auto;
-    padding: 10px 50px;
+    font: {
+        family: 'FranchiseRegular';
+    }
+    left: 50%;
+    margin: {
+        left: -350px;
+    }
+    padding: 0 50px;
     position: fixed;
-    width: 500px;
+    text-transform: uppercase;
+    width: 600px;
 
-    @include transition( background-color 0.2s );
+    @include transition( box-shadow 0.2s, background-color 0.2s );
 }
 
 footer:hover {
-    background-color: hsla(0, 0%, 70%, 0.5);
+    background-color: hsla(0, 0%, 90%, 1);
+    @include box-shadow( 0 0 2em hsla(0, 0%, 60%, 1) );
 }
 
 footer li {
     float: left;
-    padding: 5px 10px 5px 0;
+    padding: 5px 30px 5px 0;
+}
+
+footer a {
+    text-decoration: none;
 }
 
 article {
     border: {
         top: 1px solid hsl(0, 0%, 80%);
     }
+    @include margin-trailer( 1 );
     position: relative;
+}
+
+article h2 {
+    @include margin-trailer( 1 );
 }
 
 article time {
     background-color: hsl(0, 0%, 80%);
     @include border-radius( 0 0 0 10px );
     color: hsl(0, 0%, 100%);
-    padding: 0 5px 0 10px;
-    position: absolute;
-    right: 0;
-    top: 0;
+    float: right;
+    padding: {
+        left: 15px;
+        right: 10px;
+    }
+    @include padding-leader( 1, 36px );
+    @include padding-trailer( 1, 36px );
 }

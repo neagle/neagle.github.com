@@ -1,1 +1,3 @@
 exclude: README.textile, config.rb, sass
+permalink: pretty
+pygments: true

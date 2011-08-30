@@ -10,7 +10,13 @@
     <div id="container">
 
         <header>
-            <h1>Nate Eagle<b>&rsquo;s</b></h1>
+            <h1>
+                {% if page.date %}
+                    <a href="/">Nate Eagle<b>&rsquo;s</b></a>
+                {% else %}
+                    Nate Eagle<b>&rsquo;s</b>
+                {% endif %}
+            </h1>
             <p>front-end-development memoranda.</p>
         </header>
 
