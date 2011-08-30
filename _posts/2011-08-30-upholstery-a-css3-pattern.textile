@@ -4,6 +4,8 @@ title: Upholstery&#58; a CSS3&nbsp;Pattern
 ---
 By now, you've seen <a href="leaverou.me/css3patterns/">Lea Verou's CSS3 Patterns Gallery</a>. I really dug it when I saw it a few months ago. There are some nice patterns in there ("carbon":http://leaverou.me/css3patterns/#carbon &amp; "Japanese cube":http://leaverou.me/css3patterns/#japanese-cube are my favorites) and I love generating graphics with code. CSS gradient syntax made my brain hurt, though, and the first time I tried creating a pattern of my own, I wasn't very successful.
 
+<!--more-->
+
 When I used CSS gradients, I tended to "generate":http://www.colorzilla.com/gradient-editor/ them. That worked okay, but the problem with a tool like that is that it can leave you forever dependent on UI elements and tedious fiddling to get the effect you want. CSS syntax shouldn't be so difficult that it requires a separate tool: the syntax is just a tool itself, after all, intended to make it easy to work with browser code more complicated than anything I'll ever write. 
 
 So: we've started up a new tradition at AOL for front-end developers called the FED Challenge. It's a biweekly contest that's supposed to encourage developers to try out new techniques and technologies they might not already know about, or to try their hand at something they're less familiar with. I decided to make the second FED challenge creating a CSS3 Pattern ala the examples in Verou's gallery, which gave me a chance to finally get past my gradient brain pain.
