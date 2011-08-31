@@ -525,7 +525,7 @@ body {
 /* line 71, ../sass/screen.scss */
 #container {
   margin: 0 auto;
-  padding: 0 0 50px;
+  padding-bottom: 72px;
   width: 600px;
 }
 
@@ -597,6 +597,24 @@ header h1 a:visited {
 }
 
 /* line 129, ../sass/screen.scss */
+header h1 a:before {
+  font-size: 72px;
+  line-height: 96px;
+  content: '\02190 Home';
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 45px;
+}
+
+/* line 139, ../sass/screen.scss */
+header h1:hover a:before {
+  left: -200px;
+  opacity: 1;
+}
+
+/* line 144, ../sass/screen.scss */
 header p {
   font-size: 24px;
   line-height: 48px;
@@ -605,17 +623,17 @@ header p {
   text-align: right;
 }
 
-/* line 136, ../sass/screen.scss */
+/* line 151, ../sass/screen.scss */
 footer {
   background-color: rgba(230, 230, 230, 0.8);
   font-size: 24px;
   line-height: 48px;
-  -moz-border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
-  -o-border-radius: 10px 10px 0 0;
-  -ms-border-radius: 10px 10px 0 0;
-  -khtml-border-radius: 10px 10px 0 0;
-  border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
   bottom: 0;
   display: block;
   font-family: 'FranchiseRegular';
@@ -625,45 +643,65 @@ footer {
   position: fixed;
   text-transform: uppercase;
   width: 600px;
-  -moz-transition: box-shadow 0.2s, background-color 0.2s;
-  -webkit-transition: box-shadow 0.2s, background-color 0.2s;
-  -o-transition: box-shadow 0.2s, background-color 0.2s;
-  transition: box-shadow 0.2s, background-color 0.2s;
+  -moz-transform: scale(0.8, 0.8);
+  -webkit-transform: scale(0.8, 0.8);
+  -o-transform: scale(0.8, 0.8);
+  -ms-transform: scale(0.8, 0.8);
+  transform: scale(0.8, 0.8);
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  /* Prevent black flickering in Chrome */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-/* line 157, ../sass/screen.scss */
-footer:hover {
+/* line 176, ../sass/screen.scss */
+footer:hover,
+footer.active {
   background-color: #e6e6e6;
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -o-border-radius: 10px 10px 0 0;
+  -ms-border-radius: 10px 10px 0 0;
+  -khtml-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
   -moz-box-shadow: 0 0 2em #999999;
   -webkit-box-shadow: 0 0 2em #999999;
   -o-box-shadow: 0 0 2em #999999;
   box-shadow: 0 0 2em #999999;
+  -moz-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 
-/* line 162, ../sass/screen.scss */
+/* line 183, ../sass/screen.scss */
 footer li {
   float: left;
   padding: 5px 30px 5px 0;
 }
 
-/* line 167, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 footer a {
   text-decoration: none;
 }
 
-/* line 171, ../sass/screen.scss */
+/* line 192, ../sass/screen.scss */
 article {
   border-top: 1px solid #cccccc;
   margin-bottom: 24px;
   position: relative;
 }
 
-/* line 179, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 article h2 {
   margin-bottom: 24px;
 }
 
-/* line 183, ../sass/screen.scss */
+/* line 204, ../sass/screen.scss */
 article time {
   background-color: #cccccc;
   -moz-border-radius: 0 0 0 10px;
