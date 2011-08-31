@@ -4,7 +4,7 @@
   <title>Nate Eagle's Front-End Development Memoranda</title>
   <link href="http://neagle.github.com/"/>
   <link type="application/atom+xml" rel="self" href="http://neagle.github.com/atom.xml"/>
-  <updated>2011-08-30T20:47:08-04:00</updated>
+  <updated>2011-08-31T14:05:11-04:00</updated>
   <id>http://neagle.github.com/</id>
   <author>
     <name>Nate Eagle</name>
@@ -13,9 +13,59 @@
 
   
   <entry>
+    <id>http://neagle.github.com/2011/08/31/jekyll-not-parsing-includes</id>
+    <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/08/31/jekyll-not-parsing-includes/"/>
+    <title>Jekyll not parsing includes?</title>
+    <updated>2011-08-31T00:00:00-04:00</updated>
+    <author>
+      <name>Nate Eagle</name>
+      <uri>http://neagle.github.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;This blog is hosted on GitHub and powered by &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll&lt;/a&gt;, a &amp;#8220;blog-aware, static site generator in Ruby&amp;#8221; that GitHub uses. Think of it as a way to build a blog that allows for some dynamic templating but is entirely driven by files. Quick tangent: if you build sites for a living but find yourself kind of exhausted with big, feature-rich CMSs by the time you come home, Jekyll just might be what it takes to make blogging for yourself fun again.&lt;/p&gt;
+&lt;p&gt;To the main point: Jekyll&amp;#8217;s &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/liquid-extensions&quot;&gt;documentation boldly proclaims this&lt;/a&gt; about its includes:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you have small page fragments that you wish to include in multiple places on your site, you can use the &lt;code&gt;include&lt;/code&gt; tag.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{% include sig.textile %}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Jekyll expects all include files to be placed in an &lt;code&gt;_includes&lt;/code&gt; directory at the root of your source dir. So this will embed the contents of &lt;code&gt;/path/to/proto/site/_includes/sig.textile&lt;/code&gt; into the calling file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This might lead you to believe that Jekyll will parse Textile formatting in your included file (or Markdown formatting, for you infidels). &lt;strong&gt;But you would be mistaken&lt;/strong&gt;. Jekyll will do no such thing: it will blithely output anything you toss into that optimistically named &lt;code&gt;.textile&lt;/code&gt; or &lt;code&gt;.markdown&lt;/code&gt; file as unparsed text.&lt;/p&gt;
+&lt;p&gt;It looks like I&amp;#8217;m not the only one with this problem: &lt;a href=&quot;http://groups.google.com/group/jekyll-rb/browse_thread/thread/216db15546e79073&quot;&gt;one&lt;/a&gt;, &lt;a href=&quot;https://github.com/mojombo/jekyll/issues/164&quot;&gt;two&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For the moment, the only solution is to abandon our futile dreams of parsed includes and use straight html. But let&amp;#8217;s see if we can at least get the documentation changed.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <id>http://neagle.github.com/2011/08/31/how-to-output-curly-brackets-in-jekyll</id>
+    <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/08/31/how-to-output-curly-brackets-in-jekyll/"/>
+    <title>How to output curly brackets in Jekyll</title>
+    <updated>2011-08-31T00:00:00-04:00</updated>
+    <author>
+      <name>Nate Eagle</name>
+      <uri>http://neagle.github.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;It&amp;#8217;s the little things that trip you up, right? Turns out it&amp;#8217;s &lt;a href=&quot;http://stackoverflow.com/questions/3330979/outputting-literal-curly-braces-in-liquid-templates&quot;&gt;not super easy&lt;/a&gt; to just output curly brackets / braces in combination with % symbols in Jekyll, which uses Liquid templates, for the not-crazy reason that these are used for its templating language. But if you want to use them for code examples, there&amp;#8217;s not really a straightforward way of using escape characters to let you output code.&lt;/p&gt;
+&lt;p&gt;The example I linked to above suggests assigning your code example to a liquid variable, which is an okay solution, but a pain in neck. I came up with an alternative that works a bit better for me.&lt;/p&gt;
+&lt;p&gt;As of version 0.5.2, Jekyll &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Template-Data&quot;&gt;lets you set arbitrary configuration variables&lt;/a&gt; in your &lt;code&gt;_config.yml&lt;/code&gt; that you can then access via &lt;code&gt;site.whatever&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I added:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lcb: &quot;{&quot;
+rcb: &quot;}&quot;&lt;/code&gt;
+
+&lt;/pre&gt;
+&lt;p&gt;&amp;#8230;to my &lt;code&gt;_config.yml&lt;/code&gt;. The variable names stand for left curly bracket and right curly bracket, respectively.&lt;/p&gt;
+&lt;p&gt;Whenever I need to use curly brackets in code examples, I just use those variables:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{{ site.lcb }}% foo | bar %{{ site.lcb }}&lt;/code&gt;
+
+&lt;/pre&gt;
+&lt;p&gt;Which will output:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{% foo | bar %}&lt;/code&gt;
+
+&lt;/pre&gt;
+&lt;p&gt;Still not the greatest solution, but it made my life a lot easier.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
     <id>http://neagle.github.com/2011/08/30/upholstery-a-css3-pattern</id>
     <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/08/30/upholstery-a-css3-pattern/"/>
-    <title>Upholstery&amp;#58; a CSS3&amp;nbsp;Pattern</title>
+    <title>Upholstery: a CSS3 Pattern</title>
     <updated>2011-08-30T00:00:00-04:00</updated>
     <author>
       <name>Nate Eagle</name>

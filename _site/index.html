@@ -23,40 +23,49 @@
             <p>front-end-development memoranda.</p>
         </header>
 
-        
-<article>
-    <time>August 30, 2011</time>
+        <section class="posts">
+    <h2>Posts</h2>
+    <ul>
+    
+        <li>
+            <time>August 31, 2011</time>
+            <a class="title" href="/2011/08/31/jekyll-not-parsing-includes/">Jekyll not parsing includes?</a>
+            <p class="excerpt">
+                This blog is hosted on GitHub and powered by Jekyll, a &#8220;blog-aware, static site generator in Ruby&#8221; that GitHub uses. Think of it as a way to build a blog that allows for some dynamic templating but is entirely driven by files. Quick tangent: if you build sites for a...
+                <a href="/2011/08/31/jekyll-not-parsing-includes/" class="more">Read the full post &rarr;</a>
+            </p>
+        </li>
+    
+        <li>
+            <time>August 31, 2011</time>
+            <a class="title" href="/2011/08/31/how-to-output-curly-brackets-in-jekyll/">How to output curly brackets in Jekyll</a>
+            <p class="excerpt">
+                It&#8217;s the little things that trip you up, right? Turns out it&#8217;s not super easy to just output curly brackets / braces in combination with % symbols in Jekyll, which uses Liquid templates, for the not-crazy reason that these are used for its templating language. But if you want to...
+                <a href="/2011/08/31/how-to-output-curly-brackets-in-jekyll/" class="more">Read the full post &rarr;</a>
+            </p>
+        </li>
+    
+        <li>
+            <time>August 30, 2011</time>
+            <a class="title" href="/2011/08/30/upholstery-a-css3-pattern/">Upholstery: a CSS3 Pattern</a>
+            <p class="excerpt">
+                By now, you&#8217;ve seen Lea Verou&#8217;s CSS3 Patterns Gallery. I really dug it when I saw it a few months ago. There are some nice patterns in there (carbon &amp; Japanese cube are my favorites) and I love generating graphics with code. CSS gradient syntax made my brain hurt, though,...
+                <a href="/2011/08/30/upholstery-a-css3-pattern/" class="more">Read the full post &rarr;</a>
+            </p>
+        </li>
+    
+    </ul>
+</section>
 
-    <h2><a href="/2011/08/30/upholstery-a-css3-pattern/">Upholstery&#58; a CSS3&nbsp;Pattern</a></h2>
+<section id="about">
+    <h2>About Me</h2>
+    <img src="/images/perplexed-nate.jpg" alt="">
 
-    <p>By now, you&#8217;ve seen <a href="leaverou.me/css3patterns/">Lea Verou&#8217;s CSS3 Patterns Gallery</a>. I really dug it when I saw it a few months ago. There are some nice patterns in there (<a href="http://leaverou.me/css3patterns/#carbon">carbon</a> &amp; <a href="http://leaverou.me/css3patterns/#japanese-cube">Japanese cube</a> are my favorites) and I love generating graphics with code. <span class="caps">CSS</span> gradient syntax made my brain hurt, though, and the first time I tried creating a pattern of my own, I wasn&#8217;t very successful.</p>
-<p><!--more--></p>
-<p>When I used <span class="caps">CSS</span> gradients, I tended to <a href="http://www.colorzilla.com/gradient-editor/">generate</a> them. That worked okay, but the problem with a tool like that is that it can leave you forever dependent on UI elements and tedious fiddling to get the effect you want. <span class="caps">CSS</span> syntax shouldn&#8217;t be so difficult that it requires a separate tool: the syntax is just a tool itself, after all, intended to make it easy to work with browser code more complicated than anything I&#8217;ll ever write.</p>
-<p>So: we&#8217;ve started up a new tradition at <span class="caps">AOL</span> for front-end developers called the <span class="caps">FED</span> Challenge. It&#8217;s a biweekly contest that&#8217;s supposed to encourage developers to try out new techniques and technologies they might not already know about, or to try their hand at something they&#8217;re less familiar with. I decided to make the second <span class="caps">FED</span> challenge creating a CSS3 Pattern ala the examples in Verou&#8217;s gallery, which gave me a chance to finally get past my gradient brain pain.</p>
-<p>I&#8217;m happy to report that it didn&#8217;t take very long. Luckily for all of us, Webkit has <a href="http://www.webkit.org/blog/1424/css3-gradients/">changed its gradient syntax</a> to match Mozilla&#8217;s (clearly superior) syntax. And once I got an example in place in jsFiddle and started to play for a sustained amount of time, all the properties seemed to sort themselves out. (Play is, of course, one of the very best ways to internalize something you don&#8217;t know.)</p>
-<p>Without further ado, here&#8217;s my submission:</p>
-<p><iframe style="width: 100%; height: 630px" src="http://jsfiddle.net/nate/37rxC/embedded/result,css,html,js"></iframe></p>
-<p>I was messing around with radial gradients and got the idea that they could be used to create the puffiness of upholstery as well as the shadowed dimples of the buttons. I think it turned out pretty nice.</p>
-<p>Check out the <span class="caps">CSS</span> in the tab up above for a highly-formatted, commented version of the <span class="caps">CSS</span>, which I find helpful when trying to look through someone else&#8217;s styles.</p>
-<p>If you prefer, however, here is the simplest, streamlined, non-vendor-prefixed version of the <span class="caps">CSS</span>:</p>
-<div class="highlight"><pre><code class="css"><span class="nt">background</span><span class="o">:</span>
-    <span class="nt">radial-gradient</span><span class="o">(</span><span class="nt">hsl</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">27</span><span class="o">%)</span> <span class="nt">4</span><span class="o">%,</span> <span class="nt">hsl</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">18</span><span class="o">%)</span> <span class="nt">9</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">9</span><span class="o">%)</span> <span class="nt">0</span> <span class="nt">0</span><span class="o">,</span>
-    <span class="nt">radial-gradient</span><span class="o">(</span><span class="nt">hsl</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">27</span><span class="o">%)</span> <span class="nt">4</span><span class="o">%,</span> <span class="nt">hsl</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">18</span><span class="o">%)</span> <span class="nt">8</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">10</span><span class="o">%)</span> <span class="nt">50px</span> <span class="nt">50px</span><span class="o">,</span>
-    <span class="nt">radial-gradient</span><span class="o">(</span><span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">30</span><span class="o">%,</span> <span class="nt">0</span><span class="nc">.8</span><span class="o">)</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">))</span> <span class="nt">50px</span> <span class="nt">0</span><span class="o">,</span>
-    <span class="nt">radial-gradient</span><span class="o">(</span><span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">30</span><span class="o">%,</span> <span class="nt">0</span><span class="nc">.8</span><span class="o">)</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">))</span> <span class="nt">0</span> <span class="nt">50px</span><span class="o">,</span>
-    <span class="nt">radial-gradient</span><span class="o">(</span><span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">1</span><span class="o">)</span> <span class="nt">35</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">60</span><span class="o">%)</span> <span class="nt">50px</span> <span class="nt">0</span><span class="o">,</span>
-    <span class="nt">radial-gradient</span><span class="o">(</span><span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">1</span><span class="o">)</span> <span class="nt">35</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">60</span><span class="o">%)</span> <span class="nt">100px</span> <span class="nt">50px</span><span class="o">,</span>
-    <span class="nt">radial-gradient</span><span class="o">(</span><span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">15</span><span class="o">%,</span> <span class="nt">0</span><span class="nc">.7</span><span class="o">),</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">))</span> <span class="nt">0</span> <span class="nt">0</span><span class="o">,</span>
-    <span class="nt">radial-gradient</span><span class="o">(</span><span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">15</span><span class="o">%,</span> <span class="nt">0</span><span class="nc">.7</span><span class="o">),</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">))</span> <span class="nt">50px</span> <span class="nt">50px</span><span class="o">,</span>
-    <span class="nt">linear-gradient</span><span class="o">(</span><span class="nt">45deg</span><span class="o">,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">49</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">0</span><span class="o">%,</span> <span class="nt">1</span><span class="o">)</span> <span class="nt">50</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">70</span><span class="o">%)</span> <span class="nt">0</span> <span class="nt">0</span><span class="o">,</span>
-    <span class="nt">linear-gradient</span><span class="o">(</span><span class="nt">-45deg</span><span class="o">,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">49</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">0</span><span class="o">%,</span> <span class="nt">1</span><span class="o">)</span> <span class="nt">50</span><span class="o">%,</span> <span class="nt">hsla</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">100</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%,</span> <span class="nt">0</span><span class="o">)</span> <span class="nt">70</span><span class="o">%)</span> <span class="nt">0</span> <span class="nt">0</span><span class="o">;</span>
-<span class="nt">background-color</span><span class="o">:</span> <span class="nf">#300</span><span class="o">;</span> 
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">100px</span> <span class="nt">100px</span><span class="o">;</span>
-</code></pre>
-</div><p>I decided to submit the example to Verou after the contest, and she was kind enough to <a href="http://leaverou.me/css3patterns/#upholstery">add it to the gallery</a>.</p>
+    <p>I&rsquo;m a dude who needs to write stuff down to remember it. (Seriously: how many times have I had to look up how to change the settings on a VPS to stop timing out my SSH connections so soon?)</p>
 
-</article>
+<p>I had the immense good fortune to study philosophy and the great books at <a href="http://stjohnscollege.edu">St. John&rsquo;s College</a> (I even had my first web job there as their student webmaster). I&rsquo;ve spent over five years as a full-time front-end developer and web designer (in varying proportions), and consider myself damned lucky. This is a good trade, folks.</p>
 
+</section>
 
 
         <footer>
@@ -65,6 +74,7 @@
         <li><a href="http://twitter.com/#!/neagle">@neagle</a></li>
         <li><a href="http://www.linkedin.com/in/nathanaeleagle">Linked In</a></li>
         <li><a href="http://github.com/neagle">github.com/neagle</a></li>
+        <li><a href="http://profiles.google.com/neagle">Google+</a></li>
     </ul>
 </footer>
 

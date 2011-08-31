@@ -4,5 +4,6 @@
         <li><a href="http://twitter.com/#!/neagle">@neagle</a></li>
         <li><a href="http://www.linkedin.com/in/nathanaeleagle">Linked In</a></li>
         <li><a href="http://github.com/neagle">github.com/neagle</a></li>
+        <li><a href="http://profiles.google.com/neagle">Google+</a></li>
     </ul>
 </footer>

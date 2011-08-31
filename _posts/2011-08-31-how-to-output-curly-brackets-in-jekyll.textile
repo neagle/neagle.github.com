@@ -1,0 +1,27 @@
+---
+layout: post
+title: "How to output curly brackets in Jekyll"
+---
+
+It's the little things that trip you up, right? Turns out it's "not super easy":http://stackoverflow.com/questions/3330979/outputting-literal-curly-braces-in-liquid-templates to just output curly brackets / braces in combination with % symbols in Jekyll, which uses Liquid templates, for the not-crazy reason that these are used for its templating language. But if you want to use them for code examples, there's not really a straightforward way of using escape characters to let you output code.
+
+The example I linked to above suggests assigning your code example to a liquid variable, which is an okay solution, but a pain in neck. I came up with an alternative that works a bit better for me.
+
+As of version 0.5.2, Jekyll "lets you set arbitrary configuration variables":https://github.com/mojombo/jekyll/wiki/Template-Data in your @_config.yml@ that you can then access via @site.whatever@.
+
+I added:
+
+bc.. lcb: "{"
+rcb: "}"
+
+p. ...to my @_config.yml@. The variable names stand for left curly bracket and right curly bracket, respectively. 
+
+Whenever I need to use curly brackets in code examples, I just use those variables:
+
+bc.. {{ site.lcb }}{ site.lcb }{{ site.rcb }}% foo | bar %{{ site.lcb }}{ site.lcb }{{ site.rcb }}
+
+p. Which will output:
+
+bc.. {{ site.lcb }}% foo | bar %{{ site.rcb }}
+
+p. Still not the greatest solution, but it made my life a lot easier.

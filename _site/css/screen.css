@@ -505,16 +505,35 @@ p {
 
 /* line 55, ../sass/screen.scss */
 pre {
+  border-color: #e6e6e6;
   display: block;
   font-family: monospace;
   margin-top: 24px;
   margin-bottom: 24px;
-  padding-top: 24px;
-  padding-bottom: 24px;
   overflow-x: auto;
+  border-style: solid;
+  border-width: 1px;
+  padding: 23px;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
+code {
+  font-family: monospace;
+}
+
+/* line 71, ../sass/screen.scss */
+blockquote {
+  background-color: #e6e6e6;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 24px;
+  padding-top: 24px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 23px;
+}
+
+/* line 84, ../sass/screen.scss */
 body {
   color: #333333;
   font-family: Lucida Grande, Helvetica, Arial, sans-serif;
@@ -522,54 +541,59 @@ body {
   line-height: 24px;
 }
 
-/* line 71, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 #container {
   margin: 0 auto;
-  padding-bottom: 72px;
+  padding-bottom: 96px;
   width: 600px;
 }
 
-/* line 77, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'FranchiseRegular';
 }
 
-/* line 82, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
 h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
   color: #333333;
   text-decoration: none;
 }
 
-/* line 87, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 h1 {
   font-size: 72px;
   line-height: 96px;
 }
 
-/* line 91, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 h2 {
   font-size: 60px;
   line-height: 72px;
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 h3 {
   font-size: 48px;
   line-height: 72px;
 }
 
-/* line 99, ../sass/screen.scss */
+/* line 118, ../sass/screen.scss */
 em {
   font-style: italic;
 }
 
-/* line 103, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 126, ../sass/screen.scss */
 header {
   display: block;
 }
 
-/* line 107, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 header h1 {
   color: #e6e6e6;
   font-size: 186px;
@@ -581,7 +605,7 @@ header h1 {
   text-transform: uppercase;
 }
 
-/* line 117, ../sass/screen.scss */
+/* line 140, ../sass/screen.scss */
 header h1 b {
   font-size: 144px;
   line-height: 168px;
@@ -590,13 +614,13 @@ header h1 b {
   top: -10px;
 }
 
-/* line 125, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 header h1 a,
 header h1 a:visited {
   color: #e6e6e6;
 }
 
-/* line 129, ../sass/screen.scss */
+/* line 152, ../sass/screen.scss */
 header h1 a:before {
   font-size: 72px;
   line-height: 96px;
@@ -608,13 +632,13 @@ header h1 a:before {
   top: 45px;
 }
 
-/* line 139, ../sass/screen.scss */
+/* line 162, ../sass/screen.scss */
 header h1:hover a:before {
   left: -200px;
   opacity: 1;
 }
 
-/* line 144, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 header p {
   font-size: 24px;
   line-height: 48px;
@@ -623,7 +647,7 @@ header p {
   text-align: right;
 }
 
-/* line 151, ../sass/screen.scss */
+/* line 174, ../sass/screen.scss */
 footer {
   background-color: rgba(230, 230, 230, 0.8);
   font-size: 24px;
@@ -657,7 +681,7 @@ footer {
   backface-visibility: hidden;
 }
 
-/* line 176, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 footer:hover,
 footer.active {
   background-color: #e6e6e6;
@@ -667,10 +691,10 @@ footer.active {
   -ms-border-radius: 10px 10px 0 0;
   -khtml-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
-  -moz-box-shadow: 0 0 2em #999999;
-  -webkit-box-shadow: 0 0 2em #999999;
-  -o-box-shadow: 0 0 2em #999999;
-  box-shadow: 0 0 2em #999999;
+  -moz-box-shadow: 0 0 2em rgba(51, 51, 51, 0.3);
+  -webkit-box-shadow: 0 0 2em rgba(51, 51, 51, 0.3);
+  -o-box-shadow: 0 0 2em rgba(51, 51, 51, 0.3);
+  box-shadow: 0 0 2em rgba(51, 51, 51, 0.3);
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
   -o-transform: scale(1, 1);
@@ -678,30 +702,30 @@ footer.active {
   transform: scale(1, 1);
 }
 
-/* line 183, ../sass/screen.scss */
+/* line 206, ../sass/screen.scss */
 footer li {
   float: left;
   padding: 5px 30px 5px 0;
 }
 
-/* line 188, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 footer a {
   text-decoration: none;
 }
 
-/* line 192, ../sass/screen.scss */
+/* line 215, ../sass/screen.scss */
 article {
   border-top: 1px solid #cccccc;
   margin-bottom: 24px;
   position: relative;
 }
 
-/* line 200, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 article h2 {
   margin-bottom: 24px;
 }
 
-/* line 204, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 article time {
   background-color: #cccccc;
   -moz-border-radius: 0 0 0 10px;
@@ -716,4 +740,58 @@ article time {
   padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 11px;
+}
+
+/* About Me Section */
+/* line 242, ../sass/screen.scss */
+#about img {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  float: right;
+}
+
+/* Article List on Homepage */
+/* line 249, ../sass/screen.scss */
+section.posts {
+  border-top-style: solid;
+  border-top-width: 1px;
+  padding-top: 23px;
+  border-color: #cccccc;
+  margin-bottom: 24px;
+}
+
+/* line 257, ../sass/screen.scss */
+section.posts li:first-of-type {
+  padding: 0;
+}
+
+/* line 261, ../sass/screen.scss */
+section.posts li {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 23px;
+  border-color: #cccccc;
+  padding-top: 24px;
+}
+
+/* line 269, ../sass/screen.scss */
+section.posts time {
+  font-size: 12px;
+  line-height: 24px;
+  color: #999999;
+  float: right;
+}
+
+/* line 275, ../sass/screen.scss */
+section.posts li a.title {
+  color: #333333;
+  display: block;
+  font-size: 36px;
+  line-height: 48px;
+  font-family: 'FranchiseRegular';
+  text-decoration: none;
 }

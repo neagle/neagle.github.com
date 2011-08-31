@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: Upholstery&#58; a CSS3&nbsp;Pattern 
+title: "Upholstery: a CSS3 Pattern"
 ---
 By now, you've seen <a href="leaverou.me/css3patterns/">Lea Verou's CSS3 Patterns Gallery</a>. I really dug it when I saw it a few months ago. There are some nice patterns in there ("carbon":http://leaverou.me/css3patterns/#carbon &amp; "Japanese cube":http://leaverou.me/css3patterns/#japanese-cube are my favorites) and I love generating graphics with code. CSS gradient syntax made my brain hurt, though, and the first time I tried creating a pattern of my own, I wasn't very successful.
 

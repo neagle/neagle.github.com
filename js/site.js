@@ -4,7 +4,8 @@
         var checkScrollPosition,
             $win = $( window ),
             $doc = $( document ),
-            $footer = $( 'footer' );
+            $footer = $( 'footer' ),
+            $posts = $( 'section.posts' );
 
         checkScrollPosition = function( event ) {
             // console.log( 'checking position...', $win.scrollTop(), $win.height(), $doc.height() );

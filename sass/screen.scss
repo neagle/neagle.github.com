@@ -53,13 +53,32 @@ p {
 }
 
 pre {
+    border: {
+        color: hsl(0, 0%, 90%);
+    }
     display: block;
     font-family: monospace;
     @include margin-leader( 1 );
     @include margin-trailer( 1 );
-    @include padding-leader( 1 );
-    @include padding-trailer( 1 );
     overflow-x: auto;
+    @include rhythm-borders( 1px, 1, 16px );
+}
+
+code {
+    font-family: monospace;
+}
+
+blockquote {
+    background: {
+        color: hsl(0, 0%, 90%);
+    }
+    padding: {
+        left: 25px;
+        right: 25px;
+    }
+    @include margin-trailer( 1 );
+    @include padding-leader( 1 );
+    @include rhythm-borders( 1px );
 }
 
 body {
@@ -70,7 +89,7 @@ body {
 
 #container {
     margin: 0 auto;
-    @include padding-trailer( 3 );
+    @include padding-trailer( 4 );
     width: 600px;
 }
 
@@ -98,6 +117,10 @@ h3 {
 
 em {
     font-style: italic;
+}
+
+strong {
+    font-weight: bold;
 }
 
 header {
@@ -176,7 +199,7 @@ footer:hover,
 footer.active {
     background-color: hsla(0, 0%, 90%, 1);
     @include border-radius( 10px 10px 0 0 );
-    @include box-shadow( 0 0 2em hsla(0, 0%, 60%, 1) );
+    @include box-shadow( 0 0 2em hsla(0, 0%, 20%, 0.3) );
     @include transform( scale( 1, 1 ) );
 }
 
@@ -212,4 +235,53 @@ article time {
     }
     @include padding-leader( 1, 36px );
     @include padding-trailer( 1, 36px );
+}
+
+/* About Me Section */
+
+#about img {
+    @include border-radius( 10px );
+    float: right;
+}
+
+/* Article List on Homepage */
+
+section.posts {
+    @include apply-side-rhythm-border( top, 1px, 1, 16px, solid );
+    border: {
+        color: hsl(0, 0%, 80%);
+    }
+    @include margin-trailer( 1 );
+}
+
+section.posts li:first-of-type {
+    padding: 0;
+}
+
+section.posts li {
+    @include apply-side-rhythm-border( bottom, 1px, 1, 16px, solid );
+    border: {
+        color: hsl(0, 0%, 80%);
+    }
+    @include padding-leader( 1 );
+}
+
+section.posts time {
+    @include adjust-font-size-to( 12px );
+    color: hsl(0, 0%, 60%);
+    float: right;
+}
+
+section.posts li a.title {
+    color: hsl(0, 0%, 20%);
+    display: block;
+    @include adjust-font-size-to( 36px );
+    font-family: 'FranchiseRegular';
+    text-decoration: none;
+}
+
+section.posts p.excerpt {
+}
+
+section.posts li.expanded p.excerpt {
 }

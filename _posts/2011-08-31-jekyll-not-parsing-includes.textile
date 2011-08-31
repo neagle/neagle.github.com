@@ -1,0 +1,20 @@
+---
+layout: post
+title: "Jekyll not parsing includes?"
+---
+
+This blog is hosted on GitHub and powered by "Jekyll":https://github.com/mojombo/jekyll, a "blog-aware, static site generator in Ruby" that GitHub uses. Think of it as a way to build a blog that allows for some dynamic templating but is entirely driven by files. Quick tangent: if you build sites for a living but find yourself kind of exhausted with big, feature-rich CMSs by the time you come home, Jekyll just might be what it takes to make blogging for yourself fun again.
+
+To the main point: Jekyll's "documentation boldly proclaims this":https://github.com/mojombo/jekyll/wiki/liquid-extensions about its includes:
+
+bq.. If you have small page fragments that you wish to include in multiple places on your site, you can use the @include@ tag.
+
+@{{ site.lcb }}% include sig.textile %{{ site.rcb }}@
+
+Jekyll expects all include files to be placed in an @_includes@ directory at the root of your source dir. So this will embed the contents of @/path/to/proto/site/_includes/sig.textile@ into the calling file.
+
+p. This might lead you to believe that Jekyll will parse Textile formatting in your included file (or Markdown formatting, for you infidels). *But you would be mistaken*. Jekyll will do no such thing: it will blithely output anything you toss into that optimistically named @.textile@ or @.markdown@ file as unparsed text.
+
+It looks like I'm not the only one with this problem: "one":http://groups.google.com/group/jekyll-rb/browse_thread/thread/216db15546e79073, "two":https://github.com/mojombo/jekyll/issues/164.
+
+For the moment, the only solution is to abandon our futile dreams of parsed includes and use straight html. But let's see if we can at least get the documentation changed. 

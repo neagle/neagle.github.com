@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>How to output curly brackets in Jekyll</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/screen.css">
+</head>
+
+<body>
+    <div id="container">
+
+        <header>
+            <h1>
+                
+                    <a href="/">Nate Eagle<b>&rsquo;s</b></a>
+                
+            </h1>
+            <p>front-end-development memoranda.</p>
+        </header>
+
+        <article>
+
+    <time>August 31, 2011</time>
+
+    <h2>How to output curly brackets in Jekyll</h2>
+
+<p>It&#8217;s the little things that trip you up, right? Turns out it&#8217;s <a href="http://stackoverflow.com/questions/3330979/outputting-literal-curly-braces-in-liquid-templates">not super easy</a> to just output curly brackets / braces in combination with % symbols in Jekyll, which uses Liquid templates, for the not-crazy reason that these are used for its templating language. But if you want to use them for code examples, there&#8217;s not really a straightforward way of using escape characters to let you output code.</p>
+<p>The example I linked to above suggests assigning your code example to a liquid variable, which is an okay solution, but a pain in neck. I came up with an alternative that works a bit better for me.</p>
+<p>As of version 0.5.2, Jekyll <a href="https://github.com/mojombo/jekyll/wiki/Template-Data">lets you set arbitrary configuration variables</a> in your <code>_config.yml</code> that you can then access via <code>site.whatever</code>.</p>
+<p>I added:</p>
+<pre><code>lcb: "{"
+rcb: "}"</code>
+
+</pre>
+<p>&#8230;to my <code>_config.yml</code>. The variable names stand for left curly bracket and right curly bracket, respectively.</p>
+<p>Whenever I need to use curly brackets in code examples, I just use those variables:</p>
+<pre><code>{{ site.lcb }}% foo | bar %{{ site.lcb }}</code>
+
+</pre>
+<p>Which will output:</p>
+<pre><code>{% foo | bar %}</code>
+
+</pre>
+<p>Still not the greatest solution, but it made my life a lot easier.</p>
+
+
+</article>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nateeagle';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        <footer>
+    <ul>
+        <li><a href="http://nateeagle.com">Portfolio</a></li>
+        <li><a href="http://twitter.com/#!/neagle">@neagle</a></li>
+        <li><a href="http://www.linkedin.com/in/nathanaeleagle">Linked In</a></li>
+        <li><a href="http://github.com/neagle">github.com/neagle</a></li>
+        <li><a href="http://profiles.google.com/neagle">Google+</a></li>
+    </ul>
+</footer>
+
+
+    </div><!-- end #container -->
+
+    <script src="/js/jquery-1.6.2.min.js"></script>
+    <script src="/js/site.js"></script>
+</body>
+</html>
