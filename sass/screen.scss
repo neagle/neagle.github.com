@@ -28,6 +28,10 @@ $relative-font-sizing: false;
     font-style: normal;
 }
 
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
 a {
     color: hsl(6, 71%, 47%);
 }
@@ -89,7 +93,7 @@ body {
 
 #container {
     margin: 0 auto;
-    @include padding-trailer( 4 );
+    position: relative;
     width: 600px;
 }
 
@@ -129,7 +133,7 @@ header {
 
 header h1 {
     color: hsl(0, 0%, 90%);
-    @include adjust-font-size-to( 186px );
+    @include adjust-font-size-to( 184px );
     @include adjust-leading-to( 7 );
     position: relative;
     text-indent: -7px;
@@ -139,9 +143,9 @@ header h1 {
 
 header h1 b {
     @include adjust-font-size-to( 144px );
-    position: absolute;
-    right: -70px;
-    top: -10px;
+    margin-right: -100px;
+    position: relative;
+    top: -30px;
 }
 
 header h1 a,
@@ -172,40 +176,29 @@ header p {
 }
 
 footer {
-    background-color: hsla(0, 0%, 90%, 0.8);
+    @include apply-side-rhythm-border( top, 1px, 1, 16px, solid );
+    border: {
+        color: hsl(0, 0%, 80%);
+    }
     @include adjust-font-size-to( 24px );
-    @include border-radius( 10px );
-    bottom: 0;
     display: block;
     font: {
         family: 'FranchiseRegular';
     }
-    left: 50%;
-    margin: {
-        left: -350px;
-    }
-    padding: 0 50px;
-    position: fixed;
+    @include padding-leader( 1 );
+    @include padding-trailer( 1 );
+    text-align: center;
     text-transform: uppercase;
     width: 600px;
-
-    @include transform( scale( 0.8, 0.8 ) );
-    @include transition( all 0.2s );
-    /* Prevent black flickering in Chrome */
-    @include backface-visibility( hidden );
 }
 
 footer:hover,
 footer.active {
-    background-color: hsla(0, 0%, 90%, 1);
-    @include border-radius( 10px 10px 0 0 );
-    @include box-shadow( 0 0 2em hsla(0, 0%, 20%, 0.3) );
-    @include transform( scale( 1, 1 ) );
 }
 
 footer li {
-    float: left;
-    padding: 5px 30px 5px 0;
+    display: inline-block;
+    padding: 0 10px;
 }
 
 footer a {
@@ -285,3 +278,76 @@ section.posts p.excerpt {
 
 section.posts li.expanded p.excerpt {
 }
+
+/* Circles */
+#circles {
+    left: -150px;
+    position: absolute;
+    top: 28px;
+    width: 100px;
+}
+
+#circles .background {
+    background: {
+        attachment: fixed;
+        image: url( /images/strip-moon.jpg );
+        ximage: url( /images/strip-autumn.jpg );
+        position: top center;
+    }
+    -moz-mask:
+            -moz-radial-gradient(
+                50px 50px,
+                hsl(0, 0%, 100%) 0,
+                hsl(0, 0%, 100%) 50px,
+                hsla(0, 0%, 0%, 0) 50px
+            );
+     -moz-mask-repeat: repeat-y;
+     -moz-mask-size: 100px 150px;
+     -webkit-mask:
+            -webkit-radial-gradient(
+                50px 50px,
+                hsl(0, 0%, 100%) 0,
+                hsl(0, 0%, 100%) 50px,
+                hsla(0, 0%, 0%, 0) 50px
+            );
+    -webkit-mask-repeat: repeat-y;
+    -webkit-mask-size: 100px 150px;
+    height: 1000px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100px;
+}
+
+#circles b {
+    border: 10px solid hsl(0, 0%, 100%);
+    @include border-radius( 52px );
+    @include box-shadow(
+        inset 0 0 1em hsl(0, 0%, 0%)
+    );
+    display: block;
+    height: 84px;
+    left: -2px;
+    margin-bottom: 46px;
+    position: relative;
+    top: -2px;
+    width: 84px;
+}
+
+/* Night */
+body.night {
+    background: {
+        color: hsl(200, 10%, 10%);
+    }
+    color: hsl(0, 0%, 80%);
+}
+
+body.night header h1 {
+    color: hsl(0, 0%, 15%);
+    text-shadow: 1px 1px 0 hsl(0, 0%, 60%);
+}
+
+body.night #circles b {
+    border: 10px solid hsl(200, 10%, 10%);
+}
+
