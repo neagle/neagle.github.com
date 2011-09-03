@@ -598,34 +598,67 @@ header {
   display: block;
 }
 
-/* line 134, ../sass/screen.scss */
+@-webkit-keyframes colorstrobe {
+  /* line 135, ../sass/screen.scss */
+  0% {
+    color: #bf4040;
+  }
+
+  /* line 138, ../sass/screen.scss */
+  20% {
+    color: #aabf40;
+  }
+
+  /* line 141, ../sass/screen.scss */
+  40% {
+    color: #40bf6a;
+  }
+
+  /* line 144, ../sass/screen.scss */
+  60% {
+    color: #407fbf;
+  }
+
+  /* line 147, ../sass/screen.scss */
+  80% {
+    color: #9540bf;
+  }
+
+  /* line 150, ../sass/screen.scss */
+  100% {
+    color: #bf4040;
+  }
+}
+
+/* line 154, ../sass/screen.scss */
 header h1 {
   color: #e6e6e6;
-  font-size: 184px;
+  font-size: 186px;
   line-height: 192px;
   line-height: 168px;
   position: relative;
   text-indent: -7px;
-  text-shadow: 1px 1px 0 #999999;
+  text-shadow: 1px 1px 0 #333333;
   text-transform: uppercase;
+  width: 700px;
+  -webkit-animation: colorstrobe 60s infinite linear;
 }
 
-/* line 144, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 header h1 b {
   font-size: 144px;
   line-height: 168px;
-  margin-right: -100px;
   position: relative;
   top: -30px;
 }
 
-/* line 152, ../sass/screen.scss */
+/* line 174, ../sass/screen.scss */
 header h1 a,
 header h1 a:visited {
   color: #e6e6e6;
 }
 
-/* line 156, ../sass/screen.scss */
+/* line 178, ../sass/screen.scss */
 header h1 a:before {
   font-size: 72px;
   line-height: 96px;
@@ -637,13 +670,13 @@ header h1 a:before {
   top: 45px;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 header h1:hover a:before {
   left: -200px;
   opacity: 1;
 }
 
-/* line 171, ../sass/screen.scss */
+/* line 193, ../sass/screen.scss */
 header p {
   font-size: 24px;
   line-height: 48px;
@@ -652,7 +685,7 @@ header p {
   text-align: right;
 }
 
-/* line 178, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 footer {
   border-top-style: solid;
   border-top-width: 1px;
@@ -669,30 +702,30 @@ footer {
   width: 600px;
 }
 
-/* line 199, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 footer li {
   display: inline-block;
   padding: 0 10px;
 }
 
-/* line 204, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 footer a {
   text-decoration: none;
 }
 
-/* line 208, ../sass/screen.scss */
+/* line 230, ../sass/screen.scss */
 article {
   border-top: 1px solid #cccccc;
   margin-bottom: 24px;
   position: relative;
 }
 
-/* line 216, ../sass/screen.scss */
+/* line 238, ../sass/screen.scss */
 article h2 {
   margin-bottom: 24px;
 }
 
-/* line 220, ../sass/screen.scss */
+/* line 242, ../sass/screen.scss */
 article time {
   background-color: #cccccc;
   -moz-border-radius: 0 0 0 10px;
@@ -710,7 +743,7 @@ article time {
 }
 
 /* About Me Section */
-/* line 235, ../sass/screen.scss */
+/* line 257, ../sass/screen.scss */
 #about img {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -722,7 +755,7 @@ article time {
 }
 
 /* Article List on Homepage */
-/* line 242, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
 section.posts {
   border-top-style: solid;
   border-top-width: 1px;
@@ -731,12 +764,12 @@ section.posts {
   margin-bottom: 24px;
 }
 
-/* line 250, ../sass/screen.scss */
+/* line 272, ../sass/screen.scss */
 section.posts li:first-of-type {
   padding: 0;
 }
 
-/* line 254, ../sass/screen.scss */
+/* line 276, ../sass/screen.scss */
 section.posts li {
   border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -745,7 +778,7 @@ section.posts li {
   padding-top: 24px;
 }
 
-/* line 262, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 section.posts time {
   font-size: 12px;
   line-height: 24px;
@@ -753,7 +786,7 @@ section.posts time {
   float: right;
 }
 
-/* line 268, ../sass/screen.scss */
+/* line 290, ../sass/screen.scss */
 section.posts li a.title {
   color: #333333;
   display: block;
@@ -764,69 +797,188 @@ section.posts li a.title {
 }
 
 /* Circles */
-/* line 283, ../sass/screen.scss */
-#circles {
-  left: -150px;
-  position: absolute;
-  top: 28px;
-  width: 100px;
+@-webkit-keyframes clouds {
+  /* line 314, ../sass/screen.scss */
+  from {
+    background-position: 0% 0%,             50% 0%;
+  }
+
+  /* line 319, ../sass/screen.scss */
+  to {
+    background-position: 512px 0%,             50% 0%;
+  }
 }
 
-/* line 290, ../sass/screen.scss */
-#circles .background {
+@-webkit-keyframes bgcolorstrobe {
+  /* line 327, ../sass/screen.scss */
+  0% {
+    background-color: #bf4040;
+  }
+
+  /* line 330, ../sass/screen.scss */
+  20% {
+    background-color: #aabf40;
+  }
+
+  /* line 333, ../sass/screen.scss */
+  40% {
+    background-color: #40bf6a;
+  }
+
+  /* line 336, ../sass/screen.scss */
+  60% {
+    background-color: #407fbf;
+  }
+
+  /* line 339, ../sass/screen.scss */
+  80% {
+    background-color: #9540bf;
+  }
+
+  /* line 342, ../sass/screen.scss */
+  100% {
+    background-color: #bf4040;
+  }
+}
+
+/* line 347, ../sass/screen.scss */
+#circles {
+  background: url(/images/clouds.png), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, #000000));
+  background: url(/images/clouds.png), -webkit-linear-gradient(rgba(0, 0, 0, 0), #000000);
+  background: url(/images/clouds.png), -moz-linear-gradient(rgba(0, 0, 0, 0), #000000);
+  background: url(/images/clouds.png), -o-linear-gradient(rgba(0, 0, 0, 0), #000000);
+  background: url(/images/clouds.png), -ms-linear-gradient(rgba(0, 0, 0, 0), #000000);
+  background: url(/images/clouds.png), linear-gradient(rgba(0, 0, 0, 0), #000000);
   background-attachment: fixed;
-  background-image: url(/images/strip-moon.jpg);
-  background-ximage: url(/images/strip-autumn.jpg);
-  background-position: top center;
-  -moz-mask: -moz-radial-gradient(50px 50px, white 0, white 50px, rgba(0, 0, 0, 0) 50px);
-  -moz-mask-repeat: repeat-y;
-  -moz-mask-size: 100px 150px;
-  -webkit-mask: -webkit-radial-gradient(50px 50px, white 0, white 50px, rgba(0, 0, 0, 0) 50px);
-  -webkit-mask-repeat: repeat-y;
-  -webkit-mask-size: 100px 150px;
-  height: 1000px;
+  background-color: #bf5540;
+  background-origin: padding-box;
+  background-position: 50% 0%;
+  background-repeat: repeat;
+  height: 1200px;
+  left: -180px;
+  position: absolute;
+  top: 40px;
+  width: 120px;
+  -webkit-animation: clouds 20s infinite linear,         bgcolorstrobe 60s infinite linear;
+}
+
+/* line 373, ../sass/screen.scss */
+#circles:after {
+  background: -webkit-gradient(radial, 60px 60px, 0, 60px 60px, 60, color-stop(100%, rgba(0, 0, 0, 0)), color-stop(100%, #ffffff));
+  background: -webkit-radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #ffffff 60px);
+  background: -moz-radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #ffffff 60px);
+  background: -o-radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #ffffff 60px);
+  background: -ms-radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #ffffff 60px);
+  background: radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #ffffff 60px);
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  content: '';
+  display: block;
+  bottom: 0;
   left: 0;
   position: absolute;
+  right: 0;
   top: 0;
-  width: 100px;
 }
 
-/* line 322, ../sass/screen.scss */
+/* line 393, ../sass/screen.scss */
 #circles b {
+  background-color: rgba(0, 0, 0, 0);
   border: 10px solid white;
-  -moz-border-radius: 52px;
-  -webkit-border-radius: 52px;
-  -o-border-radius: 52px;
-  -ms-border-radius: 52px;
-  -khtml-border-radius: 52px;
-  border-radius: 52px;
-  -moz-box-shadow: inset 0 0 1em black;
-  -webkit-box-shadow: inset 0 0 1em black;
-  -o-box-shadow: inset 0 0 1em black;
-  box-shadow: inset 0 0 1em black;
+  -moz-border-radius: 70px;
+  -webkit-border-radius: 70px;
+  -o-border-radius: 70px;
+  -ms-border-radius: 70px;
+  -khtml-border-radius: 70px;
+  border-radius: 70px;
+  /*
+  @include box-shadow(
+      inset 0 0 1em hsl(0, 0%, 0%)
+  );
+  */
   display: block;
-  height: 84px;
-  left: -2px;
-  margin-bottom: 46px;
-  position: relative;
-  top: -2px;
-  width: 84px;
+  height: 120px;
+  left: -10px;
+  position: absolute;
+  width: 120px;
+  z-index: 10;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+/* line 414, ../sass/screen.scss */
+#circles b:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 421, ../sass/screen.scss */
+#circles b:nth-of-type(1) {
+  top: -10px;
+}
+
+/* line 421, ../sass/screen.scss */
+#circles b:nth-of-type(2) {
+  top: 170px;
+}
+
+/* line 421, ../sass/screen.scss */
+#circles b:nth-of-type(3) {
+  top: 350px;
+}
+
+/* line 421, ../sass/screen.scss */
+#circles b:nth-of-type(4) {
+  top: 530px;
+}
+
+/* line 421, ../sass/screen.scss */
+#circles b:nth-of-type(5) {
+  top: 710px;
+}
+
+/* line 421, ../sass/screen.scss */
+#circles b:nth-of-type(6) {
+  top: 890px;
+}
+
+/* line 421, ../sass/screen.scss */
+#circles b:nth-of-type(7) {
+  top: 1070px;
 }
 
 /* Night */
-/* line 338, ../sass/screen.scss */
+/* line 427, ../sass/screen.scss */
 body.night {
-  background-color: #171a1c;
+  background-color: black;
   color: #cccccc;
 }
 
-/* line 345, ../sass/screen.scss */
+/* line 434, ../sass/screen.scss */
 body.night header h1 {
   color: #262626;
   text-shadow: 1px 1px 0 #999999;
 }
 
-/* line 350, ../sass/screen.scss */
+/* line 439, ../sass/screen.scss */
+body.night #circles {
+  background-color: black;
+  background-image: url(/images/clouds.png), url(/images/moon1.png), url(/images/stars.jpg);
+}
+
+/* line 449, ../sass/screen.scss */
 body.night #circles b {
-  border: 10px solid #171a1c;
+  border: 10px solid black;
+}
+
+/* line 454, ../sass/screen.scss */
+body.night #circles:after {
+  background: -webkit-gradient(radial, 60px 60px, 0, 60px 60px, 60, color-stop(100%, rgba(0, 0, 0, 0)), color-stop(100%, #000000));
+  background: -webkit-radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #000000 60px);
+  background: -moz-radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #000000 60px);
+  background: -o-radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #000000 60px);
+  background: -ms-radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #000000 60px);
+  background: radial-gradient(60px 60px, rgba(0, 0, 0, 0) 60px, #000000 60px);
 }
