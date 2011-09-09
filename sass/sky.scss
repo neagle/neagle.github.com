@@ -1,0 +1,88 @@
+@-webkit-keyframes clouds {
+    from {
+        background-position:
+            50% 100%,
+            0px 0%,
+            10% 15%,
+            0% 0%;
+    }
+    to {
+        background-position:
+            50% 100%,
+            512px 0%,
+            10% 15%,
+            0% 0%;
+    }
+}
+
+#sky {
+    background: {
+        color: black;
+        position:
+            50% 100%,
+            50% 0%,
+            10% 15%,
+            0% 0%;
+        repeat:
+            no-repeat,
+            repeat,
+            no-repeat,
+            repeat;
+        size:
+            100% 100%,
+            auto auto,
+            auto auto,
+            auto auto;
+    }
+    @include background-image(
+        linear-gradient(
+            50% 100%,
+            hsla(20, 50%, 50%, 1) 0%,
+            hsla(40, 50%, 50%, 1) 5%,
+            hsla(200, 50%, 30%, 1) 20%,
+            hsla(200, 50%, 10%, 0) 100%
+        ),
+        url( /images/clouds.png ),
+        url( /images/moon2.png ),
+        url( /images/stars.jpg )
+    );
+    height: 300px;
+    xposition: fixed;
+    width: 100%;
+
+    -webkit-animation:
+        clouds 20s infinite linear;
+}
+
+$hillSize: 8000px;
+$horizonSize: 500px;
+
+#horizon {
+    background: {
+        position:
+            50% 50%;
+        repeat:
+            no-repeat;
+        size:
+            $hillSize * 2 $hillSize * 2;
+    }
+    @include background-image(
+        radial-gradient(
+            50% $hillSize * 2,
+            $ground $hillSize, 
+            hsla(0, 0%, 0%, 0.5) $hillSize,
+            hsla(0, 0%, 0%, 0) $hillSize + 20
+        )
+    );
+    height: $horizonSize;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#container {
+    margin: {
+        top: -170px;
+    }
+}

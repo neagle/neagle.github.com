@@ -1,0 +1,124 @@
+$titleColor: hsl(20, 50%, 22%);
+$titleShadow: hsl(20, 50%, 12%);
+
+header h1 {
+    color: $titleColor; 
+    @include adjust-font-size-to( 186px );
+    @include adjust-leading-to( 7 );
+    position: relative;
+    text-indent: -7px;
+    text-shadow:
+        -1px -1px 0 $titleShadow,
+        -2px -2px 0 $titleShadow,
+        -3px -3px 0 $titleShadow,
+        -4px -4px 0 $titleShadow,
+        -5px -5px 0 $titleShadow,
+        -5px -5px 30px $titleShadow;
+    text-transform: uppercase;
+    width: 700px;
+
+    /*
+    -webkit-animation: colorstrobe 60s infinite linear;
+    */
+}
+
+header h1 b {
+    display: block;
+    float: left;
+    position: relative;
+    z-index: 10;
+}
+
+header h1 b:nth-of-type( 1 ) {
+    color: darken( $titleColor, 5% );
+    @include adjust-font-size-to( 164px );
+    margin: {
+        left: -35px;
+    }
+    top: 20px;
+}
+
+header h1 b:nth-of-type( 2 ) {
+    margin: {
+        right: 20px;
+    }
+    top: 20px;
+}
+
+header h1 b:nth-of-type( 3 ) {
+    color: darken( $titleColor, 3% );
+    top: -5px;
+}
+
+header h1 b:nth-of-type( 4 ) {
+    @include adjust-font-size-to( 174px );
+    top: -5px;
+}
+
+header h1 b:nth-of-type( 5 ) {
+    color: darken( $titleColor, 6% );
+    margin: {
+        right: -10px;
+    }
+    top: -30px;
+}
+
+header h1 b:nth-of-type( 6 ) {
+    color: darken( $titleColor, 5% );
+    @include adjust-font-size-to( 174px );
+    margin: {
+        right: 20px;
+    }
+    top: -30px;
+}
+
+header h1 b:nth-of-type( 7 ) {
+    color: lighten( $titleColor, 2% );
+    @include adjust-font-size-to( 194px );
+}
+
+header h1 b:nth-of-type( 8 ) {
+    margin: {
+        right: 10px;
+    }
+}
+
+header h1 b:nth-of-type( 9 ) {
+    @include adjust-font-size-to( 164px );
+    color: darken( $titleColor, 3% );
+    margin: {
+        right: 30px;
+    }
+}
+
+header h1 b:nth-of-type( 10 ) {
+    @include adjust-font-size-to( 144px );
+    color: lighten( $titleColor, 3% );
+    margin: {
+        right: 10px;
+    }
+    top: 30px;
+}
+
+header h1 b:nth-of-type( 11 ) {
+    color: lighten( $titleColor, 3% );
+    @include adjust-font-size-to( 124px );
+    top: 50px;
+}
+
+/*
+header h1.shadow {
+    position: absolute;
+}
+
+header h1.shadow b {
+    color: hsla(0, 0%, 0%, 0);
+    @include transform(
+        skew( 10deg, 0 )
+    );
+    left: -13px;
+    text-shadow:
+        0 0 30px hsla(0, 0%, 0%, 0.5);
+    z-index: 5;
+}
+*/

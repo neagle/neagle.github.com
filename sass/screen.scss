@@ -93,8 +93,15 @@ body {
 
 #container {
     margin: 0 auto;
+    min-width: 600px;
     position: relative;
-    width: 600px;
+    width: 50%;
+}
+
+@media all and (max-width: 800px) {
+    #container {
+        border: 10px solid red;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -151,24 +158,8 @@ header {
         color: hsl(360, 50%, 50%);
     }
 }
-header h1 {
-    color: hsl(0, 0%, 90%);
-    @include adjust-font-size-to( 186px );
-    @include adjust-leading-to( 7 );
-    position: relative;
-    text-indent: -7px;
-    text-shadow: 1px 1px 0 hsl(0, 0%, 20%);
-    text-transform: uppercase;
-    width: 700px;
 
-    -webkit-animation: colorstrobe 60s infinite linear;
-}
-
-header h1 b {
-    @include adjust-font-size-to( 144px );
-    position: relative;
-    top: -30px;
-}
+@import "letters.scss";
 
 header h1 a,
 header h1 a:visited {
@@ -192,6 +183,7 @@ header h1:hover a:before {
 
 header p {
     @include adjust-font-size-to( 24px );
+    clear: left;
     color: hsl(6, 71%, 47%);
     @include margin-trailer( 1 );
     text-align: right;
@@ -256,7 +248,9 @@ article time {
 
 #about img {
     @include border-radius( 10px );
+    @include box-shadow( 0 0 1em hsl(0, 0%, 0%) );
     float: right;
+    margin: 0 0 1em 1em;
 }
 
 /* Article List on Homepage */
@@ -301,162 +295,10 @@ section.posts p.excerpt {
 section.posts li.expanded p.excerpt {
 }
 
-/* Circles */
+/*
+@import "circles.scss";
+*/
 
-$circles: 7;
-$circleDiameter: 120px;
-$topOffset: $circleDiameter / 4 * -1;
-$spaceBetween: $circleDiameter / 2;
-$portholeBigger: 20px;
-$portholeBorder: 10px;
+@import "night.scss";
 
-@-webkit-keyframes clouds {
-    from {
-        background-position:
-            0% 0%,
-            50% 0%;
-    }
-    to {
-        background-position:
-            512px 0%,
-            50% 0%;
-    }
-}
-
-@-webkit-keyframes bgcolorstrobe {
-    0% {
-        background-color: hsl(0, 50%, 50%);
-    }
-    20% {
-        background-color: hsl(70, 50%, 50%);
-    }
-    40% {
-        background-color: hsl(140, 50%, 50%);
-    }
-    60% {
-        background-color: hsl(210, 50%, 50%);
-    }
-    80% {
-        background-color: hsl(280, 50%, 50%);
-    }
-    100% {
-        background-color: hsl(360, 50%, 50%);
-    }
-}
-
-#circles {
-    @include background(
-        url( /images/clouds.png ),
-        linear-gradient(
-            hsla(0, 0%, 0%, 0),
-            hsl(10, 100%, 0%)
-        )
-    );
-    background: {
-        attachment: fixed;
-        color: hsl(10, 50%, 50%);
-        origin: padding-box;
-        position: 50% 0%;
-        repeat: repeat;
-    }
-    height: ( $circles * $circleDiameter ) + ( $circles * $spaceBetween ) - $spaceBetween;
-    left: -$circleDiameter * 1.5;
-    position: absolute;
-    top: 40px;
-    width: $circleDiameter;
-
-    -webkit-animation:
-        clouds 20s infinite linear,
-        bgcolorstrobe 60s infinite linear;
-}
-
-#circles:after {
-    @include background(
-        radial-gradient(
-            ( $circleDiameter / 2 ) ( $circleDiameter / 2 ),
-            hsla(0, 0%, 0%, 0) $circleDiameter / 2,
-            hsl(0, 0%, 100%) $circleDiameter / 2
-        )
-    );
-    background-position: 0 0;
-    background-repeat: repeat;
-    background-size: $circleDiameter * 1.5 $circleDiameter * 1.5;
-    content: '';
-    display: block;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-#circles b {
-    background: {
-        color: hsla(0, 0%, 0%, 0);
-    }
-    border: $portholeBorder solid hsl(0, 50%, 100%);
-    @include border-radius( ( $circleDiameter / 2 ) + ( $portholeBigger / 2 ) );
-    /*
-    @include box-shadow(
-        inset 0 0 1em hsl(0, 0%, 0%)
-    );
-    */
-    display: block;
-    height: $circleDiameter - ( $portholeBorder * 2 ) + $portholeBigger;
-    left: -$portholeBigger / 2;
-    position: absolute;
-    width: $circleDiameter - ( $portholeBorder * 2 ) + $portholeBigger;
-    z-index: 10;
-
-    @include transition( all 1s );
-}
-
-#circles b:hover {
-    background: {
-        color: hsla(0, 0%, 0%, 0.5);
-    }
-}
-
-@for $i from 1 through $circles {
-    #circles b:nth-of-type( #{$i} ) {
-        top: ( $i - 1 ) * ( $circleDiameter + $spaceBetween ) - ( $portholeBigger / 2 );
-    }
-}
-
-/* Night */
-body.night {
-    background: {
-        color: hsl(200, 0%, 0%);
-    }
-    color: hsl(0, 0%, 80%);
-}
-
-body.night header h1 {
-    color: hsl(0, 0%, 15%);
-    text-shadow: 1px 1px 0 hsl(0, 0%, 60%);
-}
-
-body.night #circles {
-    background: {
-        color: black;
-        image:
-           url( /images/clouds.png ),
-           url( /images/moon1.png ),
-           url( /images/stars.jpg );
-    }
-}
-
-body.night #circles b {
-    border: 10px solid hsl(200, 0%, 0%);
-}
-
-
-body.night #circles:after {
-    @include background(
-        radial-gradient(
-            ( $circleDiameter / 2 ) ( $circleDiameter / 2 ),
-            hsla(0, 0%, 0%, 0) $circleDiameter / 2,
-            hsl(0, 0%, 0%) $circleDiameter / 2
-        )
-    );
-}
+@import "sky.scss";

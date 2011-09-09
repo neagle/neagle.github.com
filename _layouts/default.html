@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="/css/screen.css">
 </head>
 
-<body>
+<body class="night">
+    <div id="sky"></div>
+    <div id="horizon"> </div><!-- end horizon -->
     <div id="container">
 
+        <!--
         <div id="circles">
             <b></b>
             <b></b>
@@ -23,13 +26,14 @@
             <b></b>    
             <b></b>    
         </div>
+        -->
 
         <header>
             <h1>
                 {% if page.date %}
-                    <a href="/">Nate Eagle<b>&rsquo;s</b></a>
+                    <a href="/"><b>N</b><b>a</b><b>t</b><b>e</b></b><b>E</b>a</b><b>g</b><b>l</b><b>e</b><b class="tail">&rsquo;s</b></a>
                 {% else %}
-                    Nate Eagle<b>&rsquo;s</b>
+                    <b>N</b><b>a</b><b>t</b><b>e</b></b><b>E</b><b>a</b><b>g</b><b>l</b><b>e</b><b>&rsquo;</b><b>s</b>
                 {% endif %}
             </h1>
             <p>front-end-development memoranda.</p>

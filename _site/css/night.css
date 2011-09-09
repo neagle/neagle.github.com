@@ -1,0 +1,30 @@
+/* Night */
+/* line 4, ../sass/night.scss */
+body.night {
+  background-color: #121c21;
+  color: #cccccc;
+}
+
+/* line 14, ../sass/night.scss */
+body.night #circles {
+  background-color: black;
+  background-image: url(/images/clouds.png), url(/images/moon1.png), url(/images/stars.jpg);
+}
+
+/* line 24, ../sass/night.scss */
+body.night #circles b {
+  border: 10px solid #1a1a1a;
+}
+
+/* line 29, ../sass/night.scss */
+body.night #circles:after {
+  /*
+  @include background(
+      radial-gradient(
+          ( $circleDiameter / 2 ) ( $circleDiameter / 2 ),
+          hsla(0, 0%, 10%, 0) $circleDiameter / 2,
+          hsl(0, 0%, 10%) $circleDiameter / 2
+      )
+  );
+  */
+}
