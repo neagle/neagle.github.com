@@ -1058,14 +1058,14 @@ body.night #circles:after {
 #horizon {
   background-position: 50% 50%,             50% 200px;
   background-repeat: repeat,             no-repeat;
-  background-size: auto, 15100px 15100px;
-  background-image: url(/images/noise-small.png), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 7520, color-stop(97.074%, #121c21), color-stop(99.734%, #243842), color-stop(99.734%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
-  background-image: url(/images/noise-small.png), -webkit-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  background-image: url(/images/noise-small.png), -moz-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  background-image: url(/images/noise-small.png), -o-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  background-image: url(/images/noise-small.png), -ms-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  background-image: url(/images/noise-small.png), radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  height: 600px;
+  background-size: 256px, 15100px 15100px;
+  background-image: url(/images/noise-small.png), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 7520, color-stop(0%, #000000), color-stop(97.074%, #121c21), color-stop(99.734%, #243842), color-stop(99.734%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: url(/images/noise-small.png), -webkit-radial-gradient(#000000, #121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), -moz-radial-gradient(#000000, #121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), -o-radial-gradient(#000000, #121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), -ms-radial-gradient(#000000, #121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), radial-gradient(#000000, #121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  height: 1000px;
   left: 0;
   position: absolute;
   right: 0;
@@ -1100,7 +1100,7 @@ body.night #circles:after {
     top: 0;
 }
 */
-/* line 119, ../sass/sky.scss */
+/* line 120, ../sass/sky.scss */
 #container {
   margin-top: -170px;
 }

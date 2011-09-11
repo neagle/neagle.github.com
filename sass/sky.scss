@@ -57,7 +57,7 @@
 }
 
 $hillSize: 15000px;
-$horizonSize: 600px;
+$horizonSize: 1000px;
 
 #horizon {
     background: {
@@ -68,12 +68,13 @@ $horizonSize: 600px;
             repeat,
             no-repeat;
         size:
-            auto,
+            256px,
             $hillSize + 100 $hillSize + 100;
     }
     @include background-image(
         url( /images/noise-small.png ),
         radial-gradient(
+            darken( $ground, 50% ), 
             $ground $hillSize / 2 - 200, 
             lighten($ground, 10%) $hillSize / 2, 
             hsla(0, 0%, 0%, 0.3) $hillSize / 2,
