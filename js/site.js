@@ -32,6 +32,10 @@
             $footer.removeClass( 'active' );
         });
 
+        $( 'header h1' ).delegate( 'b', 'click', function( event ) {
+            $( event.currentTarget ).toggleClass( 'active' )
+        });
+
     });
 
 })( jQuery );

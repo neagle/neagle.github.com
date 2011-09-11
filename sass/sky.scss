@@ -3,14 +3,14 @@
         background-position:
             50% 100%,
             0px 0%,
-            10% 15%,
+            10% -20%,
             0% 0%;
     }
     to {
         background-position:
             50% 100%,
             512px 0%,
-            10% 15%,
+            10% -20%,
             0% 0%;
     }
 }
@@ -21,7 +21,7 @@
         position:
             50% 100%,
             50% 0%,
-            10% 15%,
+            10% -20%,
             0% 0%;
         repeat:
             no-repeat,
@@ -37,9 +37,11 @@
     @include background-image(
         linear-gradient(
             50% 100%,
-            hsla(20, 50%, 50%, 1) 0%,
-            hsla(40, 50%, 50%, 1) 5%,
-            hsla(200, 50%, 30%, 1) 20%,
+            hsla(300, 50%, 30%, 0.7) 0%,
+            hsla(0, 50%, 50%, 0.7) 10%,
+            hsla(20, 50%, 50%, 0.7) 15%,
+            hsla(40, 50%, 50%, 0.6) 30%,
+            hsla(200, 50%, 30%, 0.6) 50%,
             hsla(200, 50%, 10%, 0) 100%
         ),
         url( /images/clouds.png ),
@@ -54,24 +56,28 @@
         clouds 20s infinite linear;
 }
 
-$hillSize: 8000px;
-$horizonSize: 500px;
+$hillSize: 15000px;
+$horizonSize: 600px;
 
 #horizon {
     background: {
         position:
-            50% 50%;
+            50% 50%,
+            50% 200px;
         repeat:
+            repeat,
             no-repeat;
         size:
-            $hillSize * 2 $hillSize * 2;
+            auto,
+            $hillSize + 100 $hillSize + 100;
     }
     @include background-image(
+        url( /images/noise.png ),
         radial-gradient(
-            50% $hillSize * 2,
-            $ground $hillSize, 
-            hsla(0, 0%, 0%, 0.5) $hillSize,
-            hsla(0, 0%, 0%, 0) $hillSize + 20
+            $ground $hillSize / 2 - 200, 
+            lighten($ground, 10%) $hillSize / 2, 
+            hsla(0, 0%, 0%, 0.3) $hillSize / 2,
+            hsla(0, 0%, 0%, 0) ( $hillSize / 2 ) + 20
         )
     );
     height: $horizonSize;
@@ -80,6 +86,35 @@ $horizonSize: 500px;
     right: 0;
     top: 0;
 }
+
+/*
+#horizon {
+    background: {
+        position:
+            50% 50%;
+        repeat:
+            repeat,
+            no-repeat;
+        size:
+            512px,
+            $hillSize * 2 $hillSize * 2;
+    }
+    @include background-image(
+        url( /images/noise.png ),
+        radial-gradient(
+            50% $hillSize * 2,
+            $ground $hillSize - 150,
+            lighten($ground, 10%) $hillSize, 
+            hsla(0, 0%, 0%, 0) $hillSize
+        )
+    );
+    height: $horizonSize;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+*/
 
 #container {
     margin: {

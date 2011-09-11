@@ -6,6 +6,7 @@
 @import "compass/reset";
 @import "compass/css3";
 @import "pygments.scss";
+@import "fonts.scss";
 
 /* Set vertical rhythm configurables */
 $base-font-size: 16px;
@@ -17,39 +18,50 @@ $relative-font-sizing: false;
 
 @include establish-baseline( 16px );
 
-@font-face {
-    font-family: 'FranchiseRegular';
-    src: url('/fonts/franchise/franchise-bold-webfont.eot');
-    src: url('/fonts/franchise/franchise-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/franchise/franchise-bold-webfont.woff') format('woff'),
-         url('/fonts/franchise/franchise-bold-webfont.ttf') format('truetype'),
-         url('/fonts/franchise/franchise-bold-webfont.svg#FranchiseRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+/* Colors
+ ************************************************/
+$ground: hsl(200, 30%, 10%);
+
+$bodyText: lighten( $ground, 70% );
+
+$titleColor: hsl(50, 40%, 40%);
+$titleShadow: hsl(20, 50%, 12%);
+
+$subtitleColor: hsl(200, 70%, 32%);
+$subtitleShadow: darken( $subtitleColor, 20% );
+
+/* Text highlight */
+$highlight: lighten( $ground, 20% );
+
+$borderColor: hsla(200, 30%, 20%, 0.5);
+$link: lighten( $titleColor, 5% );
+$linkVisited: $link;
+$linkHover: $link;
+
 
 html {
     -webkit-font-smoothing: antialiased;
 }
 
 a {
-    color: hsl(6, 71%, 47%);
-}
-
-a:visited {
-    color: hsl(6, 51%, 27%);
-}
-
-a:hover {
+    color: $link;
     text-decoration: none;
 }
 
+a:visited {
+    color: $linkVisited;
+}
+
+a:hover {
+    color: $linkHover;
+}
+
 ::selection {
-    background: hsl(6, 71%, 47%);
+    background: $highlight;
 }
 
 ::-moz-selection {
-    background: hsl(6, 71%, 47%);
+    background: $highlight;
 }
 
 p {
@@ -57,9 +69,6 @@ p {
 }
 
 pre {
-    border: {
-        color: hsl(0, 0%, 90%);
-    }
     display: block;
     font-family: monospace;
     @include margin-leader( 1 );
@@ -72,10 +81,21 @@ code {
     font-family: monospace;
 }
 
-blockquote {
+blockquote, pre {
     background: {
-        color: hsl(0, 0%, 90%);
+        color: darken($ground, 2%);
     }
+    border: {
+        color: $ground;
+    }
+    @include border-radius( 5px );
+    @include box-shadow(
+        inset 0 0 1em darken($ground, 5%),
+        0 1px 0 lighten($ground, 10%)
+    );
+}
+
+blockquote {
     padding: {
         left: 25px;
         right: 25px;
@@ -100,12 +120,11 @@ body {
 
 @media all and (max-width: 800px) {
     #container {
-        border: 10px solid red;
     }
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'FranchiseRegular';
+    font-family: 'ExistenceLight';
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
@@ -119,7 +138,8 @@ h1 {
 }
 
 h2 {
-    @include adjust-font-size-to( 60px );
+    @include adjust-font-size-to( 48px );
+    @include padding-leader( 1 );
 }
 
 h3 {
@@ -136,6 +156,7 @@ strong {
 
 header {
     display: block;
+    margin-top: 10px;
 }
 
 @-webkit-keyframes colorstrobe {
@@ -161,49 +182,51 @@ header {
 
 @import "letters.scss";
 
-header h1 a,
-header h1 a:visited {
-    color: hsl(0, 0%, 90%);
-}
-
-header h1 a:before {
-    @include adjust-font-size-to( 72px );
-    content: '\02190 Home';
-    display: block;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 45px;
-}
-
-header h1:hover a:before {
-    left: -200px;
-    opacity: 1;
+@mixin text-3d($size: 5, $directionX: 1, $directionY: 1, $blur: 1px, $color: black ) {
+    @if unitless($blur) {
+        @warn "Assuming #{$blur} to be in pixels";
+        $blur: 1px * $blur;
+    }
+    $string: '';
+    @for $i from 1 through $size {
+        $string: $string + ( #{$i * $directionX}px #{$i * $directionY}px $blur $color );
+        @if $i < $size {
+            $string: $string + ', ';
+        }
+    }
+    @include text-shadow(
+        #{$string}
+    )
 }
 
 header p {
-    @include adjust-font-size-to( 24px );
+    @include adjust-font-size-to( 36px );
     clear: left;
-    color: hsl(6, 71%, 47%);
+    color: $subtitleColor; 
+    font: {
+        family: 'ExistenceLight';
+    }
     @include margin-trailer( 1 );
     text-align: right;
+    /* @include text-3d( 3, -1, -1, 0, $subtitleShadow ); */
 }
 
 footer {
     @include apply-side-rhythm-border( top, 1px, 1, 16px, solid );
     border: {
-        color: hsl(0, 0%, 80%);
+        color: $borderColor;
     }
     @include adjust-font-size-to( 24px );
+    clear: both;
     display: block;
     font: {
-        family: 'FranchiseRegular';
+        family: 'ExistenceLight';
+        size: 24px;
     }
     @include padding-leader( 1 );
     @include padding-trailer( 1 );
     text-align: center;
     text-transform: uppercase;
-    width: 600px;
 }
 
 footer:hover,
@@ -216,12 +239,13 @@ footer li {
 }
 
 footer a {
+    font-weight: normal;
     text-decoration: none;
 }
 
 article {
     border: {
-        top: 1px solid hsl(0, 0%, 80%);
+        top: 1px solid $borderColor;
     }
     @include margin-trailer( 1 );
     position: relative;
@@ -232,16 +256,13 @@ article h2 {
 }
 
 article time {
-    background-color: hsl(0, 0%, 80%);
-    @include border-radius( 0 0 0 10px );
-    color: hsl(0, 0%, 100%);
+    @include adjust-font-size-to( 12px );
+    color: lighten( $ground, 20% );
     float: right;
-    padding: {
-        left: 15px;
-        right: 10px;
-    }
-    @include padding-leader( 1, 36px );
-    @include padding-trailer( 1, 36px );
+    @include padding-leader( 1 );
+    @include text-shadow(
+        none
+    );
 }
 
 /* About Me Section */
@@ -258,7 +279,7 @@ article time {
 section.posts {
     @include apply-side-rhythm-border( top, 1px, 1, 16px, solid );
     border: {
-        color: hsl(0, 0%, 80%);
+        color: $borderColor;
     }
     @include margin-trailer( 1 );
 }
@@ -270,22 +291,24 @@ section.posts li:first-of-type {
 section.posts li {
     @include apply-side-rhythm-border( bottom, 1px, 1, 16px, solid );
     border: {
-        color: hsl(0, 0%, 80%);
+        color: $borderColor;
     }
     @include padding-leader( 1 );
 }
 
 section.posts time {
     @include adjust-font-size-to( 12px );
-    color: hsl(0, 0%, 60%);
+    color: lighten( $ground, 20% );
     float: right;
+    @include text-shadow(
+        none
+    );
 }
 
 section.posts li a.title {
-    color: hsl(0, 0%, 20%);
     display: block;
     @include adjust-font-size-to( 36px );
-    font-family: 'FranchiseRegular';
+    font-family: 'ExistenceLight';
     text-decoration: none;
 }
 

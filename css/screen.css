@@ -453,6 +453,85 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* Literal.Number.Integer.Long */
+/* Fonts
+ ***********************************************/
+/*
+@font-face {
+    font-family: 'FranchiseRegular';
+    src: url('/fonts/franchise/franchise-bold-webfont.eot');
+    src: url('/fonts/franchise/franchise-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/franchise/franchise-bold-webfont.woff') format('woff'),
+         url('/fonts/franchise/franchise-bold-webfont.ttf') format('truetype'),
+         url('/fonts/franchise/franchise-bold-webfont.svg#FranchiseRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ArmorPiercingRegular';
+    src: url('/fonts/armorpiercing/ap-webfont.eot');
+    src: url('/fonts/armorpiercing/ap-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/armorpiercing/ap-webfont.woff') format('woff'),
+         url('/fonts/armorpiercing/ap-webfont.ttf') format('truetype'),
+         url('/fonts/armorpiercing/ap-webfont.svg#ArmorPiercingRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('/fonts/bebas-neue/BebasNeue-webfont.eot');
+    src: url('/fonts/bebas-neue/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/bebas-neue/BebasNeue-webfont.woff') format('woff'),
+         url('/fonts/bebas-neue/BebasNeue-webfont.ttf') format('truetype'),
+         url('/fonts/bebas-neue/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BonvenoCFLight';
+    src: url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.eot');
+    src: url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.woff') format('woff'),
+         url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.ttf') format('truetype'),
+         url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.svg#BonvenoCFLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
+@font-face {
+  font-family: 'ExistenceLight';
+  src: url("/fonts/Existence-Light/Existence-Light-webfont.eot");
+  src: url("/fonts/Existence-Light/Existence-Light-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/Existence-Light/Existence-Light-webfont.woff") format("woff"), url("/fonts/Existence-Light/Existence-Light-webfont.ttf") format("truetype"), url("/fonts/Existence-Light/Existence-Light-webfont.svg#ExistenceLight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ExistenceUnicaseLight';
+  src: url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.eot");
+  src: url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.woff") format("woff"), url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.ttf") format("truetype"), url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.svg#ExistenceUnicaseLight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+@font-face {
+    font-family: 'ExistenceStencilLight';
+    src: url('/fonts/Existence-Light/Existence-StencilLight-webfont.eot');
+    src: url('/fonts/Existence-Light/Existence-StencilLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/Existence-Light/Existence-StencilLight-webfont.woff') format('woff'),
+         url('/fonts/Existence-Light/Existence-StencilLight-webfont.ttf') format('truetype'),
+         url('Existence-StencilLight-webfont.svg#ExistenceStencilLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
 /* Set vertical rhythm configurables */
 /* line 51, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 body {
@@ -465,52 +544,47 @@ html > body {
   font-size: 16px;
 }
 
-@font-face {
-  font-family: 'FranchiseRegular';
-  src: url("/fonts/franchise/franchise-bold-webfont.eot");
-  src: url("/fonts/franchise/franchise-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/franchise/franchise-bold-webfont.woff") format("woff"), url("/fonts/franchise/franchise-bold-webfont.ttf") format("truetype"), url("/fonts/franchise/franchise-bold-webfont.svg#FranchiseRegular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* line 31, ../sass/screen.scss */
+/* Colors
+ ************************************************/
+/* Text highlight */
+/* line 42, ../sass/screen.scss */
 html {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 35, ../sass/screen.scss */
+/* line 46, ../sass/screen.scss */
 a {
-  color: #cd3423;
-}
-
-/* line 39, ../sass/screen.scss */
-a:visited {
-  color: #682922;
-}
-
-/* line 43, ../sass/screen.scss */
-a:hover {
+  color: #a19145;
   text-decoration: none;
 }
 
-/* line 47, ../sass/screen.scss */
-::selection {
-  background: #cd3423;
-}
-
 /* line 51, ../sass/screen.scss */
-::-moz-selection {
-  background: #cd3423;
+a:visited {
+  color: #a19145;
 }
 
 /* line 55, ../sass/screen.scss */
+a:hover {
+  color: #a19145;
+}
+
+/* line 59, ../sass/screen.scss */
+::selection {
+  background: #365463;
+}
+
+/* line 63, ../sass/screen.scss */
+::-moz-selection {
+  background: #365463;
+}
+
+/* line 67, ../sass/screen.scss */
 p {
   margin-bottom: 24px;
 }
 
-/* line 59, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 pre {
-  border-color: #e6e6e6;
   display: block;
   font-family: monospace;
   margin-top: 24px;
@@ -521,14 +595,29 @@ pre {
   padding: 23px;
 }
 
-/* line 71, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 code {
   font-family: monospace;
 }
 
-/* line 75, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
+blockquote, pre {
+  background-color: #0e161b;
+  border-color: #121c21;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: inset 0 0 1em #090e11, 0 1px 0 #243842;
+  -webkit-box-shadow: inset 0 0 1em #090e11, 0 1px 0 #243842;
+  -o-box-shadow: inset 0 0 1em #090e11, 0 1px 0 #243842;
+  box-shadow: inset 0 0 1em #090e11, 0 1px 0 #243842;
+}
+
+/* line 98, ../sass/screen.scss */
 blockquote {
-  background-color: #e6e6e6;
   padding-left: 25px;
   padding-right: 25px;
   margin-bottom: 24px;
@@ -538,7 +627,7 @@ blockquote {
   padding: 23px;
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 108, ../sass/screen.scss */
 body {
   color: #333333;
   font-family: Lucida Grande, Helvetica, Arial, sans-serif;
@@ -546,7 +635,7 @@ body {
   line-height: 24px;
 }
 
-/* line 94, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 #container {
   margin: 0 auto;
   min-width: 600px;
@@ -554,84 +643,80 @@ body {
   width: 50%;
 }
 
-@media all and (max-width: 800px) {
-  /* line 102, ../sass/screen.scss */
-  #container {
-    border: 10px solid red;
-  }
-}
-/* line 107, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'FranchiseRegular';
+  font-family: 'ExistenceLight';
 }
 
-/* line 112, ../sass/screen.scss */
+/* line 131, ../sass/screen.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
 h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
   color: #333333;
   text-decoration: none;
 }
 
-/* line 117, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 h1 {
   font-size: 72px;
   line-height: 96px;
 }
 
-/* line 121, ../sass/screen.scss */
+/* line 140, ../sass/screen.scss */
 h2 {
-  font-size: 60px;
+  font-size: 48px;
   line-height: 72px;
+  padding-top: 24px;
 }
 
-/* line 125, ../sass/screen.scss */
+/* line 145, ../sass/screen.scss */
 h3 {
   font-size: 48px;
   line-height: 72px;
 }
 
-/* line 129, ../sass/screen.scss */
+/* line 149, ../sass/screen.scss */
 em {
   font-style: italic;
 }
 
-/* line 133, ../sass/screen.scss */
+/* line 153, ../sass/screen.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 137, ../sass/screen.scss */
+/* line 157, ../sass/screen.scss */
 header {
   display: block;
+  margin-top: 10px;
 }
 
 @-webkit-keyframes colorstrobe {
-  /* line 142, ../sass/screen.scss */
+  /* line 163, ../sass/screen.scss */
   0% {
     color: #bf4040;
   }
 
-  /* line 145, ../sass/screen.scss */
+  /* line 166, ../sass/screen.scss */
   20% {
     color: #aabf40;
   }
 
-  /* line 148, ../sass/screen.scss */
+  /* line 169, ../sass/screen.scss */
   40% {
     color: #40bf6a;
   }
 
-  /* line 151, ../sass/screen.scss */
+  /* line 172, ../sass/screen.scss */
   60% {
     color: #407fbf;
   }
 
-  /* line 154, ../sass/screen.scss */
+  /* line 175, ../sass/screen.scss */
   80% {
     color: #9540bf;
   }
 
-  /* line 157, ../sass/screen.scss */
+  /* line 178, ../sass/screen.scss */
   100% {
     color: #bf4040;
   }
@@ -639,109 +724,131 @@ header {
 
 /* line 4, ../sass/letters.scss */
 header h1 {
-  color: #542f1c;
-  font-size: 186px;
-  line-height: 192px;
+  color: #8f813d;
+  font-size: 150px;
   line-height: 168px;
+  line-height: 168px;
+  float: left;
+  font-family: 'ExistenceUnicaseLight';
   position: relative;
   text-indent: -7px;
-  text-shadow: -1px -1px 0 #2e190f, -2px -2px 0 #2e190f, -3px -3px 0 #2e190f, -4px -4px 0 #2e190f, -5px -5px 0 #2e190f, -5px -5px 30px #2e190f;
-  text-transform: uppercase;
-  width: 700px;
+  text-shadow: 1px 1px 0 #2e290f;
   /*
   -webkit-animation: colorstrobe 60s infinite linear;
   */
 }
 
-/* line 25, ../sass/letters.scss */
+/* line 21, ../sass/letters.scss */
+header h1 a,
+header h1 a:visited {
+  color: #8f813d;
+  cursor: pointer;
+}
+
+/* line 26, ../sass/letters.scss */
+header h1 a b {
+  cursor: pointer;
+}
+
+/* line 30, ../sass/letters.scss */
 header h1 b {
-  display: block;
-  float: left;
+  cursor: default;
+  xdisplay: block;
+  xfloat: left;
   position: relative;
   z-index: 10;
 }
 
-/* line 32, ../sass/letters.scss */
-header h1 b:nth-of-type(1) {
-  color: #412416;
-  font-size: 164px;
-  line-height: 168px;
-  margin-left: -35px;
-  top: 20px;
+/* line 38, ../sass/letters.scss */
+html header h1 b.active {
+  color: #b3a24d;
 }
 
-/* line 41, ../sass/letters.scss */
-header h1 b:nth-of-type(2) {
-  margin-right: 20px;
-  top: 20px;
-}
-
-/* line 48, ../sass/letters.scss */
-header h1 b:nth-of-type(3) {
-  color: #492818;
-  top: -5px;
-}
-
-/* line 53, ../sass/letters.scss */
-header h1 b:nth-of-type(4) {
-  font-size: 174px;
-  line-height: 192px;
-  top: -5px;
-}
-
-/* line 58, ../sass/letters.scss */
-header h1 b:nth-of-type(5) {
-  color: #3d2214;
-  margin-right: -10px;
-  top: -30px;
-}
-
-/* line 66, ../sass/letters.scss */
-header h1 b:nth-of-type(6) {
-  color: #412416;
-  font-size: 174px;
-  line-height: 192px;
-  margin-right: 20px;
-  top: -30px;
-}
-
-/* line 75, ../sass/letters.scss */
-header h1 b:nth-of-type(7) {
-  color: #5c331f;
-  font-size: 194px;
-  line-height: 216px;
-}
-
-/* line 80, ../sass/letters.scss */
-header h1 b:nth-of-type(8) {
-  margin-right: 10px;
-}
-
-/* line 86, ../sass/letters.scss */
-header h1 b:nth-of-type(9) {
-  font-size: 164px;
-  line-height: 168px;
-  color: #492818;
-  margin-right: 30px;
-}
-
-/* line 94, ../sass/letters.scss */
-header h1 b:nth-of-type(10) {
-  font-size: 144px;
-  line-height: 168px;
-  color: #603520;
-  margin-right: 10px;
-  top: 30px;
-}
-
-/* line 103, ../sass/letters.scss */
+/* line 44, ../sass/letters.scss */
+header h1 b:nth-of-type(10),
 header h1 b:nth-of-type(11) {
-  color: #603520;
-  font-size: 124px;
-  line-height: 144px;
-  top: 50px;
+  font-size: 100px;
 }
 
+/*
+header h1 b:nth-of-type( 1 ) {
+    color: adjust-hue( darken( $titleColor, 10% ), 0deg );
+    @include adjust-font-size-to( 164px );
+    margin: {
+        left: 0;
+    }
+    top: 15px;
+}
+
+header h1 b:nth-of-type( 2 ) {
+    margin: {
+        right: 20px;
+    }
+    top: 20px;
+}
+
+header h1 b:nth-of-type( 3 ) {
+    color: adjust-hue( darken( $titleColor, 3% ), 0deg );
+    top: -5px;
+}
+
+header h1 b:nth-of-type( 4 ) {
+    @include adjust-font-size-to( 174px );
+    top: -5px;
+}
+
+header h1 b:nth-of-type( 5 ) {
+    color: darken( $titleColor, 6% );
+    margin: {
+        right: -10px;
+    }
+    top: -30px;
+}
+
+header h1 b:nth-of-type( 6 ) {
+    color: adjust-hue( darken( $titleColor, 5% ), 0deg );
+    @include adjust-font-size-to( 174px );
+    margin: {
+        right: 20px;
+    }
+    top: -20px;
+}
+
+header h1 b:nth-of-type( 7 ) {
+    color: lighten( $titleColor, 2% );
+    @include adjust-font-size-to( 194px );
+}
+
+header h1 b:nth-of-type( 8 ) {
+    color: adjust-hue( $titleColor, 0deg );
+    margin: {
+        right: 10px;
+    }
+}
+
+header h1 b:nth-of-type( 9 ) {
+    @include adjust-font-size-to( 164px );
+    color: darken( $titleColor, 3% );
+    margin: {
+        right: 30px;
+    }
+}
+
+header h1 b:nth-of-type( 10 ) {
+    @include adjust-font-size-to( 144px );
+    color: lighten( $titleColor, 3% );
+    margin: {
+        right: 10px;
+    }
+    top: 30px;
+}
+
+header h1 b:nth-of-type( 11 ) {
+    color: adjust-hue( lighten( $titleColor, 3% ), 0deg );
+    @include adjust-font-size-to( 124px );
+    top: 50px;
+}
+*/
 /*
 header h1.shadow {
     position: absolute;
@@ -750,7 +857,7 @@ header h1.shadow {
 header h1.shadow b {
     color: hsla(0, 0%, 0%, 0);
     @include transform(
-        skew( 10deg, 0 )
+        skew( 0deg, 0 )
     );
     left: -13px;
     text-shadow:
@@ -758,99 +865,72 @@ header h1.shadow b {
     z-index: 5;
 }
 */
-/* line 165, ../sass/screen.scss */
-header h1 a,
-header h1 a:visited {
-  color: #e6e6e6;
-}
-
-/* line 169, ../sass/screen.scss */
-header h1 a:before {
-  font-size: 72px;
-  line-height: 96px;
-  content: '\02190 Home';
-  display: block;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 45px;
-}
-
-/* line 179, ../sass/screen.scss */
-header h1:hover a:before {
-  left: -200px;
-  opacity: 1;
-}
-
-/* line 184, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 header p {
-  font-size: 24px;
+  font-size: 36px;
   line-height: 48px;
   clear: left;
-  color: #cd3423;
+  color: #18658b;
+  font-family: 'ExistenceLight';
   margin-bottom: 24px;
   text-align: right;
+  /* @include text-3d( 3, -1, -1, 0, $subtitleShadow ); */
 }
 
-/* line 192, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 footer {
   border-top-style: solid;
   border-top-width: 1px;
   padding-top: 23px;
-  border-color: #cccccc;
+  border-color: rgba(36, 56, 66, 0.5);
   font-size: 24px;
   line-height: 48px;
+  clear: both;
   display: block;
-  font-family: 'FranchiseRegular';
+  font-family: 'ExistenceLight';
+  font-size: 24px;
   padding-top: 24px;
   padding-bottom: 24px;
   text-align: center;
   text-transform: uppercase;
-  width: 600px;
 }
 
-/* line 213, ../sass/screen.scss */
+/* line 236, ../sass/screen.scss */
 footer li {
   display: inline-block;
   padding: 0 10px;
 }
 
-/* line 218, ../sass/screen.scss */
+/* line 241, ../sass/screen.scss */
 footer a {
+  font-weight: normal;
   text-decoration: none;
 }
 
-/* line 222, ../sass/screen.scss */
+/* line 246, ../sass/screen.scss */
 article {
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid rgba(36, 56, 66, 0.5);
   margin-bottom: 24px;
   position: relative;
 }
 
-/* line 230, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 article h2 {
   margin-bottom: 24px;
 }
 
-/* line 234, ../sass/screen.scss */
+/* line 258, ../sass/screen.scss */
 article time {
-  background-color: #cccccc;
-  -moz-border-radius: 0 0 0 10px;
-  -webkit-border-radius: 0 0 0 10px;
-  -o-border-radius: 0 0 0 10px;
-  -ms-border-radius: 0 0 0 10px;
-  -khtml-border-radius: 0 0 0 10px;
-  border-radius: 0 0 0 10px;
-  color: white;
+  font-size: 12px;
+  line-height: 24px;
+  color: #365463;
   float: right;
-  padding-left: 15px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 11px;
+  padding-top: 24px;
+  text-shadow: none;
 }
 
 /* About Me Section */
-/* line 249, ../sass/screen.scss */
+/* line 270, ../sass/screen.scss */
 #about img {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -867,44 +947,44 @@ article time {
 }
 
 /* Article List on Homepage */
-/* line 258, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 section.posts {
   border-top-style: solid;
   border-top-width: 1px;
   padding-top: 23px;
-  border-color: #cccccc;
+  border-color: rgba(36, 56, 66, 0.5);
   margin-bottom: 24px;
 }
 
-/* line 266, ../sass/screen.scss */
+/* line 287, ../sass/screen.scss */
 section.posts li:first-of-type {
   padding: 0;
 }
 
-/* line 270, ../sass/screen.scss */
+/* line 291, ../sass/screen.scss */
 section.posts li {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   padding-bottom: 23px;
-  border-color: #cccccc;
+  border-color: rgba(36, 56, 66, 0.5);
   padding-top: 24px;
 }
 
-/* line 278, ../sass/screen.scss */
+/* line 299, ../sass/screen.scss */
 section.posts time {
   font-size: 12px;
   line-height: 24px;
-  color: #999999;
+  color: #365463;
   float: right;
+  text-shadow: none;
 }
 
-/* line 284, ../sass/screen.scss */
+/* line 308, ../sass/screen.scss */
 section.posts li a.title {
-  color: #333333;
   display: block;
   font-size: 36px;
   line-height: 48px;
-  font-family: 'FranchiseRegular';
+  font-family: 'ExistenceLight';
   text-decoration: none;
 }
 
@@ -912,24 +992,26 @@ section.posts li a.title {
 @import "circles.scss";
 */
 /* Night */
-/* line 4, ../sass/night.scss */
+/* line 3, ../sass/night.scss */
 body.night {
   background-color: #121c21;
-  color: #cccccc;
+  background-image: url(/images/noise-1.png);
+  background-size: 512px;
+  color: #bdd1db;
 }
 
-/* line 14, ../sass/night.scss */
+/* line 15, ../sass/night.scss */
 body.night #circles {
   background-color: black;
   background-image: url(/images/clouds.png), url(/images/moon1.png), url(/images/stars.jpg);
 }
 
-/* line 24, ../sass/night.scss */
+/* line 25, ../sass/night.scss */
 body.night #circles b {
   border: 10px solid #1a1a1a;
 }
 
-/* line 29, ../sass/night.scss */
+/* line 30, ../sass/night.scss */
 body.night #circles:after {
   /*
   @include background(
@@ -945,52 +1027,80 @@ body.night #circles:after {
 @-webkit-keyframes clouds {
   /* line 2, ../sass/sky.scss */
   from {
-    background-position: 50% 100%,             0px 0%,             10% 15%,             0% 0%;
+    background-position: 50% 100%, 0px 0%, 10% -20%, 0% 0%;
   }
 
   /* line 9, ../sass/sky.scss */
   to {
-    background-position: 50% 100%,             512px 0%,             10% 15%,             0% 0%;
+    background-position: 50% 100%, 512px 0%, 10% -20%, 0% 0%;
   }
 }
 
 /* line 18, ../sass/sky.scss */
 #sky {
   background-color: black;
-  background-position: 50% 100%,             50% 0%,             10% 15%,             0% 0%;
+  background-position: 50% 100%, 50% 0%, 10% -20%, 0% 0%;
   background-repeat: no-repeat,             repeat,             no-repeat,             repeat;
   background-size: 100% 100%,             auto auto,             auto auto,             auto auto;
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #bf6a40), color-stop(5%, #bf9540), color-stop(20%, #265973), color-stop(100%, rgba(13, 30, 38, 0))), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
-  background-image: -webkit-linear-gradient(50% 100%, #bf6a40 0%, #bf9540 5%, #265973 20%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
-  background-image: -moz-linear-gradient(50% 100%, #bf6a40 0%, #bf9540 5%, #265973 20%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
-  background-image: -o-linear-gradient(50% 100%, #bf6a40 0%, #bf9540 5%, #265973 20%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
-  background-image: -ms-linear-gradient(50% 100%, #bf6a40 0%, #bf9540 5%, #265973 20%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
-  background-image: linear-gradient(50% 100%, #bf6a40 0%, #bf9540 5%, #265973 20%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, rgba(115, 38, 115, 0.7)), color-stop(10%, rgba(191, 64, 64, 0.7)), color-stop(15%, rgba(191, 106, 64, 0.7)), color-stop(30%, rgba(191, 149, 64, 0.6)), color-stop(50%, rgba(38, 89, 115, 0.6)), color-stop(100%, rgba(13, 30, 38, 0))), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+  background-image: -webkit-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 0%, rgba(191, 64, 64, 0.7) 10%, rgba(191, 106, 64, 0.7) 15%, rgba(191, 149, 64, 0.6) 30%, rgba(38, 89, 115, 0.6) 50%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+  background-image: -moz-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 0%, rgba(191, 64, 64, 0.7) 10%, rgba(191, 106, 64, 0.7) 15%, rgba(191, 149, 64, 0.6) 30%, rgba(38, 89, 115, 0.6) 50%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+  background-image: -o-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 0%, rgba(191, 64, 64, 0.7) 10%, rgba(191, 106, 64, 0.7) 15%, rgba(191, 149, 64, 0.6) 30%, rgba(38, 89, 115, 0.6) 50%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+  background-image: -ms-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 0%, rgba(191, 64, 64, 0.7) 10%, rgba(191, 106, 64, 0.7) 15%, rgba(191, 149, 64, 0.6) 30%, rgba(38, 89, 115, 0.6) 50%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+  background-image: linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 0%, rgba(191, 64, 64, 0.7) 10%, rgba(191, 106, 64, 0.7) 15%, rgba(191, 149, 64, 0.6) 30%, rgba(38, 89, 115, 0.6) 50%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
   height: 300px;
   xposition: fixed;
   width: 100%;
   -webkit-animation: clouds 20s infinite linear;
 }
 
-/* line 60, ../sass/sky.scss */
+/* line 62, ../sass/sky.scss */
 #horizon {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: 16000px 16000px;
-  background-image: -webkit-gradient(radial, 50% 16000px, 0, 50% 16000px, 8020, color-stop(99.751%, #121c21), color-stop(99.751%, rgba(0, 0, 0, 0.5)), color-stop(100%, rgba(0, 0, 0, 0)));
-  background-image: -webkit-radial-gradient(50% 16000px, #121c21 8000px, rgba(0, 0, 0, 0.5) 8000px, rgba(0, 0, 0, 0) 8020px);
-  background-image: -moz-radial-gradient(50% 16000px, #121c21 8000px, rgba(0, 0, 0, 0.5) 8000px, rgba(0, 0, 0, 0) 8020px);
-  background-image: -o-radial-gradient(50% 16000px, #121c21 8000px, rgba(0, 0, 0, 0.5) 8000px, rgba(0, 0, 0, 0) 8020px);
-  background-image: -ms-radial-gradient(50% 16000px, #121c21 8000px, rgba(0, 0, 0, 0.5) 8000px, rgba(0, 0, 0, 0) 8020px);
-  background-image: radial-gradient(50% 16000px, #121c21 8000px, rgba(0, 0, 0, 0.5) 8000px, rgba(0, 0, 0, 0) 8020px);
-  height: 500px;
+  background-position: 50% 50%,             50% 200px;
+  background-repeat: repeat,             no-repeat;
+  background-size: auto, 15100px 15100px;
+  background-image: url(/images/noise.png), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 7520, color-stop(97.074%, #121c21), color-stop(99.734%, #243842), color-stop(99.734%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: url(/images/noise.png), -webkit-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise.png), -moz-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise.png), -o-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise.png), -ms-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise.png), radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  height: 600px;
   left: 0;
   position: absolute;
   right: 0;
   top: 0;
 }
 
-/* line 84, ../sass/sky.scss */
+/*
+#horizon {
+    background: {
+        position:
+            50% 50%;
+        repeat:
+            repeat,
+            no-repeat;
+        size:
+            512px,
+            $hillSize * 2 $hillSize * 2;
+    }
+    @include background-image(
+        url( /images/noise.png ),
+        radial-gradient(
+            50% $hillSize * 2,
+            $ground $hillSize - 150,
+            lighten($ground, 10%) $hillSize, 
+            hsla(0, 0%, 0%, 0) $hillSize
+        )
+    );
+    height: $horizonSize;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+*/
+/* line 119, ../sass/sky.scss */
 #container {
   margin-top: -170px;
 }

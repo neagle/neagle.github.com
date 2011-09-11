@@ -4,13 +4,86 @@
   <title>Nate Eagle's Front-End Development Memoranda</title>
   <link href="http://neagle.github.com/"/>
   <link type="application/atom+xml" rel="self" href="http://neagle.github.com/atom.xml"/>
-  <updated>2011-09-09T01:45:29-04:00</updated>
+  <updated>2011-09-11T18:01:19-04:00</updated>
   <id>http://neagle.github.com/</id>
   <author>
     <name>Nate Eagle</name>
     <email>nate@nateeagle.com</email>
   </author>
 
+  
+  <entry>
+    <id>http://neagle.github.com/2011/09/09/my-first-compass-mixin-text-3d</id>
+    <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/09/09/my-first-compass-mixin-text-3d/"/>
+    <title>My First Compass Mixin: Text-3d</title>
+    <updated>2011-09-09T00:00:00-04:00</updated>
+    <author>
+      <name>Nate Eagle</name>
+      <uri>http://neagle.github.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;So I started using &lt;a href=&quot;http://compass-style.org/&quot;&gt;Compass&lt;/a&gt; because &lt;a href=&quot;http://twitter.com/#!/chriseppstein&quot;&gt;Chris Eppstein&lt;/a&gt; himself told me via a tweet that I should check it out. (I mentioned &lt;span class=&quot;caps&quot;&gt;SASS&lt;/span&gt; in a tweet, and Mr. Eppstein seems to be as dedicated a promoter as he is talented a developer.) Compass is pretty fantastic, though I will menition that it&amp;#8217;s not trivially easy to learn how to use effectively: I&amp;#8217;m still working on learning a lot of the ins and outs of using &lt;span class=&quot;caps&quot;&gt;SASS&lt;/span&gt; and mixins.&lt;/p&gt;
+&lt;p&gt;I won&amp;#8217;t get too much into Compass itself &amp;#8211; part of the idea of this blog is to keep things short and simple &amp;#8211; but my favorite part of Compass is the mixins. These work like functions in JavaScript that let you pass in a minimal number of inputs and get out some more complex &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; as a result. This is great for simplifying CSS3, especially, which often requires outputing essentially the same information with the various vendor prefixes. Compass comes with a whole slew of them, but you can also define your own.&lt;/p&gt;
+&lt;p&gt;While working on the design for this blog, I found myself using (as I often do) a small trick that uses multiple text shadows to create a 3d text effect.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/desandro-made-this.png&quot; title=&quot;David DeSandro Made This&quot; alt=&quot;David DeSandro Made This&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The technique was created, as far as I know, by &lt;a href=&quot;http://desandro.com/&quot;&gt;Dave DeSandro&lt;/a&gt;, one of the classiest folks in interaction design, who uses it prominently on his homepage. Regardless of its ultimate origin, that&amp;rsquo;s where I picked it up. It creates the illusion of blocky three-dimensional letters that have a side in shadows that stretches back in space. The &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; for it is easy to understand: it just uses the fact that the &lt;code&gt;text-shadow&lt;/code&gt; property can have multiple, comma-separated backgrounds.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#mytext&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;text-shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The shadow is made up of 1px layers, each offset slightly from the one that preceded it. Here&amp;rsquo;s an example that should make that obvious. (Note: example will not work in browsers that do not support &lt;code&gt;text-shadow&lt;/code&gt;.)&lt;/p&gt;
+&lt;style&gt;h3.example1 { color: white; font-family: Futura, Arial, sans-serif; font-size: 48px; font-weight: bold; text-shadow: 1px 1px gray, 2px 2px white, 3px 3px gray, 4px 4px white, 5px 5px gray; text-transform: uppercase; }&lt;/style&gt;
+&lt;h3 class=&quot;example1&quot;&gt;Nate Eagle Made This&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;h3&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.example1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;text-shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;I alternated the shadows between gray and white: you can see clearly how they stack. But if you make them a single color:&lt;/p&gt;
+&lt;style&gt;h3.example2 { color: white; font-family: Futura, Arial, sans-serif; font-size: 48px; font-weight: bold; text-shadow: 1px 1px gray, 2px 2px gray, 3px 3px gray, 4px 4px gray, 5px 5px gray; text-transform: uppercase; }&lt;/style&gt;
+&lt;h3 class=&quot;example2&quot;&gt;Nate Eagle Made This&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;h3&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.example2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;text-shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&amp;hellip;it creates the illusion of a solid side, receding in space. Lovely, yeah? Only problem: it&amp;#8217;s kind of a complex declaration. And fiddling around with the color and size of the effect is annoyingly complex: you have to add and remove whole lines, change multiple numbers, change the name of the color multiple times.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s the perfect candidate for a mixin. Here&amp;rsquo;s &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#defining_a_mixin&quot;&gt;the documentation for defining a mixin&lt;/a&gt;. In this example, I&amp;rsquo;m going to reference another mixin &amp;ndash; Compass&amp;rsquo;s text-shadow plugin &amp;ndash; after generating the string of shadows I want.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@mixin text-3d($size: 5, $directionX: 1, $directionY: 1, $blur: 1px, $color: black ) {
+    @if unitless($blur) {
+        @warn &quot;Assuming #{$blur} to be in pixels&quot;;
+        $blur: 1px * $blur;
+    }
+    $string: '';
+    @for $i from 1 through $size {
+        $string: $string + ( #{$i * $directionX}px #{$i * $directionY}px $blur $color );
+        @if $i &amp;lt; $size {
+            $string: $string + ', ';
+        }
+    }
+    @include text-shadow(
+        #{$string}
+    )
+}&lt;/code&gt;
+
+&lt;/pre&gt;
+&lt;p&gt;Pretty simple: this looks and works a lot like a function in JS/&lt;span class=&quot;caps&quot;&gt;PHP&lt;/span&gt;. I accept a size parameter, which determines how many shadows to create (my examples above have five), then two direction parameters. This lets you send your 3d text down and to the right (1, 1), up and to the right (1, -1), up and to the left (-1, -1) or down and to the left (-1, 1). You can even use values like (-1, -0.5) to have the text go at 22.5&amp;deg; rather than 45&amp;deg;.&lt;/p&gt;
+&lt;p&gt;Using the mixin is as simple as this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@include text-3d( 3, -1, -1, 0, $someColor );
+&lt;/code&gt;&lt;/pre&gt;</content>
+  </entry>
   
   <entry>
     <id>http://neagle.github.com/2011/08/31/jekyll-not-parsing-includes</id>

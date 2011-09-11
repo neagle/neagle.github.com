@@ -1,11 +1,12 @@
 /* Night */
-$ground: hsl(200, 30%, 10%);
 
 body.night {
     background: {
         color: $ground; 
+        image: url( /images/noise-1.png );
+        size: 512px;
     }
-    color: hsl(0, 0%, 80%);
+    color: $bodyText; 
 }
 
 body.night header h1 {
