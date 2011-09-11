@@ -1059,12 +1059,12 @@ body.night #circles:after {
   background-position: 50% 50%,             50% 200px;
   background-repeat: repeat,             no-repeat;
   background-size: auto, 15100px 15100px;
-  background-image: url(/images/noise.png), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 7520, color-stop(97.074%, #121c21), color-stop(99.734%, #243842), color-stop(99.734%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
-  background-image: url(/images/noise.png), -webkit-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  background-image: url(/images/noise.png), -moz-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  background-image: url(/images/noise.png), -o-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  background-image: url(/images/noise.png), -ms-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
-  background-image: url(/images/noise.png), radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 7520, color-stop(97.074%, #121c21), color-stop(99.734%, #243842), color-stop(99.734%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: url(/images/noise-small.png), -webkit-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), -moz-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), -o-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), -ms-radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
+  background-image: url(/images/noise-small.png), radial-gradient(#121c21 7300px, #243842 7500px, rgba(0, 0, 0, 0.3) 7500px, rgba(0, 0, 0, 0) 7520px);
   height: 600px;
   left: 0;
   position: absolute;
@@ -1081,11 +1081,11 @@ body.night #circles:after {
             repeat,
             no-repeat;
         size:
-            512px,
+            256px,
             $hillSize * 2 $hillSize * 2;
     }
     @include background-image(
-        url( /images/noise.png ),
+        url( /images/noise-small.png ),
         radial-gradient(
             50% $hillSize * 2,
             $ground $hillSize - 150,

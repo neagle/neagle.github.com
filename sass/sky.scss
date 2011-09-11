@@ -72,7 +72,7 @@ $horizonSize: 600px;
             $hillSize + 100 $hillSize + 100;
     }
     @include background-image(
-        url( /images/noise.png ),
+        url( /images/noise-small.png ),
         radial-gradient(
             $ground $hillSize / 2 - 200, 
             lighten($ground, 10%) $hillSize / 2, 
@@ -96,11 +96,11 @@ $horizonSize: 600px;
             repeat,
             no-repeat;
         size:
-            512px,
+            256px,
             $hillSize * 2 $hillSize * 2;
     }
     @include background-image(
-        url( /images/noise.png ),
+        url( /images/noise-small.png ),
         radial-gradient(
             50% $hillSize * 2,
             $ground $hillSize - 150,
