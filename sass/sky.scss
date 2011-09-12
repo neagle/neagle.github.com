@@ -49,7 +49,6 @@
         url( /images/stars.jpg )
     );
     height: 300px;
-    xposition: fixed;
     width: 100%;
 
     -webkit-animation:
@@ -88,37 +87,170 @@ $horizonSize: 1000px;
     top: 0;
 }
 
-/*
-#horizon {
-    background: {
-        position:
-            50% 50%;
-        repeat:
-            repeat,
-            no-repeat;
-        size:
-            256px,
-            $hillSize * 2 $hillSize * 2;
-    }
-    @include background-image(
-        url( /images/noise-small.png ),
-        radial-gradient(
-            50% $hillSize * 2,
-            $ground $hillSize - 150,
-            lighten($ground, 10%) $hillSize, 
-            hsla(0, 0%, 0%, 0) $hillSize
-        )
-    );
-    height: $horizonSize;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-*/
-
 #container {
     margin: {
         top: -170px;
+    }
+}
+
+@media all and (min-width: 1600px) {
+    /*
+    #container {
+        border: 10px solid red;
+    }
+    */
+
+    #sky {
+        @include background-image(
+            linear-gradient(
+                50% 100%,
+                hsla(300, 50%, 30%, 0.7) 30%,
+                hsla(0, 50%, 50%, 0.7) 40%,
+                hsla(20, 50%, 50%, 0.7) 45%,
+                hsla(40, 50%, 50%, 0.6) 50%,
+                hsla(200, 50%, 30%, 0.6) 70%,
+                hsla(200, 50%, 10%, 0) 100%
+            ),
+            url( /images/clouds.png ),
+            url( /images/moon2.png ),
+            url( /images/stars.jpg )
+        );
+        height: 400px;
+    }
+
+    $hillSize: 25000px;
+    $horizonSize: 1000px;
+
+    #horizon {
+        background: {
+            size:
+                256px,
+                $hillSize + 100 $hillSize + 100;
+        }
+        @include background-image(
+            url( /images/noise-small.png ),
+            radial-gradient(
+                darken( $ground, 50% ), 
+                $ground $hillSize / 2 - 200, 
+                lighten($ground, 10%) $hillSize / 2, 
+                hsla(0, 0%, 0%, 0.3) $hillSize / 2,
+                hsla(0, 0%, 0%, 0) ( $hillSize / 2 ) + 20
+            )
+        );
+        height: $horizonSize;
+    }
+
+    #container {
+        margin: {
+            top: -270px;
+        }
+    }
+}
+
+@media all and (min-width: 2400px) {
+    /*
+    #container {
+        border: 10px solid orange;
+    }
+    */
+
+    #sky {
+        @include background-image(
+            linear-gradient(
+                50% 100%,
+                hsla(300, 50%, 30%, 0.7) 30%,
+                hsla(0, 50%, 50%, 0.7) 40%,
+                hsla(20, 50%, 50%, 0.7) 45%,
+                hsla(40, 50%, 50%, 0.6) 50%,
+                hsla(200, 50%, 30%, 0.6) 70%,
+                hsla(200, 50%, 10%, 0) 100%
+            ),
+            url( /images/clouds.png ),
+            url( /images/moon2.png ),
+            url( /images/stars.jpg )
+        );
+        height: 400px;
+    }
+
+    $hillSize: 25000px;
+    $horizonSize: 1000px;
+
+    #horizon {
+        background: {
+            size:
+                256px,
+                $hillSize + 100 $hillSize + 100;
+        }
+        @include background-image(
+            url( /images/noise-small.png ),
+            radial-gradient(
+                darken( $ground, 50% ), 
+                $ground $hillSize / 2 - 200, 
+                lighten($ground, 10%) $hillSize / 2, 
+                hsla(0, 0%, 0%, 0.3) $hillSize / 2,
+                hsla(0, 0%, 0%, 0) ( $hillSize / 2 ) + 20
+            )
+        );
+        height: $horizonSize;
+    }
+
+    #container {
+        margin: {
+            top: -270px;
+        }
+    }
+}
+
+@media all and (min-width: 3000px) {
+    /*
+    #container {
+        border: 10px solid orange;
+    }
+    */
+
+    #sky {
+        @include background-image(
+            linear-gradient(
+                50% 100%,
+                hsla(300, 50%, 30%, 0.7) 30%,
+                hsla(0, 50%, 50%, 0.7) 40%,
+                hsla(20, 50%, 50%, 0.7) 45%,
+                hsla(40, 50%, 50%, 0.6) 50%,
+                hsla(200, 50%, 30%, 0.6) 70%,
+                hsla(200, 50%, 10%, 0) 100%
+            ),
+            url( /images/clouds.png ),
+            url( /images/moon2.png ),
+            url( /images/stars.jpg )
+        );
+        height: 400px;
+    }
+
+    $hillSize: 35000px;
+    $horizonSize: 1000px;
+
+    #horizon {
+        background: {
+            size:
+                256px,
+                $hillSize + 100 $hillSize + 100;
+        }
+        @include background-image(
+            url( /images/noise-small.png ),
+            radial-gradient(
+                darken( $ground, 50% ), 
+                $ground $hillSize / 2 - 200, 
+                lighten($ground, 10%) $hillSize / 2, 
+                hsla(0, 0%, 0%, 0.3) $hillSize / 2,
+                hsla(0, 0%, 0%, 0) ( $hillSize / 2 ) + 20
+            )
+        );
+        height: $horizonSize;
+    }
+
+    #container {
+        margin: {
+            top: -270px;
+        }
     }
 }

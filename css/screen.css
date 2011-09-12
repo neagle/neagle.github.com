@@ -1049,12 +1049,11 @@ body.night #circles:after {
   background-image: -ms-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 0%, rgba(191, 64, 64, 0.7) 10%, rgba(191, 106, 64, 0.7) 15%, rgba(191, 149, 64, 0.6) 30%, rgba(38, 89, 115, 0.6) 50%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
   background-image: linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 0%, rgba(191, 64, 64, 0.7) 10%, rgba(191, 106, 64, 0.7) 15%, rgba(191, 149, 64, 0.6) 30%, rgba(38, 89, 115, 0.6) 50%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
   height: 300px;
-  xposition: fixed;
   width: 100%;
   -webkit-animation: clouds 20s infinite linear;
 }
 
-/* line 62, ../sass/sky.scss */
+/* line 61, ../sass/sky.scss */
 #horizon {
   background-position: 50% 50%,             50% 200px;
   background-repeat: repeat,             no-repeat;
@@ -1072,35 +1071,110 @@ body.night #circles:after {
   top: 0;
 }
 
-/*
-#horizon {
-    background: {
-        position:
-            50% 50%;
-        repeat:
-            repeat,
-            no-repeat;
-        size:
-            256px,
-            $hillSize * 2 $hillSize * 2;
-    }
-    @include background-image(
-        url( /images/noise-small.png ),
-        radial-gradient(
-            50% $hillSize * 2,
-            $ground $hillSize - 150,
-            lighten($ground, 10%) $hillSize, 
-            hsla(0, 0%, 0%, 0) $hillSize
-        )
-    );
-    height: $horizonSize;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-*/
-/* line 120, ../sass/sky.scss */
+/* line 90, ../sass/sky.scss */
 #container {
   margin-top: -170px;
+}
+
+@media all and (min-width: 1600px) {
+  /*
+  #container {
+      border: 10px solid red;
+  }
+  */
+  /* line 103, ../sass/sky.scss */
+  #sky {
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(30%, rgba(115, 38, 115, 0.7)), color-stop(40%, rgba(191, 64, 64, 0.7)), color-stop(45%, rgba(191, 106, 64, 0.7)), color-stop(50%, rgba(191, 149, 64, 0.6)), color-stop(70%, rgba(38, 89, 115, 0.6)), color-stop(100%, rgba(13, 30, 38, 0))), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -webkit-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -moz-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -o-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -ms-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    height: 400px;
+  }
+
+  /* line 124, ../sass/sky.scss */
+  #horizon {
+    background-size: 256px, 25100px 25100px;
+    background-image: url(/images/noise-small.png), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 12520, color-stop(0%, #000000), color-stop(98.243%, #121c21), color-stop(99.84%, #243842), color-stop(99.84%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background-image: url(/images/noise-small.png), -webkit-radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    background-image: url(/images/noise-small.png), -moz-radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    background-image: url(/images/noise-small.png), -o-radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    background-image: url(/images/noise-small.png), -ms-radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    background-image: url(/images/noise-small.png), radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    height: 1000px;
+  }
+
+  /* line 143, ../sass/sky.scss */
+  #container {
+    margin-top: -270px;
+  }
+}
+@media all and (min-width: 2400px) {
+  /*
+  #container {
+      border: 10px solid orange;
+  }
+  */
+  /* line 157, ../sass/sky.scss */
+  #sky {
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(30%, rgba(115, 38, 115, 0.7)), color-stop(40%, rgba(191, 64, 64, 0.7)), color-stop(45%, rgba(191, 106, 64, 0.7)), color-stop(50%, rgba(191, 149, 64, 0.6)), color-stop(70%, rgba(38, 89, 115, 0.6)), color-stop(100%, rgba(13, 30, 38, 0))), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -webkit-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -moz-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -o-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -ms-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    height: 400px;
+  }
+
+  /* line 178, ../sass/sky.scss */
+  #horizon {
+    background-size: 256px, 25100px 25100px;
+    background-image: url(/images/noise-small.png), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 12520, color-stop(0%, #000000), color-stop(98.243%, #121c21), color-stop(99.84%, #243842), color-stop(99.84%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background-image: url(/images/noise-small.png), -webkit-radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    background-image: url(/images/noise-small.png), -moz-radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    background-image: url(/images/noise-small.png), -o-radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    background-image: url(/images/noise-small.png), -ms-radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    background-image: url(/images/noise-small.png), radial-gradient(#000000, #121c21 12300px, #243842 12500px, rgba(0, 0, 0, 0.3) 12500px, rgba(0, 0, 0, 0) 12520px);
+    height: 1000px;
+  }
+
+  /* line 197, ../sass/sky.scss */
+  #container {
+    margin-top: -270px;
+  }
+}
+@media all and (min-width: 3000px) {
+  /*
+  #container {
+      border: 10px solid orange;
+  }
+  */
+  /* line 211, ../sass/sky.scss */
+  #sky {
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(30%, rgba(115, 38, 115, 0.7)), color-stop(40%, rgba(191, 64, 64, 0.7)), color-stop(45%, rgba(191, 106, 64, 0.7)), color-stop(50%, rgba(191, 149, 64, 0.6)), color-stop(70%, rgba(38, 89, 115, 0.6)), color-stop(100%, rgba(13, 30, 38, 0))), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -webkit-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -moz-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -o-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: -ms-linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    background-image: linear-gradient(50% 100%, rgba(115, 38, 115, 0.7) 30%, rgba(191, 64, 64, 0.7) 40%, rgba(191, 106, 64, 0.7) 45%, rgba(191, 149, 64, 0.6) 50%, rgba(38, 89, 115, 0.6) 70%, rgba(13, 30, 38, 0) 100%), url(/images/clouds.png), url(/images/moon2.png), url(/images/stars.jpg);
+    height: 400px;
+  }
+
+  /* line 232, ../sass/sky.scss */
+  #horizon {
+    background-size: 256px, 35100px 35100px;
+    background-image: url(/images/noise-small.png), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 17520, color-stop(0%, #000000), color-stop(98.744%, #121c21), color-stop(99.886%, #243842), color-stop(99.886%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background-image: url(/images/noise-small.png), -webkit-radial-gradient(#000000, #121c21 17300px, #243842 17500px, rgba(0, 0, 0, 0.3) 17500px, rgba(0, 0, 0, 0) 17520px);
+    background-image: url(/images/noise-small.png), -moz-radial-gradient(#000000, #121c21 17300px, #243842 17500px, rgba(0, 0, 0, 0.3) 17500px, rgba(0, 0, 0, 0) 17520px);
+    background-image: url(/images/noise-small.png), -o-radial-gradient(#000000, #121c21 17300px, #243842 17500px, rgba(0, 0, 0, 0.3) 17500px, rgba(0, 0, 0, 0) 17520px);
+    background-image: url(/images/noise-small.png), -ms-radial-gradient(#000000, #121c21 17300px, #243842 17500px, rgba(0, 0, 0, 0.3) 17500px, rgba(0, 0, 0, 0) 17520px);
+    background-image: url(/images/noise-small.png), radial-gradient(#000000, #121c21 17300px, #243842 17500px, rgba(0, 0, 0, 0.3) 17500px, rgba(0, 0, 0, 0) 17520px);
+    height: 1000px;
+  }
+
+  /* line 251, ../sass/sky.scss */
+  #container {
+    margin-top: -270px;
+  }
 }
