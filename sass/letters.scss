@@ -3,7 +3,7 @@ $titleShadow: hsl(50, 50%, 12%);
 
 header h1 {
     color: $titleColor; 
-    @include adjust-font-size-to( 150px );
+    @include adjust-font-size-to( 145px );
     @include adjust-leading-to( 7 );
     float: left;
     font-family: 'ExistenceUnicaseLight';
