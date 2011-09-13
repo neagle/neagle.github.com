@@ -902,24 +902,34 @@ footer li {
 }
 
 /* line 241, ../sass/screen.scss */
+footer li:first-of-type {
+  padding: 0 10px 0 0;
+}
+
+/* line 245, ../sass/screen.scss */
+footer li:last-of-type {
+  padding: 0 0 0 10px;
+}
+
+/* line 249, ../sass/screen.scss */
 footer a {
   font-weight: normal;
   text-decoration: none;
 }
 
-/* line 246, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 article {
   border-top: 1px solid rgba(36, 56, 66, 0.5);
   margin-bottom: 24px;
   position: relative;
 }
 
-/* line 254, ../sass/screen.scss */
+/* line 262, ../sass/screen.scss */
 article h2 {
   margin-bottom: 24px;
 }
 
-/* line 258, ../sass/screen.scss */
+/* line 266, ../sass/screen.scss */
 article time {
   font-size: 12px;
   line-height: 24px;
@@ -930,7 +940,7 @@ article time {
 }
 
 /* About Me Section */
-/* line 270, ../sass/screen.scss */
+/* line 278, ../sass/screen.scss */
 #about img {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -947,7 +957,7 @@ article time {
 }
 
 /* Article List on Homepage */
-/* line 279, ../sass/screen.scss */
+/* line 287, ../sass/screen.scss */
 section.posts {
   border-top-style: solid;
   border-top-width: 1px;
@@ -956,12 +966,12 @@ section.posts {
   margin-bottom: 24px;
 }
 
-/* line 287, ../sass/screen.scss */
+/* line 295, ../sass/screen.scss */
 section.posts li:first-of-type {
   padding: 0;
 }
 
-/* line 291, ../sass/screen.scss */
+/* line 299, ../sass/screen.scss */
 section.posts li {
   border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -970,7 +980,7 @@ section.posts li {
   padding-top: 24px;
 }
 
-/* line 299, ../sass/screen.scss */
+/* line 307, ../sass/screen.scss */
 section.posts time {
   font-size: 12px;
   line-height: 24px;
@@ -979,7 +989,7 @@ section.posts time {
   text-shadow: none;
 }
 
-/* line 308, ../sass/screen.scss */
+/* line 316, ../sass/screen.scss */
 section.posts li a.title {
   display: block;
   font-size: 36px;
