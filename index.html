@@ -10,8 +10,13 @@ excerpt: true
             <time>{{ post.date | date: "%B %d, %Y" }}</time>
             <a class="title" href="{{ post.url }}">{{ post.title }}</a>
             <p class="excerpt">
-                {{ post.content | strip_html | truncatewords: 50 }}
+                {% if post.summary %}
+                    {{ post.summary }}
+                {% else %}
+                    {{ post.content | strip_html | truncatewords: 50 }}
+                {% endif %}
                 <a href="{{ post.url }}" class="more">Read&nbsp;the&nbsp;full&nbsp;post&nbsp;&rarr;</a>
+
             </p>
         </li>
     {% endfor %}

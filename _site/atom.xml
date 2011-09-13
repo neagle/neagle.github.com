@@ -4,13 +4,46 @@
   <title>Nate Eagle's Front-End Development Memoranda</title>
   <link href="http://neagle.github.com/"/>
   <link type="application/atom+xml" rel="self" href="http://neagle.github.com/atom.xml"/>
-  <updated>2011-09-11T21:16:32-04:00</updated>
+  <updated>2011-09-13T16:12:53-04:00</updated>
   <id>http://neagle.github.com/</id>
   <author>
     <name>Nate Eagle</name>
     <email>nate@nateeagle.com</email>
   </author>
 
+  
+  <entry>
+    <id>http://neagle.github.com/2011/09/11/color-ripples-canvas-toy</id>
+    <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/09/11/color-ripples-canvas-toy/"/>
+    <title>Color Ripples: a Canvas Toy</title>
+    <updated>2011-09-11T00:00:00-04:00</updated>
+    <author>
+      <name>Nate Eagle</name>
+      <uri>http://neagle.github.com/</uri>
+    </author>
+    <content type="html">&lt;p&gt;Here&amp;#8217;s a little bit of colorful distraction for a rainy afternoon.&lt;/p&gt;
+&lt;p&gt;&lt;iframe style=&quot;width: 100%; height: 500px&quot; src=&quot;http://jsfiddle.net/nate/dyVPR/embedded/result,js,html&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;Playing with &lt;code&gt;canvas&lt;/code&gt; is fun. However, you may notice, if you glance through the code, that there are really only five lines of code that are canvas-specific. (A few more if you count the setup.)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$canvas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;canvas&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;2d&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;drawPoint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fillStyle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;beginPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PI&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;closePath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;This is the code for, well, drawing a circle. &lt;em&gt;All&lt;/em&gt; of the rest of it is just various math and adjustments on where and how to draw those circles.&lt;/p&gt;
+&lt;p&gt;I spent basically all of my highschool math courses messing around with &lt;a href=&quot;http://education.ti.com/educationportal/sites/US/productDetail/us_ti83p.html&quot;&gt;my graphing calculator&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/TI-BASIC&quot;&gt;TI Basic&lt;/a&gt;. I made a little magic eight ball program that gave different responses based on a random number; I made programs to take care of the quadratic equation for me. (Note: I spent more time fussing with the formatting and look of the UI for entering numbers than I did with the calculations &amp;#8211; I was a front-end developer in the making!) I finally dropped out of AP Calculus when being clever about my calculator could no longer make up for the fact that I wasn&amp;#8217;t learning a lick of math.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;m grateful for what exposure I had to code &amp;#8211; ultimately, even that time messing with TI Basic helped me find my way to a great career. But I can&amp;#8217;t help but wish that somebody &amp;#8211; &lt;em&gt;any&lt;/em&gt; adult in my life &amp;#8211; had noticed that I spent all my time trying vainly to do stuff with computers and said, &amp;#8220;You know, that might not be so wholly irrelevant to his future&amp;#8230;&amp;#8221;&lt;/p&gt;
+&lt;p&gt;As far as I can tell, every developer I know fends off multiple unsolicited recruitment emails a month: America needs people to write code and it wants to pay them for it. My school acted like the most important thing about computers was making sure we didn&amp;#8217;t check our email on the &lt;em&gt;for-research&lt;/em&gt; computers in the library. (I got Saturday school for this once.) Couldn&amp;#8217;t the public schools have noticed that education in computers &amp;amp; code might be a good investment back in the &amp;#8217;90s?&lt;/p&gt;
+&lt;p&gt;Couldn&amp;#8217;t there be a whole Math track for kids who&amp;#8217;re interested in applying it to code? Can you imagine how much fun it would have been to immediately try out the formula for slope on a visual toy you wrote as homework?&lt;/p&gt;
+&lt;p&gt;For that matter: are public schools aware of this &lt;em&gt;now&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;Anyway: I actually had a great highschool Math teacher. Hell, I&amp;#8217;d pay a lot of money at this point in my life to go back, sit in that musty portable classroom in Spanaway, Washington and have him teach me all about linear equations to help me draw pretty, moving pictures.&lt;/p&gt;</content>
+  </entry>
   
   <entry>
     <id>http://neagle.github.com/2011/09/09/my-first-compass-mixin-text-3d</id>
