@@ -46,7 +46,7 @@
 
         $slides.first().addClass( 'active' );
 
-        $body.bind( 'keyup', function( event ) {
+        $body.bind( 'keydown', function( event ) {
             var key = event.keyCode;
 
             if ( key === 37 ) {
