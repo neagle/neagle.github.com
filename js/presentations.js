@@ -52,8 +52,10 @@
 
             if ( key === 37 ) {
                 move( 'backward' );
+                event.preventDefault();
             } else if ( key === 39 ) {
                 move( 'forward' );
+                event.preventDefault();
             }
         });
 
