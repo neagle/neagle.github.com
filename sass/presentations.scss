@@ -1,6 +1,6 @@
 @import "compass/reset";
 @import "compass/css3";
-@import "pygments.scss";
+@import "syntax-friendly.scss";
 /* Why is pygmentize incorrectly identifying errors? */
 .err { border: 0; }
 @import "fonts.scss";
@@ -102,7 +102,7 @@ pre {
     @include margin-leader( 1 );
     overflow: auto;
     padding: 2%;
-    width: 86%;
+    width: 96%;
 }
 
 code {
@@ -122,6 +122,9 @@ ul {
     display: block;
     & li {
         @include margin-trailer( 1 );
+    }
+    & li:before {
+        content: '• ';
     }
     @include adjust-font-size-to( 36px );
 }
