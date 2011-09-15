@@ -32,8 +32,9 @@ h3(step). It's just a _pain_.
 <section>
 h2.  We have a problem.
 
-h2(step). CSS is getting <em>more</em> complicated.
+h3(step). CSS is getting <em>more</em> complicated.
 
+<div class="step">
 {% highlight css %}
 body {
   background-image: url(/images/noise.png), -webkit-gradient(radial, circle farthest-corner, 0, circle farthest-corner, 100, color-stop(0%, rgba(36, 56, 66, 0.8)), color-stop(100%, rgba(18, 28, 33, 0.9)));
@@ -44,6 +45,7 @@ body {
   background-image: url(/images/noise.png), radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
 }
 {% endhighlight %}
+</div>
 </section>
 
 <section>

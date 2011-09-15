@@ -1,7 +1,7 @@
 (function( $ ) {
 
     $(function() {
-        var $body = $( 'body' ),
+        var $doc = $( document ),
             $presentation = $( '#presentation' ),
             $slides = $presentation.children( 'section' ),
             move = function( direction ) {
@@ -46,14 +46,17 @@
 
         $slides.first().addClass( 'active' );
 
-        $body.bind( 'keydown', function( event ) {
+        $doc.bind( 'keydown', function( event ) {
             var key = event.keyCode;
+            // console.log( 'keydown', key );
 
             if ( key === 37 ) {
                 move( 'backward' );
             } else if ( key === 39 ) {
                 move( 'forward' );
             }
+
+            event.preventDefault();
         });
 
     });
