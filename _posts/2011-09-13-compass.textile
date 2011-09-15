@@ -1,0 +1,126 @@
+---
+layout: presentation 
+title: A Five-Minute Introduction to Compass 
+---
+<section>
+    <h1 class="visible">A Five-Minute Introduction to Compass</h1>
+</section>
+
+<section>
+h2. We have a problem.
+
+h3(step). CSS is complicated.
+</section>
+
+<section>
+<ul>
+    <li>Want to change one of the major colors your site uses?</li>
+    <li class="step">Want an element to be sized relative to another element?</li>
+    <li class="step">Want to serve a single stylesheet for performance reasons, but keep your styles organized in different files?</li>
+    <li class="step">Want to establish a consistent vertical rhythm?</li>
+</ul>
+</section>
+
+<section>
+h2. It's all possible.
+
+h3(step). It's just a _pain_.
+</section>
+
+<section>
+h2.  We have a problem.
+
+h2(step). CSS is getting <em>more</em> complicated.
+
+{% highlight css %}
+body {
+  font-size: 24px;
+  line-height: 48px;
+  background-color: #121c21;
+  color: #9cbac9;
+  font-family: 'ExistenceLight';
+  background-image: url(/images/noise.png), -webkit-gradient(radial, circle farthest-corner, 0, circle farthest-corner, 100, color-stop(0%, rgba(36, 56, 66, 0.8)), color-stop(100%, rgba(18, 28, 33, 0.9)));
+  background-image: url(/images/noise.png), -webkit-radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  background-image: url(/images/noise.png), -moz-radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  background-image: url(/images/noise.png), -o-radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  background-image: url(/images/noise.png), -ms-radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  background-image: url(/images/noise.png), radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  overflow-x: hidden;
+}
+{% endhighlight %}
+</section>
+
+<section>
+
+h2. Compass is a framework for removing the *pain* from CSS.
+
+</section>
+
+<section>
+
+h2. "Want to change one of the major colors your site uses?"
+
+h3(step). SASS gives us *variables*.
+</section>
+
+<section>
+{% highlight sass %}
+$backgroundColor: hsl( 200, 20%, 20% );
+$color: hsl( 200, 90%, 50% );
+
+body {
+    background-color: $backgroundColor;
+    color: $color;
+}
+
+h1 {
+    color: complement( $color );
+}
+
+h2 {
+    color: lighten( $color, 10% );
+}
+
+p {
+    color: $color;
+}
+
+strong {
+    color: adjust-hue( $color, 100deg );
+}
+{% endhighlight %}
+</section>
+
+<section>
+
+h2. "Want an element to be sized relative to another element?"
+
+h3(step). SASS gives us *operations*.
+
+</section>
+
+<section>
+{% highlight sass %}
+$container: 600px;
+$spacing: 20px;
+$rightRail: ( $container / 3 ) - $spacing;
+$river: ( 2 * ( $container / 3 ) ) - $spacing;
+
+.container {
+    width: $container;
+}
+
+.river,
+.right-rail {
+    margin: $spacing / 2;
+}
+
+.river {
+    width: $river;
+}
+
+.right-rail {
+    width: $rightRail;
+}
+{% endhighlight %}
+</section>

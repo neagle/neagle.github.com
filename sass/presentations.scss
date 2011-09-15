@@ -1,0 +1,136 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "pygments.scss";
+/* Why is pygmentize incorrectly identifying errors? */
+.err { border: 0; }
+@import "fonts.scss";
+
+/* Set colors */
+$backgroundColor: hsl(200, 30%, 10%);
+$color: lighten( $backgroundColor, 60% );
+
+/* Set vertical rhythm configurables */
+$base-font-size: 16px;
+$base-line-height: 24px;
+$default-rhythm-border-style: solid;
+$relative-font-sizing: false;
+
+@import "compass/typography/vertical_rhythm";
+
+html, body {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    @include adjust-font-size-to( 24px );
+    background: {
+        color: $backgroundColor;
+    }
+
+    color: $color;
+
+    font: {
+        family: 'ExistenceLight';
+    }
+
+    @include background-image(
+        url( /images/noise.png ),
+        radial-gradient(
+            circle farthest-corner,
+            transparentize( lighten( $backgroundColor, 10% ), 0.2 ),
+            transparentize( $backgroundColor, 0.1 )
+        )
+    );
+
+    overflow-x: hidden;
+}
+
+#presentation section {
+    bottom: 0;
+    display: block;
+    left: 100%;
+    opacity: 0;
+    padding: 5%;
+    position: absolute;
+    top: 0;
+    width: 90%;
+
+    @include transition( all 0.5s );
+}
+
+#presentation section.active {
+    left: 0;
+    opacity: 1;
+}
+
+/*
+#presentation section:last-of-type {
+    left: 0;
+    opacity: 1;
+}
+*/
+
+#presentation section.remove {
+    left: -100%;
+    right: 0;
+}
+
+h1 {
+    @include adjust-font-size-to( 72px );
+}
+
+h2 { 
+    @include adjust-font-size-to( 60px );
+    color: darken( $color, 20% );
+}
+
+h3 { 
+    @include adjust-font-size-to( 60px );
+    color: adjust-hue( darken( $color, 20% ), -50deg );
+    text-align: right;
+}
+
+pre {
+    @include adjust-font-size-to( 18px );
+    background-color: transparentize( black, 0.5 );
+    @include border-radius( 1em );
+    @include box-shadow(
+        inset 0 0 1em black,
+        0 1px 1px transparentize( white, 0.7 )
+    );
+    @include margin-leader( 1 );
+    overflow: auto;
+    padding: 2%;
+    width: 86%;
+}
+
+code {
+    font-family: monospace;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+    color: complement( darken( $color, 20% ) );
+}
+
+ul {
+    display: block;
+    & li {
+        @include margin-trailer( 1 );
+    }
+    @include adjust-font-size-to( 36px );
+}
+
+.step {
+    opacity: 0;
+    @include transition( all 0.2s );
+}
+
+.step.revealed {
+    opacity: 1;
+}

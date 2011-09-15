@@ -1,0 +1,676 @@
+/* line 17, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/pygments.scss */
+.hll {
+  background-color: #ffffcc;
+}
+
+/* line 2, ../sass/pygments.scss */
+.c {
+  color: #408080;
+  font-style: italic;
+}
+
+/* Comment */
+/* line 3, ../sass/pygments.scss */
+.err {
+  border: 1px solid #FF0000;
+}
+
+/* Error */
+/* line 4, ../sass/pygments.scss */
+.k {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword */
+/* line 5, ../sass/pygments.scss */
+.o {
+  color: #666666;
+}
+
+/* Operator */
+/* line 6, ../sass/pygments.scss */
+.cm {
+  color: #408080;
+  font-style: italic;
+}
+
+/* Comment.Multiline */
+/* line 7, ../sass/pygments.scss */
+.cp {
+  color: #BC7A00;
+}
+
+/* Comment.Preproc */
+/* line 8, ../sass/pygments.scss */
+.c1 {
+  color: #408080;
+  font-style: italic;
+}
+
+/* Comment.Single */
+/* line 9, ../sass/pygments.scss */
+.cs {
+  color: #408080;
+  font-style: italic;
+}
+
+/* Comment.Special */
+/* line 10, ../sass/pygments.scss */
+.gd {
+  color: #A00000;
+}
+
+/* Generic.Deleted */
+/* line 11, ../sass/pygments.scss */
+.ge {
+  font-style: italic;
+}
+
+/* Generic.Emph */
+/* line 12, ../sass/pygments.scss */
+.gr {
+  color: #FF0000;
+}
+
+/* Generic.Error */
+/* line 13, ../sass/pygments.scss */
+.gh {
+  color: #000080;
+  font-weight: bold;
+}
+
+/* Generic.Heading */
+/* line 14, ../sass/pygments.scss */
+.gi {
+  color: #00A000;
+}
+
+/* Generic.Inserted */
+/* line 15, ../sass/pygments.scss */
+.go {
+  color: #808080;
+}
+
+/* Generic.Output */
+/* line 16, ../sass/pygments.scss */
+.gp {
+  color: #000080;
+  font-weight: bold;
+}
+
+/* Generic.Prompt */
+/* line 17, ../sass/pygments.scss */
+.gs {
+  font-weight: bold;
+}
+
+/* Generic.Strong */
+/* line 18, ../sass/pygments.scss */
+.gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+/* Generic.Subheading */
+/* line 19, ../sass/pygments.scss */
+.gt {
+  color: #0040D0;
+}
+
+/* Generic.Traceback */
+/* line 20, ../sass/pygments.scss */
+.kc {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword.Constant */
+/* line 21, ../sass/pygments.scss */
+.kd {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword.Declaration */
+/* line 22, ../sass/pygments.scss */
+.kn {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword.Namespace */
+/* line 23, ../sass/pygments.scss */
+.kp {
+  color: #008000;
+}
+
+/* Keyword.Pseudo */
+/* line 24, ../sass/pygments.scss */
+.kr {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword.Reserved */
+/* line 25, ../sass/pygments.scss */
+.kt {
+  color: #B00040;
+}
+
+/* Keyword.Type */
+/* line 26, ../sass/pygments.scss */
+.m {
+  color: #666666;
+}
+
+/* Literal.Number */
+/* line 27, ../sass/pygments.scss */
+.s {
+  color: #BA2121;
+}
+
+/* Literal.String */
+/* line 28, ../sass/pygments.scss */
+.na {
+  color: #7D9029;
+}
+
+/* Name.Attribute */
+/* line 29, ../sass/pygments.scss */
+.nb {
+  color: #008000;
+}
+
+/* Name.Builtin */
+/* line 30, ../sass/pygments.scss */
+.nc {
+  color: #0000FF;
+  font-weight: bold;
+}
+
+/* Name.Class */
+/* line 31, ../sass/pygments.scss */
+.no {
+  color: #880000;
+}
+
+/* Name.Constant */
+/* line 32, ../sass/pygments.scss */
+.nd {
+  color: #AA22FF;
+}
+
+/* Name.Decorator */
+/* line 33, ../sass/pygments.scss */
+.ni {
+  color: #999999;
+  font-weight: bold;
+}
+
+/* Name.Entity */
+/* line 34, ../sass/pygments.scss */
+.ne {
+  color: #D2413A;
+  font-weight: bold;
+}
+
+/* Name.Exception */
+/* line 35, ../sass/pygments.scss */
+.nf {
+  color: #0000FF;
+}
+
+/* Name.Function */
+/* line 36, ../sass/pygments.scss */
+.nl {
+  color: #A0A000;
+}
+
+/* Name.Label */
+/* line 37, ../sass/pygments.scss */
+.nn {
+  color: #0000FF;
+  font-weight: bold;
+}
+
+/* Name.Namespace */
+/* line 38, ../sass/pygments.scss */
+.nt {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Name.Tag */
+/* line 39, ../sass/pygments.scss */
+.nv {
+  color: #19177C;
+}
+
+/* Name.Variable */
+/* line 40, ../sass/pygments.scss */
+.ow {
+  color: #AA22FF;
+  font-weight: bold;
+}
+
+/* Operator.Word */
+/* line 41, ../sass/pygments.scss */
+.w {
+  color: #bbbbbb;
+}
+
+/* Text.Whitespace */
+/* line 42, ../sass/pygments.scss */
+.mf {
+  color: #666666;
+}
+
+/* Literal.Number.Float */
+/* line 43, ../sass/pygments.scss */
+.mh {
+  color: #666666;
+}
+
+/* Literal.Number.Hex */
+/* line 44, ../sass/pygments.scss */
+.mi {
+  color: #666666;
+}
+
+/* Literal.Number.Integer */
+/* line 45, ../sass/pygments.scss */
+.mo {
+  color: #666666;
+}
+
+/* Literal.Number.Oct */
+/* line 46, ../sass/pygments.scss */
+.sb {
+  color: #BA2121;
+}
+
+/* Literal.String.Backtick */
+/* line 47, ../sass/pygments.scss */
+.sc {
+  color: #BA2121;
+}
+
+/* Literal.String.Char */
+/* line 48, ../sass/pygments.scss */
+.sd {
+  color: #BA2121;
+  font-style: italic;
+}
+
+/* Literal.String.Doc */
+/* line 49, ../sass/pygments.scss */
+.s2 {
+  color: #BA2121;
+}
+
+/* Literal.String.Double */
+/* line 50, ../sass/pygments.scss */
+.se {
+  color: #BB6622;
+  font-weight: bold;
+}
+
+/* Literal.String.Escape */
+/* line 51, ../sass/pygments.scss */
+.sh {
+  color: #BA2121;
+}
+
+/* Literal.String.Heredoc */
+/* line 52, ../sass/pygments.scss */
+.si {
+  color: #BB6688;
+  font-weight: bold;
+}
+
+/* Literal.String.Interpol */
+/* line 53, ../sass/pygments.scss */
+.sx {
+  color: #008000;
+}
+
+/* Literal.String.Other */
+/* line 54, ../sass/pygments.scss */
+.sr {
+  color: #BB6688;
+}
+
+/* Literal.String.Regex */
+/* line 55, ../sass/pygments.scss */
+.s1 {
+  color: #BA2121;
+}
+
+/* Literal.String.Single */
+/* line 56, ../sass/pygments.scss */
+.ss {
+  color: #19177C;
+}
+
+/* Literal.String.Symbol */
+/* line 57, ../sass/pygments.scss */
+.bp {
+  color: #008000;
+}
+
+/* Name.Builtin.Pseudo */
+/* line 58, ../sass/pygments.scss */
+.vc {
+  color: #19177C;
+}
+
+/* Name.Variable.Class */
+/* line 59, ../sass/pygments.scss */
+.vg {
+  color: #19177C;
+}
+
+/* Name.Variable.Global */
+/* line 60, ../sass/pygments.scss */
+.vi {
+  color: #19177C;
+}
+
+/* Name.Variable.Instance */
+/* line 61, ../sass/pygments.scss */
+.il {
+  color: #666666;
+}
+
+/* Literal.Number.Integer.Long */
+/* Why is pygmentize incorrectly identifying errors? */
+/* line 5, ../sass/presentations.scss */
+.err {
+  border: 0;
+}
+
+/* Fonts
+ ***********************************************/
+/*
+@font-face {
+    font-family: 'FranchiseRegular';
+    src: url('/fonts/franchise/franchise-bold-webfont.eot');
+    src: url('/fonts/franchise/franchise-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/franchise/franchise-bold-webfont.woff') format('woff'),
+         url('/fonts/franchise/franchise-bold-webfont.ttf') format('truetype'),
+         url('/fonts/franchise/franchise-bold-webfont.svg#FranchiseRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ArmorPiercingRegular';
+    src: url('/fonts/armorpiercing/ap-webfont.eot');
+    src: url('/fonts/armorpiercing/ap-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/armorpiercing/ap-webfont.woff') format('woff'),
+         url('/fonts/armorpiercing/ap-webfont.ttf') format('truetype'),
+         url('/fonts/armorpiercing/ap-webfont.svg#ArmorPiercingRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('/fonts/bebas-neue/BebasNeue-webfont.eot');
+    src: url('/fonts/bebas-neue/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/bebas-neue/BebasNeue-webfont.woff') format('woff'),
+         url('/fonts/bebas-neue/BebasNeue-webfont.ttf') format('truetype'),
+         url('/fonts/bebas-neue/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BonvenoCFLight';
+    src: url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.eot');
+    src: url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.woff') format('woff'),
+         url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.ttf') format('truetype'),
+         url('/fonts/BonvenoCF/BonvenoCF-Light-webfont.svg#BonvenoCFLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
+@font-face {
+  font-family: 'ExistenceLight';
+  src: url("/fonts/Existence-Light/Existence-Light-webfont.eot");
+  src: url("/fonts/Existence-Light/Existence-Light-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/Existence-Light/Existence-Light-webfont.woff") format("woff"), url("/fonts/Existence-Light/Existence-Light-webfont.ttf") format("truetype"), url("/fonts/Existence-Light/Existence-Light-webfont.svg#ExistenceLight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ExistenceUnicaseLight';
+  src: url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.eot");
+  src: url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.woff") format("woff"), url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.ttf") format("truetype"), url("/fonts/Existence-Light/Existence-UnicaseLight-webfont.svg#ExistenceUnicaseLight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+@font-face {
+    font-family: 'ExistenceStencilLight';
+    src: url('/fonts/Existence-Light/Existence-StencilLight-webfont.eot');
+    src: url('/fonts/Existence-Light/Existence-StencilLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/Existence-Light/Existence-StencilLight-webfont.woff') format('woff'),
+         url('/fonts/Existence-Light/Existence-StencilLight-webfont.ttf') format('truetype'),
+         url('Existence-StencilLight-webfont.svg#ExistenceStencilLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
+/* Set colors */
+/* Set vertical rhythm configurables */
+/* line 20, ../sass/presentations.scss */
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 25, ../sass/presentations.scss */
+body {
+  font-size: 24px;
+  line-height: 48px;
+  background-color: #121c21;
+  color: #9cbac9;
+  font-family: 'ExistenceLight';
+  background-image: url(/images/noise.png), -webkit-gradient(radial, circle farthest-corner, 0, circle farthest-corner, 100, color-stop(0%, rgba(36, 56, 66, 0.8)), color-stop(100%, rgba(18, 28, 33, 0.9)));
+  background-image: url(/images/noise.png), -webkit-radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  background-image: url(/images/noise.png), -moz-radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  background-image: url(/images/noise.png), -o-radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  background-image: url(/images/noise.png), -ms-radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  background-image: url(/images/noise.png), radial-gradient(circle farthest-corner, rgba(36, 56, 66, 0.8), rgba(18, 28, 33, 0.9));
+  overflow-x: hidden;
+}
+
+/* line 49, ../sass/presentations.scss */
+#presentation section {
+  bottom: 0;
+  display: block;
+  left: 100%;
+  opacity: 0;
+  padding: 5%;
+  position: absolute;
+  top: 0;
+  width: 90%;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* line 62, ../sass/presentations.scss */
+#presentation section.active {
+  left: 0;
+  opacity: 1;
+}
+
+/*
+#presentation section:last-of-type {
+    left: 0;
+    opacity: 1;
+}
+*/
+/* line 74, ../sass/presentations.scss */
+#presentation section.remove {
+  left: -100%;
+  right: 0;
+}
+
+/* line 79, ../sass/presentations.scss */
+h1 {
+  font-size: 72px;
+  line-height: 96px;
+}
+
+/* line 83, ../sass/presentations.scss */
+h2 {
+  font-size: 60px;
+  line-height: 72px;
+  color: #598ca6;
+}
+
+/* line 88, ../sass/presentations.scss */
+h3 {
+  font-size: 60px;
+  line-height: 72px;
+  color: #59a680;
+  text-align: right;
+}
+
+/* line 94, ../sass/presentations.scss */
+pre {
+  font-size: 18px;
+  line-height: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -o-border-radius: 1em;
+  -ms-border-radius: 1em;
+  -khtml-border-radius: 1em;
+  border-radius: 1em;
+  -moz-box-shadow: inset 0 0 1em black, 0 1px 1px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: inset 0 0 1em black, 0 1px 1px rgba(255, 255, 255, 0.3);
+  -o-box-shadow: inset 0 0 1em black, 0 1px 1px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 1em black, 0 1px 1px rgba(255, 255, 255, 0.3);
+  margin-top: 24px;
+  overflow: auto;
+  padding: 2%;
+  width: 86%;
+}
+
+/* line 108, ../sass/presentations.scss */
+code {
+  font-family: monospace;
+}
+
+/* line 112, ../sass/presentations.scss */
+em {
+  font-style: italic;
+}
+
+/* line 116, ../sass/presentations.scss */
+strong {
+  font-weight: bold;
+  color: #a67359;
+}
+
+/* line 121, ../sass/presentations.scss */
+ul {
+  display: block;
+  font-size: 36px;
+  line-height: 48px;
+}
+/* line 123, ../sass/presentations.scss */
+ul li {
+  margin-bottom: 24px;
+}
+
+/* line 129, ../sass/presentations.scss */
+.step {
+  opacity: 0;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+/* line 134, ../sass/presentations.scss */
+.step.revealed {
+  opacity: 1;
+}
