@@ -63,389 +63,390 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 1, ../sass/pygments.scss */
+/* line 1, ../sass/syntax-friendly.scss */
 .hll {
   background-color: #ffffcc;
 }
 
-/* line 2, ../sass/pygments.scss */
+/* line 2, ../sass/syntax-friendly.scss */
 .c {
-  color: #408080;
+  color: #60a0b0;
   font-style: italic;
 }
 
 /* Comment */
-/* line 3, ../sass/pygments.scss */
+/* line 3, ../sass/syntax-friendly.scss */
 .err {
   border: 1px solid #FF0000;
 }
 
 /* Error */
-/* line 4, ../sass/pygments.scss */
+/* line 4, ../sass/syntax-friendly.scss */
 .k {
-  color: #008000;
+  color: #007020;
   font-weight: bold;
 }
 
 /* Keyword */
-/* line 5, ../sass/pygments.scss */
+/* line 5, ../sass/syntax-friendly.scss */
 .o {
   color: #666666;
 }
 
 /* Operator */
-/* line 6, ../sass/pygments.scss */
+/* line 6, ../sass/syntax-friendly.scss */
 .cm {
-  color: #408080;
+  color: #60a0b0;
   font-style: italic;
 }
 
 /* Comment.Multiline */
-/* line 7, ../sass/pygments.scss */
+/* line 7, ../sass/syntax-friendly.scss */
 .cp {
-  color: #BC7A00;
+  color: #007020;
 }
 
 /* Comment.Preproc */
-/* line 8, ../sass/pygments.scss */
+/* line 8, ../sass/syntax-friendly.scss */
 .c1 {
-  color: #408080;
+  color: #60a0b0;
   font-style: italic;
 }
 
 /* Comment.Single */
-/* line 9, ../sass/pygments.scss */
+/* line 9, ../sass/syntax-friendly.scss */
 .cs {
-  color: #408080;
-  font-style: italic;
+  color: #60a0b0;
+  background-color: #fff0f0;
 }
 
 /* Comment.Special */
-/* line 10, ../sass/pygments.scss */
+/* line 10, ../sass/syntax-friendly.scss */
 .gd {
   color: #A00000;
 }
 
 /* Generic.Deleted */
-/* line 11, ../sass/pygments.scss */
+/* line 11, ../sass/syntax-friendly.scss */
 .ge {
   font-style: italic;
 }
 
 /* Generic.Emph */
-/* line 12, ../sass/pygments.scss */
+/* line 12, ../sass/syntax-friendly.scss */
 .gr {
   color: #FF0000;
 }
 
 /* Generic.Error */
-/* line 13, ../sass/pygments.scss */
+/* line 13, ../sass/syntax-friendly.scss */
 .gh {
   color: #000080;
   font-weight: bold;
 }
 
 /* Generic.Heading */
-/* line 14, ../sass/pygments.scss */
+/* line 14, ../sass/syntax-friendly.scss */
 .gi {
   color: #00A000;
 }
 
 /* Generic.Inserted */
-/* line 15, ../sass/pygments.scss */
+/* line 15, ../sass/syntax-friendly.scss */
 .go {
   color: #808080;
 }
 
 /* Generic.Output */
-/* line 16, ../sass/pygments.scss */
+/* line 16, ../sass/syntax-friendly.scss */
 .gp {
-  color: #000080;
+  color: #c65d09;
   font-weight: bold;
 }
 
 /* Generic.Prompt */
-/* line 17, ../sass/pygments.scss */
+/* line 17, ../sass/syntax-friendly.scss */
 .gs {
   font-weight: bold;
 }
 
 /* Generic.Strong */
-/* line 18, ../sass/pygments.scss */
+/* line 18, ../sass/syntax-friendly.scss */
 .gu {
   color: #800080;
   font-weight: bold;
 }
 
 /* Generic.Subheading */
-/* line 19, ../sass/pygments.scss */
+/* line 19, ../sass/syntax-friendly.scss */
 .gt {
   color: #0040D0;
 }
 
 /* Generic.Traceback */
-/* line 20, ../sass/pygments.scss */
+/* line 20, ../sass/syntax-friendly.scss */
 .kc {
-  color: #008000;
+  color: #007020;
   font-weight: bold;
 }
 
 /* Keyword.Constant */
-/* line 21, ../sass/pygments.scss */
+/* line 21, ../sass/syntax-friendly.scss */
 .kd {
-  color: #008000;
+  color: #007020;
   font-weight: bold;
 }
 
 /* Keyword.Declaration */
-/* line 22, ../sass/pygments.scss */
+/* line 22, ../sass/syntax-friendly.scss */
 .kn {
-  color: #008000;
+  color: #007020;
   font-weight: bold;
 }
 
 /* Keyword.Namespace */
-/* line 23, ../sass/pygments.scss */
+/* line 23, ../sass/syntax-friendly.scss */
 .kp {
-  color: #008000;
+  color: #007020;
 }
 
 /* Keyword.Pseudo */
-/* line 24, ../sass/pygments.scss */
+/* line 24, ../sass/syntax-friendly.scss */
 .kr {
-  color: #008000;
+  color: #007020;
   font-weight: bold;
 }
 
 /* Keyword.Reserved */
-/* line 25, ../sass/pygments.scss */
+/* line 25, ../sass/syntax-friendly.scss */
 .kt {
-  color: #B00040;
+  color: #902000;
 }
 
 /* Keyword.Type */
-/* line 26, ../sass/pygments.scss */
+/* line 26, ../sass/syntax-friendly.scss */
 .m {
-  color: #666666;
+  color: #40a070;
 }
 
 /* Literal.Number */
-/* line 27, ../sass/pygments.scss */
+/* line 27, ../sass/syntax-friendly.scss */
 .s {
-  color: #BA2121;
+  color: #4070a0;
 }
 
 /* Literal.String */
-/* line 28, ../sass/pygments.scss */
+/* line 28, ../sass/syntax-friendly.scss */
 .na {
-  color: #7D9029;
+  color: #4070a0;
 }
 
 /* Name.Attribute */
-/* line 29, ../sass/pygments.scss */
+/* line 29, ../sass/syntax-friendly.scss */
 .nb {
-  color: #008000;
+  color: #007020;
 }
 
 /* Name.Builtin */
-/* line 30, ../sass/pygments.scss */
+/* line 30, ../sass/syntax-friendly.scss */
 .nc {
-  color: #0000FF;
+  color: #0e84b5;
   font-weight: bold;
 }
 
 /* Name.Class */
-/* line 31, ../sass/pygments.scss */
+/* line 31, ../sass/syntax-friendly.scss */
 .no {
-  color: #880000;
+  color: #60add5;
 }
 
 /* Name.Constant */
-/* line 32, ../sass/pygments.scss */
+/* line 32, ../sass/syntax-friendly.scss */
 .nd {
-  color: #AA22FF;
+  color: #555555;
+  font-weight: bold;
 }
 
 /* Name.Decorator */
-/* line 33, ../sass/pygments.scss */
+/* line 33, ../sass/syntax-friendly.scss */
 .ni {
-  color: #999999;
+  color: #d55537;
   font-weight: bold;
 }
 
 /* Name.Entity */
-/* line 34, ../sass/pygments.scss */
+/* line 34, ../sass/syntax-friendly.scss */
 .ne {
-  color: #D2413A;
-  font-weight: bold;
+  color: #007020;
 }
 
 /* Name.Exception */
-/* line 35, ../sass/pygments.scss */
+/* line 35, ../sass/syntax-friendly.scss */
 .nf {
-  color: #0000FF;
+  color: #06287e;
 }
 
 /* Name.Function */
-/* line 36, ../sass/pygments.scss */
+/* line 36, ../sass/syntax-friendly.scss */
 .nl {
-  color: #A0A000;
+  color: #002070;
+  font-weight: bold;
 }
 
 /* Name.Label */
-/* line 37, ../sass/pygments.scss */
+/* line 37, ../sass/syntax-friendly.scss */
 .nn {
-  color: #0000FF;
+  color: #0e84b5;
   font-weight: bold;
 }
 
 /* Name.Namespace */
-/* line 38, ../sass/pygments.scss */
+/* line 38, ../sass/syntax-friendly.scss */
 .nt {
-  color: #008000;
+  color: #062873;
   font-weight: bold;
 }
 
 /* Name.Tag */
-/* line 39, ../sass/pygments.scss */
+/* line 39, ../sass/syntax-friendly.scss */
 .nv {
-  color: #19177C;
+  color: #bb60d5;
 }
 
 /* Name.Variable */
-/* line 40, ../sass/pygments.scss */
+/* line 40, ../sass/syntax-friendly.scss */
 .ow {
-  color: #AA22FF;
+  color: #007020;
   font-weight: bold;
 }
 
 /* Operator.Word */
-/* line 41, ../sass/pygments.scss */
+/* line 41, ../sass/syntax-friendly.scss */
 .w {
   color: #bbbbbb;
 }
 
 /* Text.Whitespace */
-/* line 42, ../sass/pygments.scss */
+/* line 42, ../sass/syntax-friendly.scss */
 .mf {
-  color: #666666;
+  color: #40a070;
 }
 
 /* Literal.Number.Float */
-/* line 43, ../sass/pygments.scss */
+/* line 43, ../sass/syntax-friendly.scss */
 .mh {
-  color: #666666;
+  color: #40a070;
 }
 
 /* Literal.Number.Hex */
-/* line 44, ../sass/pygments.scss */
+/* line 44, ../sass/syntax-friendly.scss */
 .mi {
-  color: #666666;
+  color: #40a070;
 }
 
 /* Literal.Number.Integer */
-/* line 45, ../sass/pygments.scss */
+/* line 45, ../sass/syntax-friendly.scss */
 .mo {
-  color: #666666;
+  color: #40a070;
 }
 
 /* Literal.Number.Oct */
-/* line 46, ../sass/pygments.scss */
+/* line 46, ../sass/syntax-friendly.scss */
 .sb {
-  color: #BA2121;
+  color: #4070a0;
 }
 
 /* Literal.String.Backtick */
-/* line 47, ../sass/pygments.scss */
+/* line 47, ../sass/syntax-friendly.scss */
 .sc {
-  color: #BA2121;
+  color: #4070a0;
 }
 
 /* Literal.String.Char */
-/* line 48, ../sass/pygments.scss */
+/* line 48, ../sass/syntax-friendly.scss */
 .sd {
-  color: #BA2121;
+  color: #4070a0;
   font-style: italic;
 }
 
 /* Literal.String.Doc */
-/* line 49, ../sass/pygments.scss */
+/* line 49, ../sass/syntax-friendly.scss */
 .s2 {
-  color: #BA2121;
+  color: #4070a0;
 }
 
 /* Literal.String.Double */
-/* line 50, ../sass/pygments.scss */
+/* line 50, ../sass/syntax-friendly.scss */
 .se {
-  color: #BB6622;
+  color: #4070a0;
   font-weight: bold;
 }
 
 /* Literal.String.Escape */
-/* line 51, ../sass/pygments.scss */
+/* line 51, ../sass/syntax-friendly.scss */
 .sh {
-  color: #BA2121;
+  color: #4070a0;
 }
 
 /* Literal.String.Heredoc */
-/* line 52, ../sass/pygments.scss */
+/* line 52, ../sass/syntax-friendly.scss */
 .si {
-  color: #BB6688;
-  font-weight: bold;
+  color: #70a0d0;
+  font-style: italic;
 }
 
 /* Literal.String.Interpol */
-/* line 53, ../sass/pygments.scss */
+/* line 53, ../sass/syntax-friendly.scss */
 .sx {
-  color: #008000;
+  color: #c65d09;
 }
 
 /* Literal.String.Other */
-/* line 54, ../sass/pygments.scss */
+/* line 54, ../sass/syntax-friendly.scss */
 .sr {
-  color: #BB6688;
+  color: #235388;
 }
 
 /* Literal.String.Regex */
-/* line 55, ../sass/pygments.scss */
+/* line 55, ../sass/syntax-friendly.scss */
 .s1 {
-  color: #BA2121;
+  color: #4070a0;
 }
 
 /* Literal.String.Single */
-/* line 56, ../sass/pygments.scss */
+/* line 56, ../sass/syntax-friendly.scss */
 .ss {
-  color: #19177C;
+  color: #517918;
 }
 
 /* Literal.String.Symbol */
-/* line 57, ../sass/pygments.scss */
+/* line 57, ../sass/syntax-friendly.scss */
 .bp {
-  color: #008000;
+  color: #007020;
 }
 
 /* Name.Builtin.Pseudo */
-/* line 58, ../sass/pygments.scss */
+/* line 58, ../sass/syntax-friendly.scss */
 .vc {
-  color: #19177C;
+  color: #bb60d5;
 }
 
 /* Name.Variable.Class */
-/* line 59, ../sass/pygments.scss */
+/* line 59, ../sass/syntax-friendly.scss */
 .vg {
-  color: #19177C;
+  color: #bb60d5;
 }
 
 /* Name.Variable.Global */
-/* line 60, ../sass/pygments.scss */
+/* line 60, ../sass/syntax-friendly.scss */
 .vi {
-  color: #19177C;
+  color: #bb60d5;
 }
 
 /* Name.Variable.Instance */
-/* line 61, ../sass/pygments.scss */
+/* line 61, ../sass/syntax-friendly.scss */
 .il {
-  color: #666666;
+  color: #40a070;
 }
 
 /* Literal.Number.Integer.Long */
@@ -631,7 +632,7 @@ pre {
   margin-top: 24px;
   overflow: auto;
   padding: 2%;
-  width: 86%;
+  width: 96%;
 }
 
 /* line 108, ../sass/presentations.scss */
@@ -660,8 +661,12 @@ ul {
 ul li {
   margin-bottom: 24px;
 }
+/* line 126, ../sass/presentations.scss */
+ul li:before {
+  content: '• ';
+}
 
-/* line 129, ../sass/presentations.scss */
+/* line 132, ../sass/presentations.scss */
 .step {
   opacity: 0;
   -moz-transition: all 0.2s;
@@ -670,7 +675,7 @@ ul li {
   transition: all 0.2s;
 }
 
-/* line 134, ../sass/presentations.scss */
+/* line 137, ../sass/presentations.scss */
 .step.revealed {
   opacity: 1;
 }

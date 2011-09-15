@@ -16,6 +16,11 @@
                     } else {
                         if ( $active.next( 'section' ).length ) {
                             $active.removeClass( 'active' ).addClass( 'remove' ).next( 'section' ).addClass( 'active' );
+                        } else {
+                            $slides.find( '.revealed' ).removeClass( 'revealed' );
+                            $active.removeClass( 'active' ).addClass( 'remove' );
+                            $slides.first( 'section' ).addClass( 'active' );
+                            $slides.removeClass( 'remove' );
                         }
                     }
                 }
@@ -29,6 +34,11 @@
                     } else {
                         if ( $active.prev( 'section' ).length ) {
                             $active.removeClass( 'active' ).prev( 'section' ).removeClass( 'remove' ).addClass( 'active' );
+                        } else {
+                            $active.removeClass( 'active' );
+                            $slides.find( '.step' ).addClass( 'revealed' );
+                            $slides.addClass( 'remove' );
+                            $slides.last( 'section' ).removeClass( 'remove' ).addClass( 'active' );
                         }
                     }
                 }
