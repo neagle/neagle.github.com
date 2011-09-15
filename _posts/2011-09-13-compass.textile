@@ -3,7 +3,9 @@ layout: presentation
 title: A Five-Minute Introduction to Compass 
 ---
 <section>
-    <h1 class="visible">A Five-Minute Introduction to Compass</h1>
+h1. A Five-Minute Introduction to Compass
+
+h3. by Nate Eagle
 </section>
 
 <section>
@@ -46,7 +48,7 @@ body {
 
 <section>
 
-h2. Compass is a framework for removing the *pain* from CSS.
+h2. Compass, with SASS, is a framework for removing the *pain* from CSS.
 
 </section>
 
@@ -219,6 +221,12 @@ h3(step). THEN YES.
 h2. Compass is the future of CSS.
 
 h3(step). Try it today, or play catch-up tomorrow.
+</section>
+
+<section>
+h2. Want to get started?
+
+h3(step). Talk to me!
 </section>
 
 <section>

@@ -636,37 +636,62 @@ pre {
 }
 
 /* line 108, ../sass/presentations.scss */
+pre::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+/* line 116, ../sass/presentations.scss */
+pre::-webkit-scrollbar-track {
+  margin: 30px;
+}
+
+/* line 120, ../sass/presentations.scss */
+pre::-webkit-scrollbar-thumb {
+  background: rgba(156, 186, 201, 0.1);
+  border-radius: 10px;
+  -webkit-transition: all 0.2s;
+}
+
+/* line 126, ../sass/presentations.scss */
+pre:hover::-webkit-scrollbar-thumb {
+  background: rgba(156, 186, 201, 0.15);
+  border-radius: 10px;
+  -webkit-transition: all 0.2s;
+}
+
+/* line 138, ../sass/presentations.scss */
 code {
   font-family: monospace;
 }
 
-/* line 112, ../sass/presentations.scss */
+/* line 142, ../sass/presentations.scss */
 em {
   font-style: italic;
 }
 
-/* line 116, ../sass/presentations.scss */
+/* line 146, ../sass/presentations.scss */
 strong {
   font-weight: bold;
   color: #a67359;
 }
 
-/* line 121, ../sass/presentations.scss */
+/* line 151, ../sass/presentations.scss */
 ul {
   display: block;
   font-size: 36px;
   line-height: 48px;
 }
-/* line 123, ../sass/presentations.scss */
+/* line 153, ../sass/presentations.scss */
 ul li {
   margin-bottom: 24px;
 }
-/* line 126, ../sass/presentations.scss */
+/* line 156, ../sass/presentations.scss */
 ul li:before {
   content: '• ';
 }
 
-/* line 132, ../sass/presentations.scss */
+/* line 162, ../sass/presentations.scss */
 .step {
   opacity: 0;
   -moz-transition: all 0.2s;
@@ -675,7 +700,7 @@ ul li:before {
   transition: all 0.2s;
 }
 
-/* line 137, ../sass/presentations.scss */
+/* line 167, ../sass/presentations.scss */
 .step.revealed {
   opacity: 1;
 }

@@ -4,7 +4,7 @@
   <title>Nate Eagle's Front-End Development Memoranda</title>
   <link href="http://neagle.github.com/"/>
   <link type="application/atom+xml" rel="self" href="http://neagle.github.com/atom.xml"/>
-  <updated>2011-09-15T00:14:52-04:00</updated>
+  <updated>2011-09-15T01:09:35-04:00</updated>
   <id>http://neagle.github.com/</id>
   <author>
     <name>Nate Eagle</name>
@@ -22,7 +22,8 @@
       <uri>http://neagle.github.com/</uri>
     </author>
     <content type="html">&lt;section&gt;
-    &lt;h1 class=&quot;visible&quot;&gt;A Five-Minute Introduction to Compass&lt;/h1&gt;
+&lt;h1&gt;A Five-Minute Introduction to Compass&lt;/h1&gt;
+&lt;h3&gt;by Nate Eagle&lt;/h3&gt;
 &lt;/section&gt;
 &lt;section&gt;
 &lt;h2&gt;We have a problem.&lt;/h2&gt;
@@ -54,7 +55,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;&lt;/section&gt;
 &lt;section&gt;
-&lt;h2&gt;Compass is a framework for removing the &lt;strong&gt;pain&lt;/strong&gt; from &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt;.&lt;/h2&gt;
+&lt;h2&gt;Compass, with &lt;span class=&quot;caps&quot;&gt;SASS&lt;/span&gt;, is a framework for removing the &lt;strong&gt;pain&lt;/strong&gt; from &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt;.&lt;/h2&gt;
 &lt;/section&gt;
 &lt;section&gt;
 &lt;h2&gt;&amp;#8220;Want to change one of the major colors your site uses?&amp;#8221;&lt;/h2&gt;
@@ -190,6 +191,10 @@
 &lt;section&gt;
 &lt;h2&gt;Compass is the future of &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt;.&lt;/h2&gt;
 &lt;h3 class=&quot;step&quot;&gt;Try it today, or play catch-up tomorrow.&lt;/h3&gt;
+&lt;/section&gt;
+&lt;section&gt;
+&lt;h2&gt;Want to get started?&lt;/h2&gt;
+&lt;h3 class=&quot;step&quot;&gt;Talk to me!&lt;/h3&gt;
 &lt;/section&gt;
 &lt;section&gt;
 &lt;h2&gt;Thank you!&lt;/h2&gt;
