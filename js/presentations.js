@@ -55,8 +55,6 @@
             } else if ( key === 39 ) {
                 move( 'forward' );
             }
-
-            event.preventDefault();
         });
 
     });
