@@ -15,17 +15,19 @@ layout: nil
   </author>
 
   {% for post in site.posts %}
-  <entry>
-    <id>http://neagle.github.com{{ post.id }}</id>
-    <link type="text/html" rel="alternate" href="http://neagle.github.com{{ post.url }}"/>
-    <title>{{ post.title | xml_escape }}</title>
-    <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <author>
-      <name>Nate Eagle</name>
-      <uri>http://neagle.github.com/</uri>
-    </author>
-    <content type="html">{{ post.content | xml_escape }}</content>
-  </entry>
+    {% if post.layout == "post" %}
+          <entry>
+            <id>http://neagle.github.com{{ post.id }}</id>
+            <link type="text/html" rel="alternate" href="http://neagle.github.com{{ post.url }}"/>
+            <title>{{ post.title | xml_escape }}</title>
+            <updated>{{ post.date | date_to_xmlschema }}</updated>
+            <author>
+              <name>Nate Eagle</name>
+              <uri>http://neagle.github.com/</uri>
+            </author>
+            <content type="html">{{ post.content | xml_escape }}</content>
+          </entry>
+    {% endif %}
   {% endfor %}
  
 </feed>

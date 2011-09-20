@@ -92,18 +92,12 @@ V,| `~~Y*+mL_,  :f~~ ~                   q_    V#b
 <p>As of version 0.5.2, Jekyll <a href="https://github.com/mojombo/jekyll/wiki/Template-Data">lets you set arbitrary configuration variables</a> in your <code>_config.yml</code> that you can then access via <code>site.whatever</code>.</p>
 <p>I added:</p>
 <pre><code>lcb: "{"
-rcb: "}"</code>
-
-</pre>
+rcb: "}"</code></pre>
 <p>&#8230;to my <code>_config.yml</code>. The variable names stand for left curly bracket and right curly bracket, respectively.</p>
 <p>Whenever I need to use curly brackets in code examples, I just use those variables:</p>
-<pre><code>{{ site.lcb }}% foo | bar %{{ site.lcb }}</code>
-
-</pre>
+<pre><code>{{ site.lcb }}% foo | bar %{{ site.lcb }}</code></pre>
 <p>Which will output:</p>
-<pre><code>{% foo | bar %}</code>
-
-</pre>
+<pre><code>{% foo | bar %}</code></pre>
 <p>Still not the greatest solution, but it made my life a lot easier.</p>
 
 
