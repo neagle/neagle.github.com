@@ -4,7 +4,7 @@
   <title>Nate Eagle's Front-End Development Memoranda</title>
   <link href="http://neagle.github.com/"/>
   <link type="application/atom+xml" rel="self" href="http://neagle.github.com/atom.xml"/>
-  <updated>2011-09-21T16:32:16-04:00</updated>
+  <updated>2011-09-21T16:35:53-04:00</updated>
   <id>http://neagle.github.com/</id>
   <author>
     <name>Nate Eagle</name>
@@ -94,7 +94,7 @@ touch &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;layout: ${layout}&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;title: \&amp;quot;${title}\&amp;quot;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;excerpt:&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;summary:&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
 

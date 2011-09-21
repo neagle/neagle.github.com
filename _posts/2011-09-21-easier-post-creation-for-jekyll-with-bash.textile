@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Easier Post Creation for Jekyll with Bash"
+summary: Adding new posts in Jekyll is a lot easier with a bash script to generate the date, create the file, and add the necessary YAML automatically.
 ---
 The biggest reason to use "Jekyll":https://github.com/mojombo/jekyll is, in my opinion, its simplicity and convenience for people who work with files for a living. If changing directories and making files is what you do all day, then writing posts by creating files will just feel like The Way It Should Be. You'll love that you don't have to log into a web interface to add posts. If you'd _rather_ log into a web app, I'm not sure why on earth you'd use Jekyll: it's too minimalistic to offer any huge advantages over the many great CMSs out there today.
 
@@ -78,7 +79,7 @@ touch $filename
 echo "---" >> $filename
 echo "layout: ${layout}" >> $filename
 echo "title: \"${title}\"" >> $filename
-echo "excerpt:" >> $filename
+echo "summary:" >> $filename
 echo "---" >> $filename
 echo "" >> $filename
 

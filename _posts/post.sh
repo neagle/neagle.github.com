@@ -64,7 +64,7 @@ touch $filename
 echo "---" >> $filename
 echo "layout: ${layout}" >> $filename
 echo "title: \"${title}\"" >> $filename
-echo "excerpt:" >> $filename
+echo "summary:" >> $filename
 echo "---" >> $filename
 echo "" >> $filename
 
