@@ -77,6 +77,36 @@ pre {
     @include rhythm-borders( 1px, 1, 16px );
 }
 
+pre::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+pre:hover::-webkit-scrollbar {
+}
+
+pre::-webkit-scrollbar-track {
+    margin: 20px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: transparentize( $bodyText, 0.9 );
+    border-radius: 10px;
+    -webkit-transition: all 0.2s;
+}
+
+pre:hover::-webkit-scrollbar-thumb {
+    background: transparentize( $bodyText, 0.85 );
+    border-radius: 10px;
+    -webkit-transition: all 0.2s;
+}
+
+pre::-webkit-scrollbar-track-piece:start {
+}
+
+pre::-webkit-scrollbar-track-piece:end {
+}
+
 code {
     font-family: monospace;
 }
@@ -143,7 +173,7 @@ h2 {
 }
 
 h3 {
-    @include adjust-font-size-to( 48px );
+    @include adjust-font-size-to( 36px );
 }
 
 em {
@@ -208,6 +238,7 @@ header p {
     }
     @include margin-trailer( 1 );
     text-align: right;
+    text-transform: lowercase;
     /* @include text-3d( 3, -1, -1, 0, $subtitleShadow ); */
 }
 
@@ -233,8 +264,10 @@ footer:hover,
 footer.active {
 }
 
-footer li {
+footer ul li {
     display: inline-block;
+    list-style-type: none;
+    margin: 0;
     padding: 0 10px;
 }
 
@@ -302,6 +335,8 @@ section.posts li {
         color: $borderColor;
     }
     @include padding-leader( 1 );
+    list-style-type: none;
+    margin: 0;
 }
 
 section.posts time {
@@ -326,6 +361,29 @@ section.posts p.excerpt {
 section.posts li.expanded p.excerpt {
 }
 
+/* Bits list on homepage */
+section.bits {
+    @include margin-trailer( 1 );
+}
+
+section.bits li:first-of-type {
+    padding: 0;
+}
+
+section.bits li {
+    @include padding-leader( 1 );
+    list-style-type: none;
+    margin: 0;
+}
+
+section.bits a.title {
+    display: block;
+    @include adjust-font-size-to( 24px );
+    font-family: 'ExistenceLight';
+    text-decoration: none;
+}
+
+
 /*
 @import "circles.scss";
 */
@@ -333,3 +391,12 @@ section.posts li.expanded p.excerpt {
 @import "night.scss";
 
 @import "sky.scss";
+
+li {
+    list-style-type: circle;
+    margin-left: 3em;
+}
+
+ul {
+    @include margin-trailer( 1 );
+}

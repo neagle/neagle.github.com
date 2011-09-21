@@ -1,0 +1,33 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+  <title>Bits from Nate Eagle's Front-End Development Memoranda</title>
+  <link href="http://neagle.github.com/"/>
+  <link type="application/atom+xml" rel="self" href="http://neagle.github.com/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://neagle.github.com/</id>
+  <author>
+    <name>Nate Eagle</name>
+    <email>nate@nateeagle.com</email>
+  </author>
+
+  {% for post in site.posts %}
+    {% if post.layout == "bit" %}
+          <entry>
+            <id>http://neagle.github.com{{ post.id }}</id>
+            <link type="text/html" rel="alternate" href="http://neagle.github.com{{ post.url }}"/>
+            <title>{{ post.title | xml_escape }}</title>
+            <updated>{{ post.date | date_to_xmlschema }}</updated>
+            <author>
+              <name>Nate Eagle</name>
+              <uri>http://neagle.github.com/</uri>
+            </author>
+            <content type="html">{{ post.content | xml_escape }}</content>
+          </entry>
+    {% endif %}
+  {% endfor %}
+ 
+</feed>

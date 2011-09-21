@@ -4,13 +4,137 @@
   <title>Nate Eagle's Front-End Development Memoranda</title>
   <link href="http://neagle.github.com/"/>
   <link type="application/atom+xml" rel="self" href="http://neagle.github.com/atom.xml"/>
-  <updated>2011-09-17T19:34:25-04:00</updated>
+  <updated>2011-09-21T16:12:39-04:00</updated>
   <id>http://neagle.github.com/</id>
   <author>
     <name>Nate Eagle</name>
     <email>nate@nateeagle.com</email>
   </author>
 
+  
+    
+  
+    
+          <entry>
+            <id>http://neagle.github.com/2011/09/21/easier-post-creation-for-jekyll-with-bash</id>
+            <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/09/21/easier-post-creation-for-jekyll-with-bash/"/>
+            <title>Easier Post Creation for Jekyll with Bash</title>
+            <updated>2011-09-21T00:00:00-04:00</updated>
+            <author>
+              <name>Nate Eagle</name>
+              <uri>http://neagle.github.com/</uri>
+            </author>
+            <content type="html">&lt;p&gt;The biggest reason to use &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll&lt;/a&gt; is, in my opinion, its simplicity and convenience for people who work with files for a living. If changing directories and making files is what you do all day, then writing posts by creating files will just feel like The Way It Should Be. You&amp;#8217;ll love that you don&amp;#8217;t have to log into a web interface to add posts. If you&amp;#8217;d &lt;em&gt;rather&lt;/em&gt; log into a web app, I&amp;#8217;m not sure why on earth you&amp;#8217;d use Jekyll: it&amp;#8217;s too minimalistic to offer any huge advantages over the many great CMSs out there today.&lt;/p&gt;
+&lt;p&gt;After a few weeks of using Jekyll, I found that it was a bit of a chore to think of today&amp;#8217;s date and type it out whenever I wanted to create a post. Since I was adding a second post type called bits to my blog for frequent, short posts it became even more of an issue.&lt;/p&gt;
+&lt;p&gt;So I created a bash script to make this easier.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;ve written about three or four bash scripts in my entire life, so it takes me a bit of time and work to look everything up. In case you&amp;#8217;re in the same boat, I&amp;#8217;m including the script below along with URLs for the references I used along with a few notes.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s the complete script:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Create a new post with today&amp;#39;s date and prompt for the title.&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Config&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;editor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;vim&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;textile&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Get layout via getopts (-l)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# --&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://wiki.bash-hackers.org/howto/getopts_tutorial&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;getopts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;:l:&amp;quot;&lt;/span&gt; opt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;    case&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$opt&lt;/span&gt; in
+        l&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$OPTARG&lt;/span&gt;
+            ;;
+        :&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$opt requires an argument&amp;quot;&lt;/span&gt; &amp;gt;&amp;amp;2
+            &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+            ;;
+    &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Set default config values&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# --&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://www.cyberciti.biz/tips/howto-setting-default-values-for-shell-variables.html&lt;/span&gt;
+
+: &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;post&amp;quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;# I like giving myself a polite greeting.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# --&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Date codes: http://linux.about.com/od/commands/l/blcmdl1_date.htm&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Creating a new ${layout} for&amp;quot;&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;date +%A&lt;span class=&quot;s2&quot;&gt;&amp;quot;, &amp;quot;&lt;/span&gt;%B&lt;span class=&quot;s2&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt;%e&lt;span class=&quot;s2&quot;&gt;&amp;quot;, &amp;quot;&lt;/span&gt;%Y&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; -p &lt;span class=&quot;s2&quot;&gt;&amp;quot;Enter the title: &amp;quot;&lt;/span&gt; title 
+
+&lt;span class=&quot;c&quot;&gt;# Turn spaces into dashes&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# --&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://stackoverflow.com/questions/1469849/how-to-split-one-string-into-multiple-strings-in-bash-shell&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;word in &lt;span class=&quot;nv&quot;&gt;$title&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;dashedTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;dashedTitle&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;-&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Convert title to lowercase&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# --&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://stackoverflow.com/questions/2264428/converting-string-to-lower-case-in-bash-shell-scripting&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://www.kclug.org/pipermail/kclug/2003-April/015084.html&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;dashedTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;`echo ${dashedTitle} | tr &amp;#39;[A-Z]&amp;#39; &amp;#39;[a-z]&amp;#39;`&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Create a filename with the date, dashed title, and format &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;`date +%Y-%m-%d`${dashedTitle}.${format}&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+
+touch &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Add initial YAML to the top of the new bit&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;layout: ${layout}&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;title: \&amp;quot;${title}\&amp;quot;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;excerpt:&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Open in vim and go to the end of the file ( + )&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# --&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://stackoverflow.com/questions/268123/vim-how-to-start-inserting-at-the-end-of-the-file-in-one-step&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;editor&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; + &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;You&amp;#8217;ll notice I created a layout option that can be passed in using &lt;code&gt;-l&lt;/code&gt;. I use multiple post layouts on the blog, the most important of which are &lt;strong&gt;post&lt;/strong&gt; and &lt;strong&gt;bit&lt;/strong&gt;. Bits are very small posts that aren&amp;#8217;t included in the main list on the homepage or in my Atom feed.&lt;/p&gt;
+&lt;p&gt;I created two aliases (these should go in your &lt;code&gt;.bashrc&lt;/code&gt; file) to simplify creation of posts and bits:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;./post.sh&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;bit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;./post.sh -l bit&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The script uses post as the default type. On running, the script&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;prompts me for a title&lt;/li&gt;
+	&lt;li&gt;uses today&amp;#8217;s date plus a lowercase and dash-separated version of the title for the new post&amp;#8217;s filename&lt;/li&gt;
+	&lt;li&gt;prepopulates the post with the &lt;span class=&quot;caps&quot;&gt;YAML&lt;/span&gt; I use for posts&lt;/li&gt;
+	&lt;li&gt;opens the new post in vim&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So to create this post, I typed:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;post
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;---
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;Creating a new post &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Wednesday, September 21, 2011.
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;Enter the title: Easier Post Creation &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Jekyll with Bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;This created &lt;code&gt;2011-09-21-easier-post-creation-for-jekyll-with-bash.textile&lt;/code&gt;, added my &lt;span class=&quot;caps&quot;&gt;YAML&lt;/span&gt;, and popped it up in vim. Nice.&lt;/p&gt;
+&lt;h3&gt;One last item on my wish list&lt;/h3&gt;
+&lt;p&gt;I&amp;#8217;d really like to find a solution for tab completion when I have a directory full of similarly prefixed files.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;2011-08-30-upholstery-a-css3-pattern.textile                 2011-09-09-my-first-compass-mixin-text-3d.textile            2011-09-21-easier-post-creation-for-jekyll-with-bash.textile
+2011-08-31-how-to-output-curly-brackets-in-jekyll.textile    2011-09-11-color-ripples-canvas-toy.textile                  2011-09-21-open-a-directory-in-finder-from-terminal.textile
+2011-08-31-jekyll-not-parsing-includes.textile               2011-09-13-compass.textile 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;If I have a directory like the one above, I&amp;#8217;d love to be able to type &lt;code&gt;col&amp;lt;TAB&amp;gt;&lt;/code&gt; and have it expand to &lt;code&gt;2011-09-11-color-ripples-canvas-toy.textile&lt;/code&gt;. In other words, the completion regex would match for a date string and disregard that prefix when matching filenames.&lt;/p&gt;
+&lt;p&gt;This may well be possible &amp;#8211; even trivial &amp;#8211; for someone smarter than I. I did find a great example of &lt;a href=&quot;http://stackoverflow.com/questions/3238983/writing-a-custom-bash-completion-rule&quot;&gt;something similar&lt;/a&gt; for vim that&amp;#8217;ll let you add a &lt;code&gt;.completion&lt;/code&gt; file to any directory with a static prefix that will allow you to type, say, &lt;code&gt;vim &amp;lt;TAB&amp;gt;&lt;/code&gt; and have it expand to &lt;code&gt;vim _myprefix&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let me know if you have any suggestions for my bash script &amp;#8211; as I said, I&amp;#8217;m a bash n00b, and feedback is welcome.&lt;/p&gt;</content>
+          </entry>
+    
   
     
   
@@ -27,8 +151,19 @@
             <content type="html">&lt;p&gt;Here&amp;#8217;s a little bit of colorful distraction for a rainy afternoon.&lt;/p&gt;
 &lt;p&gt;&lt;iframe style=&quot;width: 100%; height: 500px&quot; src=&quot;http://jsfiddle.net/nate/dyVPR/embedded/result,js,html&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
 &lt;p&gt;Playing with &lt;code&gt;canvas&lt;/code&gt; is fun. However, you may notice, if you glance through the code, that there are really only five lines of code that are canvas-specific. (A few more if you count the setup.)&lt;/p&gt;
-&lt;p&gt;Liquid error: No such file or directory &amp;#8211; posix_spawnp&lt;/p&gt;
-&lt;p&gt;This is the code for, well, drawing a circle. &lt;em&gt;All&lt;/em&gt; of the rest of it is just various math and adjustments on where and how to draw those circles.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$canvas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;canvas&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;2d&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;drawPoint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fillStyle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;beginPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PI&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;closePath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;This is the code for, well, drawing a circle. &lt;em&gt;All&lt;/em&gt; of the rest of it is just various math and adjustments on where and how to draw those circles.&lt;/p&gt;
 &lt;p&gt;I spent basically all of my highschool math courses messing around with &lt;a href=&quot;http://education.ti.com/educationportal/sites/US/productDetail/us_ti83p.html&quot;&gt;my graphing calculator&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/TI-BASIC&quot;&gt;TI Basic&lt;/a&gt;. I made a little magic eight ball program that gave different responses based on a random number; I made programs to take care of the quadratic equation for me. (Note: I spent more time fussing with the formatting and look of the UI for entering numbers than I did with the calculations &amp;#8211; I was a front-end developer in the making!) I finally dropped out of AP Calculus when being clever about my calculator could no longer make up for the fact that I wasn&amp;#8217;t learning a lick of math.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;m grateful for what exposure I had to code &amp;#8211; ultimately, even that time messing with TI Basic helped me find my way to a great career. But I can&amp;#8217;t help but wish that somebody &amp;#8211; &lt;em&gt;any&lt;/em&gt; adult in my life &amp;#8211; had noticed that I spent all my time trying vainly to do stuff with computers and said, &amp;#8220;You know, that might not be so wholly irrelevant to his future&amp;#8230;&amp;#8221;&lt;/p&gt;
 &lt;p&gt;As far as I can tell, every developer I know fends off multiple unsolicited recruitment emails a month: America needs people to write code and it wants to pay them for it. My school acted like the most important thing about computers was making sure we didn&amp;#8217;t check our email on the &lt;em&gt;for-research&lt;/em&gt; computers in the library. (I got Saturday school for this once.) Couldn&amp;#8217;t the public schools have noticed that education in computers &amp;amp; code might be a good investment back in the &amp;#8217;90s?&lt;/p&gt;
@@ -53,18 +188,42 @@
 &lt;p&gt;While working on the design for this blog, I found myself using (as I often do) a small trick that uses multiple text shadows to create a 3d text effect.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/posts/desandro-made-this.png&quot; title=&quot;David DeSandro Made This&quot; alt=&quot;David DeSandro Made This&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;The technique was created, as far as I know, by &lt;a href=&quot;http://desandro.com/&quot;&gt;Dave DeSandro&lt;/a&gt;, one of the classiest folks in interaction design, who uses it prominently on his homepage. Regardless of its ultimate origin, that&amp;rsquo;s where I picked it up. It creates the illusion of blocky three-dimensional letters that have a side in shadows that stretches back in space. The &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; for it is easy to understand: it just uses the fact that the &lt;code&gt;text-shadow&lt;/code&gt; property can have multiple, comma-separated backgrounds.&lt;/p&gt;
-&lt;p&gt;Liquid error: No such file or directory &amp;#8211; posix_spawnp&lt;/p&gt;
-&lt;p&gt;The shadow is made up of 1px layers, each offset slightly from the one that preceded it. Here&amp;rsquo;s an example that should make that obvious. (Note: example will not work in browsers that do not support &lt;code&gt;text-shadow&lt;/code&gt;.)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#mytext&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;text-shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The shadow is made up of 1px layers, each offset slightly from the one that preceded it. Here&amp;rsquo;s an example that should make that obvious. (Note: example will not work in browsers that do not support &lt;code&gt;text-shadow&lt;/code&gt;.)&lt;/p&gt;
 &lt;style&gt;h3.example1 { color: white; font-family: Futura, Arial, sans-serif; font-size: 48px; font-weight: bold; text-shadow: 1px 1px gray, 2px 2px white, 3px 3px gray, 4px 4px white, 5px 5px gray; text-transform: uppercase; }&lt;/style&gt;
 &lt;h3 class=&quot;example1&quot;&gt;Nate Eagle Made This&lt;/h3&gt;
-&lt;p&gt;Liquid error: No such file or directory &amp;#8211; posix_spawnp&lt;/p&gt;
-&lt;p&gt;I alternated the shadows between gray and white: you can see clearly how they stack. But if you make them a single color:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;h3&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.example1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;text-shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;I alternated the shadows between gray and white: you can see clearly how they stack. But if you make them a single color:&lt;/p&gt;
 &lt;style&gt;h3.example2 { color: white; font-family: Futura, Arial, sans-serif; font-size: 48px; font-weight: bold; text-shadow: 1px 1px gray, 2px 2px gray, 3px 3px gray, 4px 4px gray, 5px 5px gray; text-transform: uppercase; }&lt;/style&gt;
 &lt;h3 class=&quot;example2&quot;&gt;Nate Eagle Made This&lt;/h3&gt;
-&lt;p&gt;Liquid error: No such file or directory &amp;#8211; posix_spawnp&lt;/p&gt;
-&lt;p&gt;&amp;hellip;it creates the illusion of a solid side, receding in space. Lovely, yeah? Only problem: it&amp;#8217;s kind of a complex declaration. And fiddling around with the color and size of the effect is annoyingly complex: you have to add and remove whole lines, change multiple numbers, change the name of the color multiple times.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;h3&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.example2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;text-shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&amp;hellip;it creates the illusion of a solid side, receding in space. Lovely, yeah? Only problem: it&amp;#8217;s kind of a complex declaration. And fiddling around with the color and size of the effect is annoyingly complex: you have to add and remove whole lines, change multiple numbers, change the name of the color multiple times.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s the perfect candidate for a mixin. Here&amp;rsquo;s &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#defining_a_mixin&quot;&gt;the documentation for defining a mixin&lt;/a&gt;. In this example, I&amp;rsquo;m going to reference another mixin &amp;ndash; Compass&amp;rsquo;s text-shadow plugin &amp;ndash; after generating the string of shadows I want.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; @mixin text-3d($size: 5, $directionX: 1, $directionY: 1, $blur: 1px, $color: black ) {
+&lt;pre&gt;&lt;code&gt;@mixin text-3d($size: 5, $directionX: 1, $directionY: 1, $blur: 1px, $color: black ) {
     @if unitless($blur) {
         @warn &quot;Assuming #{$blur} to be in pixels&quot;;
         $blur: 1px * $blur;
@@ -79,10 +238,12 @@
     @include text-shadow(
         #{$string}
     )
-}&lt;/code&gt;&lt;/pre&gt;
+}&lt;/code&gt;
+
+&lt;/pre&gt;
 &lt;p&gt;Pretty simple: this looks and works a lot like a function in JS/&lt;span class=&quot;caps&quot;&gt;PHP&lt;/span&gt;. I accept a size parameter, which determines how many shadows to create (my examples above have five), then two direction parameters. This lets you send your 3d text down and to the right (1, 1), up and to the right (1, -1), up and to the left (-1, -1) or down and to the left (-1, 1). You can even use values like (-1, -0.5) to have the text go at 22.5&amp;deg; rather than 45&amp;deg;.&lt;/p&gt;
 &lt;p&gt;Using the mixin is as simple as this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; @include text-3d( 3, -1, -1, 0, $someColor );
+&lt;pre&gt;&lt;code&gt;@include text-3d( 3, -1, -1, 0, $someColor );
 &lt;/code&gt;&lt;/pre&gt;</content>
           </entry>
     
@@ -125,12 +286,18 @@
 &lt;p&gt;As of version 0.5.2, Jekyll &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Template-Data&quot;&gt;lets you set arbitrary configuration variables&lt;/a&gt; in your &lt;code&gt;_config.yml&lt;/code&gt; that you can then access via &lt;code&gt;site.whatever&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;I added:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;lcb: &quot;{&quot;
-rcb: &quot;}&quot;&lt;/code&gt;&lt;/pre&gt;
+rcb: &quot;}&quot;&lt;/code&gt;
+
+&lt;/pre&gt;
 &lt;p&gt;&amp;#8230;to my &lt;code&gt;_config.yml&lt;/code&gt;. The variable names stand for left curly bracket and right curly bracket, respectively.&lt;/p&gt;
 &lt;p&gt;Whenever I need to use curly brackets in code examples, I just use those variables:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;{{ site.lcb }}% foo | bar %{{ site.lcb }}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;{{ site.lcb }}% foo | bar %{{ site.lcb }}&lt;/code&gt;
+
+&lt;/pre&gt;
 &lt;p&gt;Which will output:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;{% foo | bar %}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;{% foo | bar %}&lt;/code&gt;
+
+&lt;/pre&gt;
 &lt;p&gt;Still not the greatest solution, but it made my life a lot easier.&lt;/p&gt;</content>
           </entry>
     
@@ -155,8 +322,21 @@ rcb: &quot;}&quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I was messing around with radial gradients and got the idea that they could be used to create the puffiness of upholstery as well as the shadowed dimples of the buttons. I think it turned out pretty nice.&lt;/p&gt;
 &lt;p&gt;Check out the &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; in the tab up above for a highly-formatted, commented version of the &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt;, which I find helpful when trying to look through someone else&amp;#8217;s styles.&lt;/p&gt;
 &lt;p&gt;If you prefer, however, here is the simplest, streamlined, non-vendor-prefixed version of the &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt;:&lt;/p&gt;
-&lt;p&gt;Liquid error: No such file or directory &amp;#8211; posix_spawnp&lt;/p&gt;
-&lt;p&gt;I decided to submit the example to Verou after the contest, and she was kind enough to &lt;a href=&quot;http://leaverou.me/css3patterns/#upholstery&quot;&gt;add it to the gallery&lt;/a&gt;.&lt;/p&gt;</content>
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;radial-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;hsl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;radial-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;hsl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;radial-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;radial-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;radial-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;radial-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;radial-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;radial-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;linear-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;45deg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;49&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;linear-gradient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-45deg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;49&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;#300&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;100px&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;I decided to submit the example to Verou after the contest, and she was kind enough to &lt;a href=&quot;http://leaverou.me/css3patterns/#upholstery&quot;&gt;add it to the gallery&lt;/a&gt;.&lt;/p&gt;</content>
           </entry>
     
   
