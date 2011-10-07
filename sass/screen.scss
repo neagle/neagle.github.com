@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 @import "compass/css3";
+/* The color scheme for Pygments code highlighting */
 @import "syntax-friendly.scss";
 @import "fonts.scss";
 
@@ -371,7 +372,6 @@ section.bits li:first-of-type {
 }
 
 section.bits li {
-    @include padding-leader( 1 );
     list-style-type: none;
     margin: 0;
 }

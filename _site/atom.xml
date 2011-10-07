@@ -4,7 +4,7 @@
   <title>Nate Eagle's Front-End Development Memoranda</title>
   <link href="http://neagle.github.com/"/>
   <link type="application/atom+xml" rel="self" href="http://neagle.github.com/atom.xml"/>
-  <updated>2011-09-21T16:35:53-04:00</updated>
+  <updated>2011-10-07T11:47:54-07:00</updated>
   <id>http://neagle.github.com/</id>
   <author>
     <name>Nate Eagle</name>
@@ -16,10 +16,110 @@
   
     
           <entry>
+            <id>http://neagle.github.com/2011/10/02/animate-anything-with-jquerys-animate</id>
+            <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/10/02/animate-anything-with-jquerys-animate/"/>
+            <title>Animate Anything With jQuery's .animate()</title>
+            <updated>2011-10-02T00:00:00-07:00</updated>
+            <author>
+              <name>Nate Eagle</name>
+              <uri>http://neagle.github.com/</uri>
+            </author>
+            <content type="html">&lt;p&gt;jQuery&amp;#8217;s .animate() function is lovely: it&amp;#8217;s got great queueing built in and makes animating in JS totally painless. But it&amp;#8217;s limited to &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; properties. You can animate opacity, position, and more, but if you want to animate something in a very customized way, it&amp;#8217;s not as obvious how .animate() can help you.&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;d been meaning to try working around this a while ago, but I never got around to it. This weekend at the jQuery conference in Boston, I saw &lt;a href=&quot;http://gnarf.net/&quot;&gt;Corey Frang&lt;/a&gt; give a nice talk about how animation works in jQuery. He pointed out that it&amp;#8217;d be awfully nice to be able to be able to use .animate() without needing a &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; property and that he&amp;#8217;s hoping it can get worked into the 1.7 release for jQuery. He pointed out that it&amp;#8217;s possible to work around the requirement right now, though, by using a fake &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; property, and he showed an example by &lt;a href=&quot;http://benalman.com/&quot;&gt;Cowboy&lt;/a&gt; (Ben Alman) that animated a string of text in a really cool way: it began with all of the text hidden, then it progressively revealed the text as it if it were unrolling, or being typed in. It even used a bounce effect (via easing). This was a perfect example of a great effect that makes sense to use .animate() for, but sure as hell isn&amp;#8217;t a &lt;span class=&quot;caps&quot;&gt;CSS&lt;/span&gt; property.&lt;/p&gt;
+&lt;p&gt;So I decided to try to recreate Cowboy&amp;#8217;s example on my own.&lt;/p&gt;
+&lt;style&gt;
+p.animate {
+background-color: #222;
+border: 10px solid #555;
+border-radius: 10px;
+box-shadow: 0 0 1em #000;
+margin: 1em 0;
+padding: 20px;
+position: relative;
+width: 400px;
+}
+p.animate:before {
+border: 2px solid #222;
+border-radius: 5px;
+bottom: -2px;
+content: &amp;#8217;&amp;#8217;;
+display: block;
+left: -2px;
+position: absolute;
+right: -2px;
+top: -2px;
+}
+.invisible {
+opacity: 0;
+}
+&lt;/style&gt;
+&lt;select class=&quot;easing&quot;&gt;&lt;/select&gt; &lt;button class=&quot;animate&quot;&gt;Animate&lt;/button&gt;
+&lt;p class=&quot;animate&quot;&gt;Look, just because I don&amp;#8217;t be givin&amp;#8217; no man a foot massage don&amp;#8217;t make it right for Marsellus to throw Antwone into a glass motherfuckin&amp;#8217; house, fuckin&amp;#8217; up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, &amp;#8216;cause I&amp;#8217;ll kill the motherfucker, know what I&amp;#8217;m sayin&amp;#8217;?  Your bones don&amp;#8217;t break, mine do. That&amp;#8217;s clear. Your cells react to bacteria and viruses differently than mine. You don&amp;#8217;t get sick, I do. That&amp;#8217;s also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We&amp;#8217;re on the same curve, just on opposite ends.&lt;/p&gt;
+&lt;p&gt;Speed: &lt;input type=&quot;number&quot; value=&quot;10&quot; min=&quot;1&quot; max=&quot;1000&quot; class=&quot;speed&quot; /&gt; (lower is faster)&lt;/p&gt;
+&lt;p&gt;(Placeholder text courtesy of &lt;a href=&quot;http://slipsum.com&quot;&gt;Samuel L. Ipsum&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The code&amp;#8217;s dead simple.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;select.easing&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Generate a select list of available easing functions&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// ...because easing is fun!&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;easing&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;def&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;option /&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;func&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;button.animate&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;p.animate&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$speed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;input[type=&amp;quot;number&amp;quot;].speed&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;$p&lt;/span&gt; 
+        &lt;span class=&quot;c1&quot;&gt;// Stop any in-progress animation on our paragraph&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Set fake-property to 0 &lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;fake-property&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;animate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// Animate the fake property from 0 to&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// the length of the text&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;&amp;#39;fake-property&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; 
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// Make the speed directly proportional&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// to the length of the text&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;duration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$speed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;easing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// Since we&amp;#39;re using subsring, round i (which can be&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// a floating point value) to an integer&lt;/span&gt;
+                &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                
+                &lt;span class=&quot;c1&quot;&gt;// Output the beginning of the string up to i, then&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// output the rest wrapped in span.invisible&lt;/span&gt;
+                &lt;span class=&quot;c1&quot;&gt;// We&amp;#39;ll set its opacity to 0 in our CSS&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;$p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;span class=&amp;quot;invisible&amp;quot;&amp;gt;&amp;#39;&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;/span&amp;gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;(Here&amp;#8217;s &lt;a href=&quot;http://jsfiddle.net/nate/Grt5e/&quot;&gt;the same code in a fiddle&lt;/a&gt; if you&amp;#8217;d like to play.)&lt;/p&gt;
+&lt;p&gt;The animation itself is surprisingly smooth. I have it output the latter segment of the text string so that the element containing the text doesn&amp;#8217;t change shape and size as it appears. It also prevents having the first few letters of words at the ends of lines appear before dropping the word to the line below as it gets long enough to wrap. Sometimes this might be a desireable effect: if you want it to look like the words are being typed live, for instance. In that case, just omit the span and the second substring.&lt;/p&gt;
+&lt;p&gt;Anyway: I guess it&amp;#8217;s time to hunt down Cowboy&amp;#8217;s example and see how I could have made mine better. I&amp;#8217;m also eager to try other inventive ways to animate page elements &amp;#8211; now it&amp;#8217;s just a matter of getting the idea.&lt;/p&gt;</content>
+          </entry>
+    
+  
+    
+  
+    
+          <entry>
             <id>http://neagle.github.com/2011/09/21/easier-post-creation-for-jekyll-with-bash</id>
             <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/09/21/easier-post-creation-for-jekyll-with-bash/"/>
             <title>Easier Post Creation for Jekyll with Bash</title>
-            <updated>2011-09-21T00:00:00-04:00</updated>
+            <updated>2011-09-21T00:00:00-07:00</updated>
             <author>
               <name>Nate Eagle</name>
               <uri>http://neagle.github.com/</uri>
@@ -143,7 +243,7 @@ touch &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
             <id>http://neagle.github.com/2011/09/11/color-ripples-canvas-toy</id>
             <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/09/11/color-ripples-canvas-toy/"/>
             <title>Color Ripples: a Canvas Toy</title>
-            <updated>2011-09-11T00:00:00-04:00</updated>
+            <updated>2011-09-11T00:00:00-07:00</updated>
             <author>
               <name>Nate Eagle</name>
               <uri>http://neagle.github.com/</uri>
@@ -178,7 +278,7 @@ touch &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
             <id>http://neagle.github.com/2011/09/09/my-first-compass-mixin-text-3d</id>
             <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/09/09/my-first-compass-mixin-text-3d/"/>
             <title>My First Compass Mixin: Text-3d</title>
-            <updated>2011-09-09T00:00:00-04:00</updated>
+            <updated>2011-09-09T00:00:00-07:00</updated>
             <author>
               <name>Nate Eagle</name>
               <uri>http://neagle.github.com/</uri>
@@ -253,7 +353,7 @@ touch &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
             <id>http://neagle.github.com/2011/08/31/jekyll-not-parsing-includes</id>
             <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/08/31/jekyll-not-parsing-includes/"/>
             <title>Jekyll not parsing includes?</title>
-            <updated>2011-08-31T00:00:00-04:00</updated>
+            <updated>2011-08-31T00:00:00-07:00</updated>
             <author>
               <name>Nate Eagle</name>
               <uri>http://neagle.github.com/</uri>
@@ -276,7 +376,7 @@ touch &lt;span class=&quot;nv&quot;&gt;$filename&lt;/span&gt;
             <id>http://neagle.github.com/2011/08/31/how-to-output-curly-brackets-in-jekyll</id>
             <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/08/31/how-to-output-curly-brackets-in-jekyll/"/>
             <title>How to output curly brackets in Jekyll</title>
-            <updated>2011-08-31T00:00:00-04:00</updated>
+            <updated>2011-08-31T00:00:00-07:00</updated>
             <author>
               <name>Nate Eagle</name>
               <uri>http://neagle.github.com/</uri>
@@ -307,7 +407,7 @@ rcb: &quot;}&quot;&lt;/code&gt;
             <id>http://neagle.github.com/2011/08/30/upholstery-a-css3-pattern</id>
             <link type="text/html" rel="alternate" href="http://neagle.github.com/2011/08/30/upholstery-a-css3-pattern/"/>
             <title>Upholstery: a CSS3 Pattern</title>
-            <updated>2011-08-30T00:00:00-04:00</updated>
+            <updated>2011-08-30T00:00:00-07:00</updated>
             <author>
               <name>Nate Eagle</name>
               <uri>http://neagle.github.com/</uri>

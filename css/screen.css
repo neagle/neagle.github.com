@@ -67,6 +67,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+/* The color scheme for Pygments code highlighting */
 /* line 1, ../sass/syntax-friendly.scss */
 .hll {
   background-color: #ffffcc;
@@ -548,43 +549,43 @@ html > body {
 /* Colors
  ************************************************/
 /* Text highlight */
-/* line 42, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 html {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 46, ../sass/screen.scss */
+/* line 47, ../sass/screen.scss */
 a {
   color: #a19145;
   text-decoration: none;
 }
 
-/* line 51, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 a:visited {
   color: #a19145;
 }
 
-/* line 55, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
 a:hover {
   color: #a19145;
 }
 
-/* line 59, ../sass/screen.scss */
+/* line 60, ../sass/screen.scss */
 ::selection {
   background: #365463;
 }
 
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 ::-moz-selection {
   background: #365463;
 }
 
-/* line 67, ../sass/screen.scss */
+/* line 68, ../sass/screen.scss */
 p {
   margin-bottom: 24px;
 }
 
-/* line 71, ../sass/screen.scss */
+/* line 72, ../sass/screen.scss */
 pre {
   display: block;
   font-family: monospace;
@@ -596,37 +597,37 @@ pre {
   padding: 23px;
 }
 
-/* line 80, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 pre::-webkit-scrollbar {
   height: 10px;
   width: 10px;
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 pre::-webkit-scrollbar-track {
   margin: 20px;
 }
 
-/* line 92, ../sass/screen.scss */
+/* line 93, ../sass/screen.scss */
 pre::-webkit-scrollbar-thumb {
   background: rgba(189, 209, 219, 0.1);
   border-radius: 10px;
   -webkit-transition: all 0.2s;
 }
 
-/* line 98, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 pre:hover::-webkit-scrollbar-thumb {
   background: rgba(189, 209, 219, 0.15);
   border-radius: 10px;
   -webkit-transition: all 0.2s;
 }
 
-/* line 110, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 code {
   font-family: monospace;
 }
 
-/* line 114, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 blockquote, pre {
   background-color: #0e161b;
   border-color: #121c21;
@@ -642,7 +643,7 @@ blockquote, pre {
   box-shadow: inset 0 0 1em #090e11, 0 1px 0 #243842;
 }
 
-/* line 128, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 blockquote {
   padding-left: 25px;
   padding-right: 25px;
@@ -653,7 +654,7 @@ blockquote {
   padding: 23px;
 }
 
-/* line 138, ../sass/screen.scss */
+/* line 139, ../sass/screen.scss */
 body {
   color: #333333;
   font-family: Lucida Grande, Helvetica, Arial, sans-serif;
@@ -661,7 +662,7 @@ body {
   line-height: 24px;
 }
 
-/* line 144, ../sass/screen.scss */
+/* line 145, ../sass/screen.scss */
 #container {
   margin: 0 auto;
   min-width: 600px;
@@ -669,80 +670,80 @@ body {
   width: 50%;
 }
 
-/* line 156, ../sass/screen.scss */
+/* line 157, ../sass/screen.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'ExistenceLight';
 }
 
-/* line 161, ../sass/screen.scss */
+/* line 162, ../sass/screen.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
 h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
   color: #333333;
   text-decoration: none;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 h1 {
   font-size: 72px;
   line-height: 96px;
 }
 
-/* line 170, ../sass/screen.scss */
+/* line 171, ../sass/screen.scss */
 h2 {
   font-size: 48px;
   line-height: 72px;
   padding-top: 24px;
 }
 
-/* line 175, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 h3 {
   font-size: 36px;
   line-height: 48px;
 }
 
-/* line 179, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 em {
   font-style: italic;
 }
 
-/* line 183, ../sass/screen.scss */
+/* line 184, ../sass/screen.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 187, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 header {
   display: block;
   margin-top: 10px;
 }
 
 @-webkit-keyframes colorstrobe {
-  /* line 193, ../sass/screen.scss */
+  /* line 194, ../sass/screen.scss */
   0% {
     color: #bf4040;
   }
 
-  /* line 196, ../sass/screen.scss */
+  /* line 197, ../sass/screen.scss */
   20% {
     color: #aabf40;
   }
 
-  /* line 199, ../sass/screen.scss */
+  /* line 200, ../sass/screen.scss */
   40% {
     color: #40bf6a;
   }
 
-  /* line 202, ../sass/screen.scss */
+  /* line 203, ../sass/screen.scss */
   60% {
     color: #407fbf;
   }
 
-  /* line 205, ../sass/screen.scss */
+  /* line 206, ../sass/screen.scss */
   80% {
     color: #9540bf;
   }
 
-  /* line 208, ../sass/screen.scss */
+  /* line 209, ../sass/screen.scss */
   100% {
     color: #bf4040;
   }
@@ -891,7 +892,7 @@ header h1.shadow b {
     z-index: 5;
 }
 */
-/* line 232, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 header p {
   font-size: 36px;
   line-height: 48px;
@@ -904,7 +905,7 @@ header p {
   /* @include text-3d( 3, -1, -1, 0, $subtitleShadow ); */
 }
 
-/* line 245, ../sass/screen.scss */
+/* line 246, ../sass/screen.scss */
 footer {
   border-top-style: solid;
   border-top-width: 1px;
@@ -922,7 +923,7 @@ footer {
   text-transform: uppercase;
 }
 
-/* line 267, ../sass/screen.scss */
+/* line 268, ../sass/screen.scss */
 footer ul li {
   display: inline-block;
   list-style-type: none;
@@ -930,35 +931,35 @@ footer ul li {
   padding: 0 10px;
 }
 
-/* line 274, ../sass/screen.scss */
+/* line 275, ../sass/screen.scss */
 footer li:first-of-type {
   padding: 0 10px 0 0;
 }
 
-/* line 278, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 footer li:last-of-type {
   padding: 0 0 0 10px;
 }
 
-/* line 282, ../sass/screen.scss */
+/* line 283, ../sass/screen.scss */
 footer a {
   font-weight: normal;
   text-decoration: none;
 }
 
-/* line 287, ../sass/screen.scss */
+/* line 288, ../sass/screen.scss */
 article {
   border-top: 1px solid rgba(36, 56, 66, 0.5);
   margin-bottom: 24px;
   position: relative;
 }
 
-/* line 295, ../sass/screen.scss */
+/* line 296, ../sass/screen.scss */
 article h2 {
   margin-bottom: 24px;
 }
 
-/* line 299, ../sass/screen.scss */
+/* line 300, ../sass/screen.scss */
 article time {
   font-size: 12px;
   line-height: 24px;
@@ -969,7 +970,7 @@ article time {
 }
 
 /* About Me Section */
-/* line 311, ../sass/screen.scss */
+/* line 312, ../sass/screen.scss */
 #about img {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -986,7 +987,7 @@ article time {
 }
 
 /* Article List on Homepage */
-/* line 320, ../sass/screen.scss */
+/* line 321, ../sass/screen.scss */
 section.posts {
   border-top-style: solid;
   border-top-width: 1px;
@@ -995,12 +996,12 @@ section.posts {
   margin-bottom: 24px;
 }
 
-/* line 328, ../sass/screen.scss */
+/* line 329, ../sass/screen.scss */
 section.posts li:first-of-type {
   padding: 0;
 }
 
-/* line 332, ../sass/screen.scss */
+/* line 333, ../sass/screen.scss */
 section.posts li {
   border-bottom-style: solid;
   border-bottom-width: 1px;
@@ -1011,7 +1012,7 @@ section.posts li {
   margin: 0;
 }
 
-/* line 342, ../sass/screen.scss */
+/* line 343, ../sass/screen.scss */
 section.posts time {
   font-size: 12px;
   line-height: 24px;
@@ -1020,7 +1021,7 @@ section.posts time {
   text-shadow: none;
 }
 
-/* line 351, ../sass/screen.scss */
+/* line 352, ../sass/screen.scss */
 section.posts li a.title {
   display: block;
   font-size: 36px;
@@ -1030,19 +1031,18 @@ section.posts li a.title {
 }
 
 /* Bits list on homepage */
-/* line 365, ../sass/screen.scss */
+/* line 366, ../sass/screen.scss */
 section.bits {
   margin-bottom: 24px;
 }
 
-/* line 369, ../sass/screen.scss */
+/* line 370, ../sass/screen.scss */
 section.bits li:first-of-type {
   padding: 0;
 }
 
-/* line 373, ../sass/screen.scss */
+/* line 374, ../sass/screen.scss */
 section.bits li {
-  padding-top: 24px;
   list-style-type: none;
   margin: 0;
 }
