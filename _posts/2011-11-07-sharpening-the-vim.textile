@@ -104,6 +104,23 @@ For vertically split windows, use @C-W + <@ to decrease the current window's siz
 
 For horizintally split windows, use @C-W + plus@ to make the window taller. (That just broke my typographic convention. It's control-w plus the, uh, plus key.) Use @C-W + -@ to make the window shorter. (That wasn't much better, was it?)
 
+h3. Clear Search Results with Leader + Space
+
+I usually clear search results by typing @/@ plus a furious smattering of random letters. Crudely effective. But with the new leader key, I was willing to bind @leader + space@ to accomplish this more elegantly.
+
+bc. nnoremap <leader><space> :noh<cr>
+
+h3. Add a line of equal signs for documentation
+
+Lines of equal signs look awesome. Proof:
+
+bc. Lines of Equal Signs Look Awesome
+=================================
+
+Bind @leader + 1@ (or, you know, @leader@ + ANYTHING) to create a new line below your current line of the same length of equal signs. Nice!
+
+bc. nnoremap <leader>1 yypVr=
+
 h3. More Later
 
 I'll add more to another entry whenever I've got too many Vim-related tabs open in Chrome.
