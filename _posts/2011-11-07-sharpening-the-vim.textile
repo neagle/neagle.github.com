@@ -1,0 +1,107 @@
+---
+layout: post 
+title: "Sharpening the Vim"
+summary: A collection of helpful things I've recently learned about the world's vimmiest text editor.
+---
+I'm somewhat ambivalent about Franklin Covey in general, but I must acknowledge that using the metaphor "sharpening the saw":http://www.franklincovey.com/blog/tag/habit-7-sharpen-the-saw to describe the vital habit of self-improvement is pretty awesome, largely because it implies that the most important thing in life is going around with a sharp-ass saw.
+
+I've been a happy Vim user since "Ian McCracken":http://concisionandconcinnity.blogspot.com/ introduced me to it a couple years ago. I'm not really sure it makes me a better programmer or person, especially since I'm not really sure that editor speed is the limiting factor in my work productivity. (I can type much, much faster than I can usefully think. As "Douglas Crockford":http://www.crockford.com/ said at the recent Capitol JS Conference (paraphrased), "Most of the time you spend programming isn't spent coding: it's spent staring into the abyss saying, 'My God, what have I done?'") That said, Vim makes entering and editing text feel effortless and elegant rather than frustrating. And, really, if you enter/edit text for a living, priority number one is making it an enjoyable or at least endurable task. For me, the big thing is that I don't have to switch back and forth between a mouse and the keyboard.
+
+The best intro to Vim is probably just to pull up your terminal and type @vimtutor@, an interactive tutorial that takes maybe twenty to thirty minutes. It'll teach you everything you need to know to get started. But as "Yann Esposito":http://yannesposito.com/ says in his excellent "Learn Vim Progressively":http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/ entry: "Learning vim will be painful at first. It will take time. It will be a lot like playing a music instrument."
+
+I've used Vim for, I dunno, two years now, and it's easy to settle into ruts. I've got ways of accomplishing everything I need, but they're not all elegant. Last week, "Dave Artz":http://artzstudio.com, the AOLer who hired me (high five, Dave!) started trying out Vim. The last few days, he's IMed me repeatedly asking about different ways to do things, plenty of which I had to look up. It was a good reminder that there's lots I have yet to effectively learn or internalize, and that my ability to play this particular instrument still has plenty of room to grow.
+
+Which is awesome.  So: that lengthy introduction aside, these are a few of the things I've had to look up that I want to write down so that I can remember them for the future.
+
+h3. Vim & pbcopy on OS X
+
+@pbcopy@ and @pbpaste@ are the bees' knees: they're commands that use OS X's system clipboard ("paste board" is the OS X name, I guess) via terminal.
+
+Adding this mapping to your @.vimrc@ will let you use @ctrl-x@ and @ctrl-c@ to cut/copy the current visual selection to OS X's pasteboard.
+
+{% highlight vim %}
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+{% endhighlight %}
+
+Via "drydevelopment.com":http://drydevelopment.com/blog/vim-pbcopy-on-os-x.
+
+h3. Change the Colorscheme
+
+This one's super dumb, but when I was trying to find a decent colorscheme for Vim (I'm using "desert":http://www.vim.org/scripts/script.php?script_id=105), I kept closing Vim, editing my .vimrc, and reopening Vim. LIKE A CHUMP.
+
+@:colorscheme desert@
+
+h3. Using the Leader
+
+I've been pretty resistant to customizing Vim. I don't like reassigning default functionality till I'm really sure I understand it. What if I break a feature I haven't discovered yet because of today's shortsightedness?
+
+But Vim has a "leader key":http://stevelosh.com/blog/2010/09/coming-home-to-vim/#using-the-leader, the entire role of which is to give you a whole bunch of blank namespace to create custom commands. The default is @\@, but Steve Losh (the dude who wrote the article I just linked to) argues (to me persuasively) that @,@ (the comma) is easier to reach and not used for anything else. Nice: the freedom to make useful custom stuff without worrying about messing things up for myself later on.
+
+And, actually, "that whole article":http://stevelosh.com/blog/2010/09/coming-home-to-vim/ is worth reading. He explains his whole @.vimrc@ file in the most detail I've encountered. Well, maybe I should say that he explains it with the fewest assumptions about existing knowledge on the part of his reader. Which I appreciate.
+
+h3. jsBeautify
+
+"jsBeautify":http://www.vim.org/scripts/script.php?script_id=2727 will clean up messy, inconsistently formatted JavaScript file with a single command. Awesome, but I need to figure out how much work would be involved in modifying it to follow "the jQuery style guidelines":http://docs.jquery.com/JQuery_Core_Style_Guidelines.
+
+h3. Remove Unwanted Whitespace
+
+It's simple to "remove unwanted whitespace":http://vim.wikia.com/wiki/Remove_unwanted_spaces:
+
+bq.. Delete all trailing whitespace (at the end of each line) with:
+
+@:%s/\s\+$//@
+
+More rarely, a user might want to delete whitespace at the beginning of each line:
+
+@:%s/^\s\+@
+
+h3. Comment Out a Range of Lines
+
+Too lengthy to quote, here's "the page":http://vim.wikia.com/wiki/Commenting_out_a_range_of_lines.
+
+h3. Wrap visual selection in an HTML tag.
+
+bc..  vmap <Leader>w <Esc>:call VisualHTMLTagWrap()<CR>
+function! VisualHTMLTagWrap()
+  let tag = input("Tag to wrap block: ")
+  if len(tag) > 0
+    normal `>
+    if &selection == 'exclusive'
+      exe "normal i</".tag.">"
+    else
+      exe "normal a</".tag.">"
+    endif
+    normal `<
+    exe "normal i<".tag.">"
+    normal `<
+  endif
+endfunction
+
+p. Put it in ~/.vim/scripts/wrapwithtag.vim and enable in @~/.vimrc@
+
+bc. : au Filetype html,xml source ~/.vim/scripts/wrapwithtag.vim
+
+p. When editing HTML file, visually highlight text and press {Leader} w, enter tag name.
+
+h3. Scrolling Quickly
+
+p. I tend to move quickly around a file either by typing a linenumber + G (which is awesome but too precisely to be useful, many times) or holding down @j@ or @k@. (LIKE A CHUMP.)
+
+Scrolling is easy. The most useful, IMHO, is:
+
+bc. ^D ^U  scroll half a page up, down
+
+But there are "others":http://tnerual.eriogerg.free.fr/vimqrc.html.
+
+h3. Adjust Window Size
+
+@vsplit@ is basically the killer feature of Vim. When I showed Dave that he could @split@, @vsplit@, and re@split@ any number of windows he chose on to infinity he basically flipped. I always keep my windows equally sized with @C-W + =@, but he wanted to adjust the sizes.
+
+For vertically split windows, use @C-W + <@ to decrease the current window's size and @C-W + >@ to increase it.
+
+For horizintally split windows, use @C-W + plus@ to make the window taller. (That just broke my typographic convention. It's control-w plus the, uh, plus key.) Use @C-W + -@ to make the window shorter. (That wasn't much better, was it?)
+
+h3. More Later
+
+I'll add more to another entry whenever I've got too many Vim-related tabs open in Chrome.
