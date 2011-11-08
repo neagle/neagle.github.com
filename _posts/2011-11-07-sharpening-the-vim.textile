@@ -64,7 +64,7 @@ Too lengthy to quote, here's "the page":http://vim.wikia.com/wiki/Commenting_out
 
 h3. Wrap visual selection in an HTML tag.
 
-bc..  vmap <Leader>w <Esc>:call VisualHTMLTagWrap()<CR>
+bc.. vmap <Leader>w <Esc>:call VisualHTMLTagWrap()<CR>
 function! VisualHTMLTagWrap()
   let tag = input("Tag to wrap block: ")
   if len(tag) > 0
@@ -80,9 +80,9 @@ function! VisualHTMLTagWrap()
   endif
 endfunction
 
-p. Put it in ~/.vim/scripts/wrapwithtag.vim and enable in @~/.vimrc@
+p. Put it in ~/.vim/scripts/wrapwithtag.vim and enable in <code>~/.vimrc</code>
 
-bc. : au Filetype html,xml source ~/.vim/scripts/wrapwithtag.vim
+bc. :au Filetype html,xml source ~/.vim/scripts/wrapwithtag.vim
 
 p. When editing HTML file, visually highlight text and press {Leader} w, enter tag name.
 
