@@ -98,7 +98,7 @@ But there are "others":http://tnerual.eriogerg.free.fr/vimqrc.html.
 
 h3. Adjust Window Size
 
-@vsplit@ is basically the killer feature of Vim. When I showed Dave that he could @split@, @vsplit@, and re@split@ any number of windows he chose on to infinity he basically flipped. I always keep my windows equally sized with @C-W + =@, but he wanted to adjust the sizes.
+@vsplit@ is basically the killer feature of Vim. When I showed Dave that he could @split@, @vsplit@, and re<code>split</code> any number of windows he chose on to infinity he basically flipped. I always keep my windows equally sized with @C-W + =@, but he wanted to adjust the sizes.
 
 For vertically split windows, use @C-W + <@ to decrease the current window's size and @C-W + >@ to increase it.
 
