@@ -1,0 +1,9 @@
+---
+layout: bit
+title: "Invert the Screen Colors on Your Mac"
+---
+This weekend at the jQuery conference in Boston, an attendee informed Adam Sontag during his presentation with Rick Waldron that he could invert the screen colors on his mac to make the text more visible by pressing
+
+bc. Control + Option + Command + 8
+
+p. A handy thing to know for making photographs look hilarious.

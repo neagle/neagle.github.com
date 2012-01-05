@@ -60,7 +60,7 @@ echo $filename
 
 touch $filename
 
-# Add initial YAML to the top of the new bit
+# Add initial YAML to the top of the new post
 echo "---" >> $filename
 echo "layout: ${layout}" >> $filename
 echo "title: \"${title}\"" >> $filename

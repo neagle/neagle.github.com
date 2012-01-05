@@ -1,0 +1,107 @@
+---
+layout: post
+title: "Animate Anything With jQuery's .animate()"
+summary: "jQuery's .animate() function is closely wedded to CSS properties, but you can use a fake CSS property along with the step function to animate absolutely anything."
+extraJS: '<script src="/js/jquery.easing.1.3.min.js"></script><script src="/js/examples/arbitrary-animation.js"></script>''
+---
+jQuery's .animate() function is lovely: it's got great queueing built in and makes animating in JS totally painless. But it's limited to CSS properties. You can animate opacity, position, and more, but if you want to animate something in a very customized way, it's not as obvious how .animate() can help you.
+
+I'd been meaning to try working around this a while ago, but I never got around to it. This weekend at the jQuery conference in Boston, I saw "Corey Frang":http://gnarf.net/ give a nice talk about how animation works in jQuery. He pointed out that it'd be awfully nice to be able to be able to use .animate() without needing a CSS property and that he's hoping it can get worked into the 1.7 release for jQuery. He pointed out that it's possible to work around the requirement right now, though, by using a fake CSS property, and he showed an example by "Cowboy":http://benalman.com/ (Ben Alman) that animated a string of text in a really cool way: it began with all of the text hidden, then it progressively revealed the text as it if it were unrolling, or being typed in. It even used a bounce effect (via easing). This was a perfect example of a great effect that makes sense to use .animate() for, but sure as hell isn't a CSS property.
+
+So I decided to try to recreate Cowboy's example on my own.
+
+<style>
+ p.animate {
+    background-color: #222;
+    border: 10px solid #555;
+    border-radius: 10px;
+    box-shadow: 0 0 1em #000;
+    margin: 1em 0;
+    padding: 20px;
+    position: relative;
+    width: 400px;
+ }
+
+ p.animate:before {
+    border: 2px solid #222;
+    border-radius: 5px;
+    bottom: -2px;
+    content: '';
+    display: block;
+    left: -2px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+ }
+
+ .invisible {
+    opacity: 0;
+ }
+</style>
+
+<select class="easing"></select> <button class="animate">Animate</button>
+
+<p class="animate">Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?  Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.</p>
+
+<p>Speed: <input type="number" value="10" min="1" max="1000" class="speed" /> (lower is faster)</p>
+
+(Placeholder text courtesy of "Samuel L. Ipsum":http://slipsum.com)
+
+
+p. The code's dead simple.
+
+{% highlight js %}
+var $select = $( 'select.easing' );
+
+// Generate a select list of available easing functions
+// ...because easing is fun!
+for ( func in $.easing ) {
+    if ( func !== 'def' ) {
+        $( '<option />', {
+            text: func,
+            val: func
+        }).appendTo( $select );
+    }
+}
+
+    
+$( 'button.animate' ).bind( 'click', function() {
+
+    var $p = $( 'p.animate' ),
+        text = $p.text(),
+        length = text.length,
+        $speed = $( 'input[type="number"].speed' );
+
+    $p 
+        // Stop any in-progress animation on our paragraph
+        .stop()
+        // Set fake-property to 0 
+        .css({ 'fake-property': 0 })
+        .animate({
+            // Animate the fake property from 0 to
+            // the length of the text
+            'fake-property': length 
+        }, {
+            // Make the speed directly proportional
+            // to the length of the text
+            duration: $speed.val() * length,
+            easing: $select.val(),
+            step: function( i ) {
+                // Since we're using subsring, round i (which can be
+                // a floating point value) to an integer
+                var i = Math.round( i );
+                
+                // Output the beginning of the string up to i, then
+                // output the rest wrapped in span.invisible
+                // We'll set its opacity to 0 in our CSS
+                $p.html( text.substr( 0, i ) + '<span class="invisible">'
+                    + text.substring( i ) + '</span>' );
+            }
+        });
+{% endhighlight %}
+
+(Here's "the same code in a fiddle":http://jsfiddle.net/nate/Grt5e/ if you'd like to play.)
+
+The animation itself is surprisingly smooth. I have it output the latter segment of the text string so that the element containing the text doesn't change shape and size as it appears. It also prevents having the first few letters of words at the ends of lines appear before dropping the word to the line below as it gets long enough to wrap. Sometimes this might be a desireable effect: if you want it to look like the words are being typed live, for instance. In that case, just omit the span and the second substring.
+
+Anyway: I guess it's time to hunt down Cowboy's example and see how I could have made mine better. I'm also eager to try other inventive ways to animate page elements - now it's just a matter of getting the idea.
