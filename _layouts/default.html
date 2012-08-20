@@ -39,72 +39,302 @@ V,| `~~Y*+mL_,  :f~~ ~                   q_    V#b
                                                    *
 -->
 
+<html>
+<head><title>Nate Eagle</title>
+<style type="text/css">
+html {
+    -webkit-font-smoothing: antialiased;
+}
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+body {
+    background-color: white;
+    padding: 50px;
+}
 
-    <title>{{ page.title }}</title>
+.container {
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    width: 200px;
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    -webkit-perspective: 1000;
+    -webkit-transition: width 1s;
+}
 
-    <link rel="stylesheet" href="/css/global.css">
+#cube {
+    font-family: Futura, sans-serif;
+    font-size: 72px;
+    height: 100%;
+    position: absolute;
+    width: 100%;
 
-    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Posts">
-    <link rel="alternate" type="application/atom+xml" href="bits.xml" title="Bits">
-</head>
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translateZ( -100px );
+    -webkit-transition: -webkit-transform 1s;
+}
+
+.inner {
+    height: 100%;
+    width: 100%;
+
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateY( 10deg ) rotateX( 10deg );
+    -webkit-transition: -webkit-transform 5s linear;
+}
+
+#cube.show-front {
+    -webkit-transform: translateZ( -100px ) rotateY( 0deg );
+}
+
+#cube.show-back {
+    -webkit-transform: translateZ( -100px ) rotateX( 180deg );
+}
+
+#cube.show-right {
+    -webkit-transform: translateZ( -100px ) rotateY( -90deg );
+}
+
+#cube.show-left {
+    -webkit-transform: translateZ( -100px ) rotateY( 90deg );
+}
+
+#cube.show-top {
+    -webkit-transform: translateZ( -100px ) rotateX( -90deg );
+}
+
+#cube.show-bottom {
+    -webkit-transform: translateZ( -100px ) rotateX( 90deg );
+}
+
+figure {
+    background-color: transparent;
+    color: hsla( 0, 0%, 0%, 0 );
+    display: block;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    text-shadow: none;
+    width: 100%;
+
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: text-shadow 1s, color 1s, background-color 1s, -webkit-transform 1s;
+}
+
+figure.showing {
+    color: hsla( 0, 0%, 20%, 1 );
+}
+
+#cube .front {
+    -webkit-transform: rotateY( 0deg ) translateZ( 100px );
+}
+
+#cube .back {
+    -webkit-transform: rotateX( 180deg ) translateZ( 100px );
+}
+
+#cube .right {
+    -webkit-transform: rotateY( 90deg ) translateZ( 100px );
+}
+
+#cube .left {
+    -webkit-transform: rotateY( -90deg ) translateZ( 100px );
+}
+
+#cube .top {
+    -webkit-transform: rotateX( 90deg ) translateZ( 100px );
+}
+
+#cube .bottom {
+    -webkit-transform: rotateX( -90deg ) translateZ( 100px );
+}
+
+menu {
+    margin: 3em 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+menu button {
+    background-color: hsla( 0, 0%, 20%, 0.5 );
+    border: 0;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Nosifer Caps', cursive;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+
+    -webkit-transition: background-color 0.5s;
+}
+
+menu button:hover {
+    background-color: hsla( 0, 0%, 20%, 0.8 );
+}
+
+figure span {
+    line-height: 1;
+    position: relative;
+}
+
+.support {
+    color: #999;
+    font-family: monospace;
+    margin: 1em 0;
+    text-align: center;
+}
+</style>
 
 <body>
 
-    <menu id="social-media">
-        <ul>
-            <li><a href="//twitter.com/neagle">L</a></li>
-            <li><a href="//www.facebook.com/neagle">F</a></li>
-            <li><a href="//www.linkedin.com/in/nateeagle">I</a></li>
-        </ul>
-    </menu>
+<section class="container">
+    <div class="inner">
+        <div id="cube">
+            <figure class="front" data-rotate="rotateY( 0deg ) ">&#9762;</figure>
+            <figure class="back" data-rotate="rotateX( 180deg ) ">&#9762;</figure>
+            <figure class="right" data-rotate="rotateY( 90deg ) ">&#9762;</figure>
+            <figure class="left" data-rotate="rotateY( -90deg ) ">&#9762;</figure>
+            <figure class="top fin" data-rotate="rotateX( 90deg ) ">&#9762;</figure>
+            <figure class="bottom" data-rotate="rotateX( -90deg ) ">&#9762;</figure>
+        </div>
+    </div>
+</section>
 
-        <header>
-            <h1>
-                {% comment %} page.date checks whether we're on an individual entry or not {% endcomment %}
-                {% if page.date %}
-                    <a href="/"><b>Nate</b> <b>Eagle</b></a>
-                {% else %}
-                    <b>Nate</b> <b>Eagle</b>
-                {% endif %}
-            </h1>
-        </header>
+<script src="/js/jquery-1.6.2.min.js"></script>
+<script>
+// This could, of course, be made to work for Mozilla.
+// It was just for fun.
 
-        {{ content }}
+(function( $ ) {
 
-        {% include footer.textile %}
+    $(function() {
 
-    </div><!-- end #container -->
+        var $cube = $( '#cube' );
 
-    <script src="/js/jquery-1.6.2.min.js"></script>
-    <script src="/js/site.js"></script>
-    {% if page.extraJS %}
-        {{ page.extraJS }}
-    {% endif %}
+        $cube.find( 'figure' ).each(function( i, item ) {
+            var $item = $( item );
 
-    <script>
-        // Google Analytics
-        var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-25457330-1']);
-            _gaq.push(['_trackPageview']);
+            $item
+                .wrapInner( '<span />' )
+                .data( 'size', $item.children( 'span' ) );
 
-        (function() {
-            var ga = document.createElement('script');
+        });
 
-            ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 
-            var s = document.getElementsByTagName('script')[0];
+        $cube.delegate( 'figure', 'show', function( event ) {
+            var $figure = $( event.target );
 
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
+            // Increase the font size to fit in the available space
+            maximizeFont( $figure );
+
+            $cube
+                // Remove existing classes
+                .attr( 'class', '' )
+                // Add a class to show the selected face
+                .addClass( 'show-' + $figure.attr( 'class' ) );
+
+            $cube.children( 'figure' ).removeClass( 'showing' );
+
+            $figure.addClass( 'showing' );
+
+        });
+
+        function maximizeFont( $figure ) {
+            var $span = $figure.children( 'span' ),
+                fontSize = parseInt( $figure.css( 'font-size' ) ),
+                tolerance = 50;
+
+            if ( $span.width() > $figure.width() - ( tolerance / 2 ) || $span.height() > $figure.height() - ( tolerance / 2 ) ) {
+                $figure.css( 'font-size', fontSize - 6 );
+                return maximizeFont( $figure );
+            } else if ( $span.width() < $figure.width() - tolerance && $span.height() < $figure.height() - tolerance ) {
+                $figure.css( 'font-size', fontSize + 6 );
+                return maximizeFont( $figure );
+            } else {
+                $span.css( 'top', ( $figure.height() - $span.height() ) / 2 + 'px' );
+                return true;
+            }
+
+        }
+
+        $( document ).delegate( '#cube', 'mouseenter', function( event ) {
+            var $cube = $( '#cube' ),
+                messages = [
+                    "Pardon our mess&hellip; we&rsquo;ll be back soon!"
+                ],
+                // random = Math.floor( Math.random() * 2 ),
+                random = 0,
+                i = 0;
+
+            setTimeout( function() {
+                // The class is supposed to represent being "not" "it". I swear I didn't see
+                // the other way it could be read till right now
+                $( '.it, .notit' ).removeClass( 'it' ).removeClass( 'notit' );
+            }, 1000 );
+
+            var message = messages[random].split( ' ' );
+
+            function advance() {
+                var random = Math.floor( Math.random() * 6 ),
+                    $newFace = $cube.children( 'figure' ).eq( random );
+
+                // If this face is what's currently visible
+                if ( $newFace.hasClass( 'showing' ) ) {
+
+                    // Pick a different face
+                    advance();
+
+                } else {
+
+                    $newFace.children( 'span' ).html( message[i] );
+
+                    i += 1;
+
+                    if ( i < message.length ) {
+                        setTimeout( advance, 1000 );
+                    } else {
+                        if ( message.length === 14 ) {
+                            $newFace.addClass( 'it' );
+                        } else {
+                            $newFace.addClass( 'notit' );
+                        }
+                    }
+
+                    $newFace.trigger( 'show' );
+
+                }
+            }
+
+            advance();
+
+        });
+
+        $( 'figure' ).first().trigger( 'show' );
+
+        // Slowly rotate a div surrounding the cube between random x, y
+        // coordinates to give the appearance of drift
+
+        /*
+        var $inner = $( '.inner' ),
+            hoverX = 0,
+            hoverY = 0;
+
+        function hover() {
+            hoverX = Math.random() * 40 - 20;
+            hoverY = Math.random() * 40 - 20;
+
+            $inner.css( '-webkit-transform', 'rotateX( ' + hoverX + 'deg ) rotateY( ' + hoverY + 'deg )' );
+            setTimeout( hover, 5000 );
+        }
+
+        hover();
+        */
+
+    });
+
+})( jQuery );
+</script>
+
 </body>
 </html>
