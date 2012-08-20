@@ -1,0 +1,23 @@
+// Create a custom mixin that makes using fonts easy
+// We simplify it by naming the font files we get from Font Squirrel the same
+// as what we'll use in our CSS
+
+@mixin font($family, $version: $family, $name: $family) {
+    @include font-face(
+        $name,
+        font-files(
+            $family + '/' + $version + '.woff', woff,
+            $family + '/' + $version + '.ttf', truetype,
+            $family + '/' + $version + '.svg', svg
+        ),
+        $family + '/' + $version + '.eot'
+    );
+}
+
+@include font($family: 'buccaneer');
+@include font($family: 'helsinki');
+@include font($family: 'social-icons');
+@include font($family: 'quicksand', $version: 'quicksand_light');
+@include font($family: 'cabin', $version: 'cabin-regular');
+@include font($family: 'cabin', $version: 'cabin-bold', $name: 'cabin-bold');
+@include font($family: 'bpdots', $version: 'bpdots');

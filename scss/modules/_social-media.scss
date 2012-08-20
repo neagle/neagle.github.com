@@ -1,0 +1,19 @@
+#social-media {
+    float: left;
+    text-align: center;
+
+    a {
+        color: #333;
+        font: {
+            family: 'social-icons';
+            size: 48px;
+        }
+        @include opacity(0.5);
+        text-decoration: none;
+        @include transition(opacity 0.2s);
+
+        &:hover {
+            @include opacity(1);
+        }
+    }
+}

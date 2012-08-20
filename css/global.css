@@ -1,0 +1,206 @@
+/* Imports */
+/* line 17, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: "buccaneer";
+  src: url('/fonts/buccaneer/buccaneer.eot');
+  src: url('/fonts/buccaneer/buccaneer.eot?iefix') format('eot'), url('/fonts/buccaneer/buccaneer.woff') format('woff'), url('/fonts/buccaneer/buccaneer.ttf') format('truetype'), url('/fonts/buccaneer/buccaneer.svg') format('svg');
+}
+
+@font-face {
+  font-family: "helsinki";
+  src: url('/fonts/helsinki/helsinki.eot');
+  src: url('/fonts/helsinki/helsinki.eot?iefix') format('eot'), url('/fonts/helsinki/helsinki.woff') format('woff'), url('/fonts/helsinki/helsinki.ttf') format('truetype'), url('/fonts/helsinki/helsinki.svg') format('svg');
+}
+
+@font-face {
+  font-family: "social-icons";
+  src: url('/fonts/social-icons/social-icons.eot');
+  src: url('/fonts/social-icons/social-icons.eot?iefix') format('eot'), url('/fonts/social-icons/social-icons.woff') format('woff'), url('/fonts/social-icons/social-icons.ttf') format('truetype'), url('/fonts/social-icons/social-icons.svg') format('svg');
+}
+
+@font-face {
+  font-family: "quicksand";
+  src: url('/fonts/quicksand/quicksand_light.eot');
+  src: url('/fonts/quicksand/quicksand_light.eot?iefix') format('eot'), url('/fonts/quicksand/quicksand_light.woff') format('woff'), url('/fonts/quicksand/quicksand_light.ttf') format('truetype'), url('/fonts/quicksand/quicksand_light.svg') format('svg');
+}
+
+@font-face {
+  font-family: "cabin";
+  src: url('/fonts/cabin/cabin-regular.eot');
+  src: url('/fonts/cabin/cabin-regular.eot?iefix') format('eot'), url('/fonts/cabin/cabin-regular.woff') format('woff'), url('/fonts/cabin/cabin-regular.ttf') format('truetype'), url('/fonts/cabin/cabin-regular.svg') format('svg');
+}
+
+@font-face {
+  font-family: "cabin-bold";
+  src: url('/fonts/cabin/cabin-bold.eot');
+  src: url('/fonts/cabin/cabin-bold.eot?iefix') format('eot'), url('/fonts/cabin/cabin-bold.woff') format('woff'), url('/fonts/cabin/cabin-bold.ttf') format('truetype'), url('/fonts/cabin/cabin-bold.svg') format('svg');
+}
+
+@font-face {
+  font-family: "bpdots";
+  src: url('/fonts/bpdots/bpdots.eot');
+  src: url('/fonts/bpdots/bpdots.eot?iefix') format('eot'), url('/fonts/bpdots/bpdots.woff') format('woff'), url('/fonts/bpdots/bpdots.ttf') format('truetype'), url('/fonts/bpdots/bpdots.svg') format('svg');
+}
+
+/* Variables */
+/* Base Rules */
+/* A Base rule is applied to an element using an element selector, a descendent
+ * selector, or a child selector, along with any pseudo-classes. It doesn’t
+ * include any class or ID selectors. It is defining the default styling for
+ * how that element should look in all occurrences on the page.
+ *
+ * Jonathan Snook
+ * http://smacss.com/book/type-base
+ */
+/* Establish a vertical rhythm */
+/*@include establish-baseline();*/
+/* line 14, ../scss/_base.scss */
+body {
+  color: "#333";
+  font-family: "cabin", sans-serif;
+}
+
+/* line 21, ../scss/_base.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: "#333";
+  font-family: "cabin";
+  font-size: 72px;
+}
+
+/* Layout Rules */
+/* CSS, by its very nature, is used to lay elements out on the page. However,
+ * there is a distinction between layouts dictating the major and minor
+ * components of a page. The minor components—such as a callout, or login form,
+ * or a navigation item sit within the scope of major components such as a
+ * header or footer. I refer to the minor components as Modules and will dive
+ * into those in the next section. The major components are referred to as
+ * Layout styles.
+ *
+ * Jonathan Snook
+ * http://smacss.com/book/type-layout
+ */
+/* Module Rules */
+/* As briefly mentioned in the previous section, a Module is a more discrete
+ * component of the page. It is your navigation bars and your carousels and
+ * your dialogs and your widgets and so on. This is the meat of the page.
+ * Modules sit inside Layout components. Modules can sometimes sit within other
+ * Modules, too. Each Module should be designed to exist as a standalone
+ * component. In doing so, the page will be more flexible. If done right,
+ * Modules can easily be moved to different parts of the layout without
+ * breaking.
+ *
+ * Jonathan Snook
+ * http://smacss.com/book/type-module
+ */
+/* Module imports */
+/*@import "modules/content-module-tabs";*/
+/* line 2, ../scss/modules/_header.scss */
+header h1 {
+  font-family: 'bpdots';
+  font-size: 48px;
+  text-transform: uppercase;
+}
+/* line 9, ../scss/modules/_header.scss */
+header h1 b {
+  clear: both;
+  float: left;
+}
+
+/* line 1, ../scss/modules/_social-media.scss */
+#social-media {
+  float: left;
+  text-align: center;
+}
+/* line 5, ../scss/modules/_social-media.scss */
+#social-media a {
+  color: #333;
+  font-family: 'social-icons';
+  font-size: 48px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  text-decoration: none;
+  -moz-transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+/* line 15, ../scss/modules/_social-media.scss */
+#social-media a:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* State Rules */
+/* A state is something that augments and overrides all other styles. For
+ * example, an accordion section may be in a collapsed or expanded state. A
+ * message may be in a success or error state.  States are generally applied to
+ * the same element as a layout rule or applied to the same element as a base
+ * module class.
+ *
+ * Jonathan Snook
+ * http://smacss.com/book/type-state
+ */
